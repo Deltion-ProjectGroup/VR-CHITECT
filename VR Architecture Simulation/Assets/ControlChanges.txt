@@ -1,0 +1,4 @@
+Controls:
+
+ShopControls to left controller;
+Shop aparte render layer (camera);
