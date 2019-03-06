@@ -114,16 +114,22 @@ public class Placer : MonoBehaviour
                         trackingObj.transform.Rotate(new Vector3(0, rotateAmount, 0));
                     }
                 }
+                offset = CalculateOffset(Player.nearestVert, trackingObj.transform, hit.point);
                 CheckPlacable();
             }
         }
+    }
+    public static Vector3 CalculateOffset(Vector3 vertLocalPosition, Transform vertOwner, Vector3 hitPoint)
+    {
+
+        Vector3 vertWorldPos = vertOwner.TransformPoint(vertLocalPosition);
+        return vertWorldPos - hitPoint;
     }
     public void SetTrackingObject(GameObject thisObject)
     {
         if(trackingObj == null && canSetObject)
         {
             canSetObject = false;
-            Player.canInteract = false;
             trackingObj = thisObject;
             trackingObj.GetComponent<Collider>().enabled = false;
             List<PlacementPart> allObjectMaterials = new List<PlacementPart>();

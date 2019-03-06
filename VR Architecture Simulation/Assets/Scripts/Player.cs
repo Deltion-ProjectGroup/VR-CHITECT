@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     bool teleporting;
     public GameObject lastHoveredSnapObject;
     public Transform vertIndicator;
+    public GameObject indicatorGO;
+    public static Vector3 nearestVert;
     public LayerMask snapMask;
     public static bool canInteract;
     // Start is called before the first frame update
@@ -25,14 +27,18 @@ public class Player : MonoBehaviour
     void Update()
     {
 
-        if (snapButton.GetState(InputMan.leftHand) && Placer.placer.trackingObj == null)
+        if (snapButton.GetState(InputMan.leftHand) && canInteract)
         {
+            if (snapButton.GetStateDown(InputMan.leftHand))
+            {
+                vertIndicator = Instantiate(indicatorGO).transform;
+            }
             RaycastHit hit;
             Ray ray = new Ray(rightHandGO.transform.position, rightHandGO.transform.forward);
             if (Physics.Raycast(ray, out hit, 1000f, snapMask, QueryTriggerInteraction.Ignore))
             {
                 lastHoveredSnapObject = hit.transform.gameObject;
-                Vector3 nearestVert = Vector3.zero;
+                nearestVert = Vector3.zero;
                 float nearestVertDistance = Mathf.Infinity;
                 foreach (Transform child in hit.transform)
                 {
@@ -47,8 +53,7 @@ public class Player : MonoBehaviour
                 }
                 if (nearestVert != Vector3.zero)
                 {
-                    vertIndicator.position = hit.transform.TransformPoint(nearestVert);
-                    Placer.placer.offset = vertIndicator.position - hit.transform.position;
+                    Placer.placer.offset = Placer.CalculateOffset(nearestVert, hit.transform, hit.point);
                     //to - from
                 }
             }
@@ -60,6 +65,7 @@ public class Player : MonoBehaviour
                 lastHoveredSnapObject = null;
                 Placer.placer.offset = Vector3.zero;
                 Placer.placer.vertSnapping = false;
+                Destroy(vertIndicator);
             }
         }
 

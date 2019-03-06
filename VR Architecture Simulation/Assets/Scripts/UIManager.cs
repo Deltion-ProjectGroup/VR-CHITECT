@@ -56,20 +56,24 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            foreach (GameObject thisMenu in allMenus)
+            if (Player.canInteract)
             {
-                if (thisMenu != menu)
+                foreach (GameObject thisMenu in allMenus)
                 {
-                    if (thisMenu.activeSelf)
+                    if (thisMenu != menu)
                     {
-                        thisMenu.GetComponent<UIMenu>().InstantClose();
-                        break;
+                        if (thisMenu.activeSelf)
+                        {
+                            thisMenu.GetComponent<UIMenu>().InstantClose();
+                            break;
+                        }
                     }
                 }
+                menu.SetActive(true);
+                canToggle = false;
+                Player.canInteract = false;
+                StartCoroutine(menu.GetComponent<UIMenu>().Open());
             }
-            menu.SetActive(true);
-            canToggle = false;
-            StartCoroutine(menu.GetComponent<UIMenu>().Open());
         }
     }
     public void DisableUI(GameObject toDisable)
