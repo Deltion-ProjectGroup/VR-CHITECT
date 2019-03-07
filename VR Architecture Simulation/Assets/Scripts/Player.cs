@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     public GameObject indicatorGO;
     public static Vector3 nearestVert;
     public LayerMask snapMask;
-    public static bool canInteract;
+    public static bool canInteract = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,7 +53,8 @@ public class Player : MonoBehaviour
                 }
                 if (nearestVert != Vector3.zero)
                 {
-                    Placer.placer.offset = Placer.CalculateOffset(nearestVert, hit.transform, hit.point);
+                    Placer.placer.offset = Placer.CalculateOffset(nearestVert, hit.transform, hit.transform.position);
+                    vertIndicator.position = hit.transform.TransformPoint(nearestVert);
                     //to - from
                 }
             }
@@ -65,7 +66,10 @@ public class Player : MonoBehaviour
                 lastHoveredSnapObject = null;
                 Placer.placer.offset = Vector3.zero;
                 Placer.placer.vertSnapping = false;
-                Destroy(vertIndicator);
+                if(vertIndicator.gameObject != null)
+                {
+                    Destroy(vertIndicator.gameObject);
+                }
             }
         }
 

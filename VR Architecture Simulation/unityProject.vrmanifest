@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.vrarchitecturesimulation.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\Gebruiker\\Documents\\GitHub\\Y2P3-master\\VR Architecture Simulation\\actions.json",
+      "action_manifest_path": "C:\\Users\\Gebruiker\\Documents\\GitHub\\VR-CHITECT\\VR Architecture Simulation\\actions.json",
       "strings": {
         "en_us": {
           "name": "VR Architecture Simulation [Testing]"

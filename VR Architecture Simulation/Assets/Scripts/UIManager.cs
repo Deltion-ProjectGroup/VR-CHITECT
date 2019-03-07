@@ -53,6 +53,7 @@ public class UIManager : MonoBehaviour
         if (menu.activeSelf)
         {
             menu.GetComponent<UIMenu>().InstantClose();
+            Player.canInteract = true;
         }
         else
         {
