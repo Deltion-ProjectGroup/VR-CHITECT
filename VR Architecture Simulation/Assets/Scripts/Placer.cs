@@ -58,63 +58,13 @@ public class Placer : MonoBehaviour
                 ToggleRotationSnap();
 
                 //PlacementCheck
+                Rotate();
                 RaycastHit hit;
                 Ray ray = new Ray(hand.position, hand.forward);
-                Vector3 placePos = hand.transform.forward * 5;
                 if (Physics.Raycast(ray, out hit, 1000, placementMask))
                 {
-                    Vector3 hitPoint = hit.point;
-                    if (vertSnapping)
-                    {
-
-                        Vector3 nearestVert = Vector3.zero;
-                        float nearestVertDistance = Mathf.Infinity;
-                        foreach (Transform child in hit.transform)
-                        {
-                            foreach (Vector3 vert in child.GetComponent<MeshFilter>().mesh.vertices)
-                            {
-                                if (Vector3.Distance(hit.point, hit.transform.TransformPoint(vert)) < nearestVertDistance)
-                                {
-                                    nearestVert = vert;
-                                    nearestVertDistance = Vector3.Distance(hit.point, hit.transform.TransformPoint(vert));
-                                }
-                            }
-                        }
-                        if (nearestVert != Vector3.zero)
-                        {
-                            hitPoint = hit.transform.TransformPoint(nearestVert);
-                        }
-                        hitPoint -= offset;
-                    }
-                    else
-                    {
-                        if (snappingPosition)
-                        {
-                            hitPoint.x = Mathf.RoundToInt(hitPoint.x / gritTileSize) * gritTileSize;
-                            hitPoint.z = Mathf.RoundToInt(hitPoint.z / gritTileSize) * gritTileSize;
-                        }
-                    }
-                    placePos = hitPoint;
-                    trackingObj.transform.position = placePos;
+                    ChangePosition(hit);
                 }
-                float rotateAmount = rotateButton.GetAxis(InputMan.rightHand).x;
-                if (snappingRotation)
-                {
-                    if (rotatePress.GetStateDown(InputMan.rightHand))
-                    {
-                        rotateAmount = Mathf.RoundToInt(rotateAmount);
-                        rotateAmount *= rotateTurnAmount;
-                        trackingObj.transform.Rotate(new Vector3(0, rotateAmount, 0));
-                    }
-                }
-                else
-                {
-                    if (rotatePress.GetState(InputMan.rightHand))
-                    {
-                        trackingObj.transform.Rotate(new Vector3(0, rotateAmount, 0));
-                    }
-                }
-                offset = CalculateOffset(Player.nearestVert, trackingObj.transform, trackingObj.transform.position);
                 CheckPlacable();
             }
         }
@@ -124,6 +74,65 @@ public class Placer : MonoBehaviour
 
         Vector3 vertWorldPos = vertOwner.TransformPoint(vertLocalPosition);
         return vertWorldPos - ownerPosition;
+    }
+    void ChangePosition(RaycastHit hitData)
+    {
+        Vector3 hitPoint = hitData.point;
+        if (vertSnapping)
+        {
+
+            Vector3 nearestVert = Vector3.zero;
+            float nearestVertDistance = Mathf.Infinity;
+            foreach (Transform child in hitData.transform)
+            {
+                foreach (Vector3 vert in child.GetComponent<MeshFilter>().mesh.vertices)
+                {
+                    if (Vector3.Distance(hitData.point, hitData.transform.TransformPoint(vert)) < nearestVertDistance)
+                    {
+                        nearestVert = vert;
+                        nearestVertDistance = Vector3.Distance(hitData.point, hitData.transform.TransformPoint(vert));
+                    }
+                }
+            }
+            if (nearestVert != Vector3.zero)
+            {
+                hitPoint = hitData.transform.TransformPoint(nearestVert);
+            }
+            hitPoint -= offset;
+        }
+        else
+        {
+            if (snappingPosition)
+            {
+                hitPoint.x = Mathf.RoundToInt(hitPoint.x / gritTileSize) * gritTileSize;
+                hitPoint.z = Mathf.RoundToInt(hitPoint.z / gritTileSize) * gritTileSize;
+            }
+        }
+        trackingObj.transform.position = hitPoint;
+    }
+    void Rotate()
+    {
+        float rotateAmount = rotateButton.GetAxis(InputMan.rightHand).x;
+        if (snappingRotation)
+        {
+            if (rotatePress.GetStateDown(InputMan.rightHand))
+            {
+                rotateAmount = Mathf.RoundToInt(rotateAmount);
+                rotateAmount *= rotateTurnAmount;
+                trackingObj.transform.Rotate(new Vector3(0, rotateAmount, 0));
+            }
+        }
+        else
+        {
+            if (rotatePress.GetState(InputMan.rightHand))
+            {
+                trackingObj.transform.Rotate(new Vector3(0, rotateAmount, 0));
+            }
+        }
+        if (vertSnapping)
+        {
+            offset = CalculateOffset(Player.nearestVert, trackingObj.transform, trackingObj.transform.position);
+        }
     }
     public void SetTrackingObject(GameObject thisObject)
     {
