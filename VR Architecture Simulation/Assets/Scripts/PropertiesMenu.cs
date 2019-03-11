@@ -50,7 +50,7 @@ public class PropertiesMenu : MonoBehaviour
     public void UpdateProperties(GameObject target)
     {
         currentPart = target;
-        if (uiSelection.selectableOptions.Count > 1)
+        if (uiSelection.selectableOptions.Count > 0)
         {
             uiSelection.selectableOptions[uiSelection.selectableOptions.Count - 1].xIndexes.Clear();
         }
