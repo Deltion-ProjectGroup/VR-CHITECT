@@ -2,27 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
-using Valve.VR.InteractionSystem;
 
 public class Placer : MonoBehaviour
 {
     public static Placer placer;
-    public GameObject trackingObj;
-    public LayerMask placementMask;
+    GameObject trackingObj;
+    [SerializeField] LayerMask placementMask;
     public Vector3 offset;
-    public Transform hand;
-    public bool snappingPosition;
-    public bool snappingRotation;
+    [SerializeField] Transform hand;
+    bool snappingPosition;
+    bool snappingRotation;
     public bool vertSnapping;
-    public SteamVR_Action_Boolean positionSnapButton, placeButton;
-    public SteamVR_Action_Vector2 rotateButton;
-    public SteamVR_Action_Boolean rotatePress, rotationSnapButton;
-    public SteamVR_Action_Boolean snapButton;
+    [SerializeField] SteamVR_Action_Boolean positionSnapButton, placeButton;
+    [SerializeField] SteamVR_Action_Vector2 rotateButton;
+    [SerializeField] SteamVR_Action_Boolean rotatePress, rotationSnapButton;
+    [SerializeField] SteamVR_Action_Boolean snapButton;
     public int rotateTurnAmount;
     public bool canPlace;
-    public Color canPlaceColor, cannotPlaceColor = Color.white;
-    public Material placementMaterial;
-    [SerializeField] PlacementPart[] ogPartData;
+    [SerializeField] Color canPlaceColor, cannotPlaceColor;
+    [SerializeField] Material placementMaterial;
+    PlacementPart[] ogPartData;
     public bool canSetObject = true;
 
     [Range(0.1f, 1)]
@@ -36,10 +35,6 @@ public class Placer : MonoBehaviour
     void Awake()
     {
         placer = this;
-    }
-    private void Start()
-    {
-        //CalculateTilePositions(GameObject.FindGameObjectsWithTag("Ground"));
     }
 
     // Update is called once per frame
@@ -152,7 +147,7 @@ public class Placer : MonoBehaviour
             CheckPlacable();
         }
     }
-    public IEnumerator PlaceTrackingObject()
+    IEnumerator PlaceTrackingObject()
     {
         Player.canInteract = true;
         print("PLACED");
@@ -249,7 +244,7 @@ public class Placer : MonoBehaviour
         }
         allTiles = new List<GameObject>();
     }
-    public void ToggleGrid(bool show)
+    void ToggleGrid(bool show)
     {
         foreach (GameObject tile in allTiles)
         {
@@ -269,7 +264,7 @@ public class Placer : MonoBehaviour
         rotateTurnAmount = Mathf.Clamp(rotateTurnAmount, 0, 360);
         UIManager.uiManager.settings.GetComponent<Options>().UpdateRotationSnap(rotateTurnAmount);
     }
-    public bool CheckPosition(GameObject hitObject)
+    bool CheckPosition(GameObject hitObject)
     {
         if(hitObject != null)
         {
@@ -283,7 +278,7 @@ public class Placer : MonoBehaviour
         }
         return false;
     }
-    public void CheckPlacable()
+    void CheckPlacable()
     {
         canPlace = false;
         Collider[] collisions = Physics.OverlapBox(trackingObj.transform.position + trackingObj.GetComponent<BoxCollider>().center, trackingObj.GetComponent<BoxCollider>().size / 2, trackingObj.transform.rotation);
@@ -317,7 +312,7 @@ public class Placer : MonoBehaviour
         canPlace = true;
         placementMaterial.SetColor("_BaseColor", canPlaceColor);
     }
-    public class PlacementPart
+    class PlacementPart
     {
         public GameObject part;
         public Material ogMaterial;

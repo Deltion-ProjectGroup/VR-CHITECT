@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
 using UnityEngine.UI;
@@ -11,9 +10,9 @@ public class UISelection : MonoBehaviour
     int currentHorIndex;
     int currentVerIndex;
     UIButton currentSelected;
-    public Vector2 outlineScale;
-    public SteamVR_Action_Boolean acceptButton, selectButton;
-    public SteamVR_Action_Vector2 trackpadPos;
+    [SerializeField]Vector2 outlineScale;
+    [SerializeField]SteamVR_Action_Boolean acceptButton, selectButton;
+    [SerializeField]SteamVR_Action_Vector2 trackpadPos;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +24,14 @@ public class UISelection : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        SelectionNavigation();
+        if (Input.GetKeyDown(KeyCode.KeypadEnter) || acceptButton.GetStateDown(InputMan.rightHand))
+        {
+            currentSelected.Interact();
+        }
+    }
+    void SelectionNavigation()
     {
         //VR
         Vector2 changeAmount = new Vector2();
@@ -41,11 +48,6 @@ public class UISelection : MonoBehaviour
                 changeAmount.y = rawAxisY;
             }
             ChangeSelectPos(changeAmount);
-        }
-
-        if (acceptButton.GetStateDown(InputMan.rightHand))
-        {
-            currentSelected.Interact();
         }
 
         //PC
@@ -72,13 +74,9 @@ public class UISelection : MonoBehaviour
                 changeAmtPC.y -= 1;
             }
         }
-        if(changeAmtPC != Vector2.zero)
+        if (changeAmtPC != Vector2.zero)
         {
             ChangeSelectPos(changeAmtPC);
-        }
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))
-        {
-            currentSelected.Interact();
         }
     }
     public void ChangeSelectPos(Vector2 changeAmount)

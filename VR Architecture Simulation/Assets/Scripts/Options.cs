@@ -1,18 +1,16 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Valve.VR;
 
 public class Options : UIMenu
 {
-    public Text gridDivText;
-    public Text rotSnapText;
+    [SerializeField]Text gridDivText;
+    [SerializeField]Text rotSnapText;
     // Start is called before the first frame update
     void Start()
     {
         UpdateGridDivision(Placer.placer.divisionAmount);
-        //UpdateRotationSnap(Placer.placer.rotateTurnAmount);
+        UpdateRotationSnap(Placer.placer.rotateTurnAmount);
     }
 
     // Update is called once per frame

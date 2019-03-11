@@ -7,24 +7,24 @@ using UnityEngine.UI;
 public class Shop : UIMenu
 {
     public Placer placingSystem;
-    public SteamVR_Action_Vector2 changeTabTrackpad;
-    public SteamVR_Action_Boolean changeTabButton;
-    public SteamVR_Action_Boolean selectButton;
-    public int selectedHorIndex;
-    public int selectedVerIndex;
+    [SerializeField] SteamVR_Action_Vector2 changeTabTrackpad;
+    [SerializeField] SteamVR_Action_Boolean changeTabButton;
+    [SerializeField] SteamVR_Action_Boolean selectButton;
+    int selectedHorIndex;
+    int selectedVerIndex;
     float verTileDistance;
-    public GameObject[] selectionTabs;
-    public Animation[] indicatorHolders;
-    public List<GameObject> shopButtons = new List<GameObject>();
-    public Transform sectionHolder;
-    public Transform itemHolder;
-    public float tickDelay;
-    public int ticks;
-    public GameObject shopItem;
+    [SerializeField] GameObject[] selectionTabs;
+    [SerializeField] Animation[] indicatorHolders;
+    List<GameObject> shopButtons = new List<GameObject>();
+    [SerializeField] Transform sectionHolder;
+    [SerializeField] Transform itemHolder;
+    [SerializeField] float tickDelay;
+    [SerializeField] int ticks;
+    [SerializeField] GameObject shopItem;
     bool canMove = true;
     bool doneRemoving;
-    public Vector3 requiredHorPos;
-    public Vector3 requiredVerPos;
+    Vector3 requiredHorPos;
+    Vector3 requiredVerPos;
     // Start is called before the first frame update
     void Awake()
     {
@@ -44,61 +44,7 @@ public class Shop : UIMenu
         //VR
         if (canMove)
         {
-            if (changeTabButton.GetState(InputMan.rightHand))
-            {
-                int x = Mathf.RoundToInt(changeTabTrackpad.axis.x);
-                if (x != 0)
-                {
-                    if (x == 1)
-                    {
-                        StartCoroutine(ChangeHorIndex(1));
-                    }
-                    else
-                    {
-                        StartCoroutine(ChangeHorIndex(-1));
-                    }
-                }
-                else
-                {
-                    int y = Mathf.RoundToInt(changeTabTrackpad.axis.y);
-                    print(y);
-                    if (y != 0)
-                    {
-                        if (y == 1)
-                        {
-                            StartCoroutine(ChangeVerIndex(-1));
-                        }
-                        else
-                        {
-                            StartCoroutine(ChangeVerIndex(1));
-                        }
-                    }
-                }
-            }
-
-            //PC
-            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
-            {
-                if (Input.GetKey(KeyCode.RightArrow))
-                {
-                    StartCoroutine(ChangeHorIndex(1));
-                }
-                else
-                {
-                    StartCoroutine(ChangeHorIndex(-1));
-                }
-            }
-            if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))
-            {
-                if (Input.GetKey(KeyCode.DownArrow))
-                {
-                    StartCoroutine(ChangeVerIndex(1));
-                }
-                else
-                {
-                    StartCoroutine(ChangeVerIndex(-1));
-                }
-            }
+            ShopNavigation();
             if (selectButton.GetStateDown(InputMan.rightHand) || Input.GetKeyDown(KeyCode.KeypadEnter))
             {
                 shopButtons[selectedVerIndex].GetComponent<ItemButton>().Select();
@@ -107,11 +53,69 @@ public class Shop : UIMenu
 
 
     }
+    void ShopNavigation()
+    {
+        if (changeTabButton.GetState(InputMan.rightHand))
+        {
+            int x = Mathf.RoundToInt(changeTabTrackpad.axis.x);
+            if (x != 0)
+            {
+                if (x == 1)
+                {
+                    StartCoroutine(ChangeHorIndex(1));
+                }
+                else
+                {
+                    StartCoroutine(ChangeHorIndex(-1));
+                }
+            }
+            else
+            {
+                int y = Mathf.RoundToInt(changeTabTrackpad.axis.y);
+                print(y);
+                if (y != 0)
+                {
+                    if (y == 1)
+                    {
+                        StartCoroutine(ChangeVerIndex(-1));
+                    }
+                    else
+                    {
+                        StartCoroutine(ChangeVerIndex(1));
+                    }
+                }
+            }
+        }
+
+        //PC
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                StartCoroutine(ChangeHorIndex(1));
+            }
+            else
+            {
+                StartCoroutine(ChangeHorIndex(-1));
+            }
+        }
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))
+        {
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                StartCoroutine(ChangeVerIndex(1));
+            }
+            else
+            {
+                StartCoroutine(ChangeVerIndex(-1));
+            }
+        }
+    }
     public void SpawnObject(GameObject objectToPlace)
     {
         placingSystem.SetTrackingObject(Instantiate(objectToPlace, Vector3.zero, Quaternion.identity));
     }
-    public IEnumerator ChangeHorIndex(int changeAmount)
+    IEnumerator ChangeHorIndex(int changeAmount)
     {
         canMove = false;
         int previousHorIndex = selectedHorIndex;
@@ -146,7 +150,7 @@ public class Shop : UIMenu
         doneRemoving = false;
     }
 
-    public IEnumerator ChangeVerIndex(int changeAmount)
+    IEnumerator ChangeVerIndex(int changeAmount)
     {
         canMove = false;
         int previousVerIndex = selectedVerIndex;
@@ -229,7 +233,7 @@ public class Shop : UIMenu
         }
         StartCoroutine(UpdateShopItems());
     }
-    public IEnumerator ClearShopItems(bool open)
+    IEnumerator ClearShopItems(bool open)
     {
         while(shopButtons.Count > 0)
         {
