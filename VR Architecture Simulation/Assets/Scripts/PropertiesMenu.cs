@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class PropertiesMenu : MonoBehaviour
+public class PropertiesMenu : UIMenu
 {
     public GameObject targetRN;
 
@@ -9,12 +10,11 @@ public class PropertiesMenu : MonoBehaviour
     GameObject currentPart;
     [SerializeField] Transform materialHolder, tabHolder;
     [SerializeField] GameObject materialButton, tabButton;
-    List<GameObject> activeMaterialButtons, activeTabButtons = new List<GameObject>();
+    List<GameObject> activeMaterialButtons = new List<GameObject>(), activeTabButtons = new List<GameObject>();
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         uiSelection = GetComponent<UISelection>();
-        Initialize(targetRN);
     }
 
     public void Initialize(GameObject target)
@@ -45,12 +45,15 @@ public class PropertiesMenu : MonoBehaviour
         {
             uiSelection.selectableOptions[uiSelection.selectableOptions.Count - 1].xIndexes.Clear();
         }
-        int backupCount = activeMaterialButtons.Count;
-        for (int i = 0; i < backupCount; i++)
+        if(activeMaterialButtons.Count > 0)
         {
-            print(activeMaterialButtons.Count);
-            Destroy(activeMaterialButtons[0]);
-            activeMaterialButtons.RemoveAt(0);
+            int backupCount = activeMaterialButtons.Count;
+            for (int i = 0; i < backupCount; i++)
+            {
+                print(activeMaterialButtons.Count);
+                Destroy(activeMaterialButtons[0]);
+                activeMaterialButtons.RemoveAt(0);
+            }
         }
         for(int i = 0; i < target.GetComponent<PartData>().availableMaterials.Length; i++)
         {
@@ -63,6 +66,22 @@ public class PropertiesMenu : MonoBehaviour
     }
     public void ChangeMaterial(Material newMaterial)
     {
-        currentPart.GetComponent<Renderer>().material = newMaterial;
+        foreach(Placer.PlacementPart placementPart in Placer.placer.ogPartData)
+        {
+            if(placementPart.part == currentPart)
+            {
+                placementPart.ogMaterial = newMaterial;
+            }
+        }
+    }
+    public override IEnumerator Open()
+    {
+        Initialize(targetRN);
+        yield return null;
+        UIManager.uiManager.canToggle = true;
+    }
+    public override void InstantClose()
+    {
+        gameObject.SetActive(false);
     }
 }

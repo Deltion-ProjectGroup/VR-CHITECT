@@ -51,6 +51,7 @@ public class UIManager : MonoBehaviour
         {
             menu.GetComponent<UIMenu>().InstantClose();
             Player.canInteract = true;
+            print("CLOSED");
         }
         else
         {
@@ -67,10 +68,15 @@ public class UIManager : MonoBehaviour
                         }
                     }
                 }
+                print("ACTIVATED");
                 menu.SetActive(true);
                 canToggle = false;
                 Player.canInteract = false;
                 StartCoroutine(menu.GetComponent<UIMenu>().Open());
+            }
+            else
+            {
+                print("CANNOT INTERACT");
             }
         }
     }

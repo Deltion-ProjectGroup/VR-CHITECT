@@ -8,8 +8,8 @@ public class ItemButton : MonoBehaviour
     {
         if (Placer.placer.canSetObject)
         {
-            Placer.placer.SetTrackingObject(Instantiate(itemData.itemObject));
             UIManager.uiManager.ToggleMenu(UIManager.uiManager.shop);
+            Placer.placer.SetTrackingObject(Instantiate(itemData.itemObject));
         }
     }
 }

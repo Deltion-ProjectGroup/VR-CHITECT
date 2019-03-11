@@ -117,7 +117,7 @@ public class Player : MonoBehaviour
                 lastHoveredSnapObject = null;
                 Placer.placer.offset = Vector3.zero;
                 Placer.placer.vertSnapping = false;
-                if (vertIndicator.gameObject != null)
+                if (vertIndicator != null)
                 {
                     Destroy(vertIndicator.gameObject);
                 }

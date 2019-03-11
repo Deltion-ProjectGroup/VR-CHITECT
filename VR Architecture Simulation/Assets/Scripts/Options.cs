@@ -10,7 +10,7 @@ public class Options : UIMenu
     void Start()
     {
         UpdateGridDivision(Placer.placer.divisionAmount);
-        UpdateRotationSnap(Placer.placer.rotateTurnAmount);
+        //UpdateRotationSnap(Placer.placer.rotateTurnAmount);
     }
 
     // Update is called once per frame

@@ -21,7 +21,7 @@ public class Placer : MonoBehaviour
     public bool canPlace;
     [SerializeField] Color canPlaceColor, cannotPlaceColor;
     [SerializeField] Material placementMaterial;
-    PlacementPart[] ogPartData;
+    [HideInInspector] public PlacementPart[] ogPartData;
     public bool canSetObject = true;
 
     [Range(0.1f, 1)]
@@ -97,7 +97,7 @@ public class Placer : MonoBehaviour
         }
         else
         {
-            if (snappingPosition)
+            if (snappingPosition && hitData.transform.gameObject.GetComponent<PlacedObject>().objectType != ObjectTypes.Wall)
             {
                 hitPoint.x = Mathf.RoundToInt(hitPoint.x / gritTileSize) * gritTileSize;
                 hitPoint.z = Mathf.RoundToInt(hitPoint.z / gritTileSize) * gritTileSize;
@@ -133,7 +133,6 @@ public class Placer : MonoBehaviour
     {
         if(trackingObj == null && canSetObject)
         {
-            Player.canInteract = false;
             canSetObject = false;
             trackingObj = thisObject;
             trackingObj.GetComponent<Collider>().enabled = false;
@@ -144,6 +143,9 @@ public class Placer : MonoBehaviour
                 allObjectMaterials[allObjectMaterials.Count - 1].part.GetComponent<MeshRenderer>().material = placementMaterial;
             }
             ogPartData = allObjectMaterials.ToArray();
+            UIManager.uiManager.properties.GetComponent<PropertiesMenu>().targetRN = trackingObj;
+            UIManager.uiManager.ToggleMenu(UIManager.uiManager.properties);
+            UIManager.uiManager.properties.GetComponent<PropertiesMenu>().Initialize(trackingObj);
             CheckPlacable();
         }
     }
@@ -157,6 +159,7 @@ public class Placer : MonoBehaviour
         {
             partData.ResetMaterial();
         }
+        UIManager.uiManager.ToggleMenu(UIManager.uiManager.properties);
         trackingObj = null;
         yield return null;
         canSetObject = true;
@@ -312,7 +315,7 @@ public class Placer : MonoBehaviour
         canPlace = true;
         placementMaterial.SetColor("_BaseColor", canPlaceColor);
     }
-    class PlacementPart
+    public class PlacementPart
     {
         public GameObject part;
         public Material ogMaterial;

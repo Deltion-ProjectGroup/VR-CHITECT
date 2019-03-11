@@ -10,6 +10,7 @@ public class UISelection : MonoBehaviour
     int currentHorIndex;
     int currentVerIndex;
     UIButton currentSelected;
+    [SerializeField] bool autoSelect;
     [SerializeField]Vector2 outlineScale;
     [SerializeField]SteamVR_Action_Boolean acceptButton, selectButton;
     [SerializeField]SteamVR_Action_Vector2 trackpadPos;
@@ -22,13 +23,22 @@ public class UISelection : MonoBehaviour
         outline.effectDistance = outlineScale;
     }
 
+    public void Initialize()
+    {
+        currentSelected = selectableOptions[currentHorIndex].xIndexes[currentVerIndex].GetComponent<UIButton>();
+    }
+
     // Update is called once per frame
+
     void Update()
     {
         SelectionNavigation();
-        if (Input.GetKeyDown(KeyCode.KeypadEnter) || acceptButton.GetStateDown(InputMan.rightHand))
+        if (!autoSelect)
         {
-            currentSelected.Interact();
+            if (Input.GetKeyDown(KeyCode.KeypadEnter) || acceptButton.GetStateDown(InputMan.rightHand))
+            {
+                currentSelected.Interact();
+            }
         }
     }
     void SelectionNavigation()
@@ -112,6 +122,10 @@ public class UISelection : MonoBehaviour
         currentSelected = selectableOptions[currentVerIndex].xIndexes[currentHorIndex].GetComponent<UIButton>();
         Outline outline = currentSelected.gameObject.AddComponent<Outline>();
         outline.effectDistance = outlineScale;
+        if (autoSelect)
+        {
+            currentSelected.Interact();
+        }
         print(currentSelected.gameObject.name);
     }
     [System.Serializable]
