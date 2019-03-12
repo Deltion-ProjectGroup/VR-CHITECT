@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 using Valve.VR;
 
 public class UIManager : MonoBehaviour
@@ -11,14 +8,14 @@ public class UIManager : MonoBehaviour
     public GameObject shop;
     public GameObject settings;
     public GameObject properties;
-    public GameObject[] allMenus;
-    public SteamVR_Action_Boolean shopToggleButton;
-    public SteamVR_Action_Boolean settingsToggleButton;
-    public bool canToggle;
+    [SerializeField] GameObject[] allMenus;
+    [SerializeField] SteamVR_Action_Boolean shopToggleButton;
+    [SerializeField] SteamVR_Action_Boolean settingsToggleButton;
+    public bool canToggle = true;
     [Header("ScreenFade")]
     public Animation fadeAnimation;
-    public AnimationClip fadeAppear;
-    public AnimationClip fadeRemove;
+    [SerializeField] AnimationClip fadeAppear;
+    [SerializeField] AnimationClip fadeRemove;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -54,6 +51,7 @@ public class UIManager : MonoBehaviour
         {
             menu.GetComponent<UIMenu>().InstantClose();
             Player.canInteract = true;
+            print("CLOSED");
         }
         else
         {
@@ -70,10 +68,15 @@ public class UIManager : MonoBehaviour
                         }
                     }
                 }
+                print("ACTIVATED");
                 menu.SetActive(true);
                 canToggle = false;
                 Player.canInteract = false;
                 StartCoroutine(menu.GetComponent<UIMenu>().Open());
+            }
+            else
+            {
+                print("CANNOT INTERACT");
             }
         }
     }

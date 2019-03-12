@@ -1,30 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
-public class PropertiesMenu : MonoBehaviour
+public class PropertiesMenu : UIMenu
 {
     public GameObject targetRN;
-
-    public UISelection uiSelection;
-    public GameObject currentPart;
-    public Transform materialHolder, tabHolder;
-    public GameObject materialButton, tabButton;
-    public List<GameObject> activeMaterialButtons, activeTabButtons = new List<GameObject>();
+    UISelection uiSelection;
+    GameObject currentPart;
+    [SerializeField] Transform materialHolder, tabHolder;
+    [SerializeField] GameObject materialButton, tabButton;
+    List<GameObject> activeMaterialButtons = new List<GameObject>(), activeTabButtons = new List<GameObject>();
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         uiSelection = GetComponent<UISelection>();
-        Initialize(targetRN);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void Initialize(GameObject target)
     {
         if(uiSelection.selectableOptions.Count > 0)
@@ -40,39 +31,56 @@ public class PropertiesMenu : MonoBehaviour
         for(int i = 0; i < target.transform.childCount; i++)
         {
             GameObject newButton = Instantiate(tabButton, tabHolder);
-            newButton.GetComponent<PropertieTabData>().menu = this;
-            newButton.GetComponent<PropertieTabData>().Initialize(target.transform.GetChild(i).gameObject);
+            newButton.GetComponent<PropertieTabData>().Initialize(target.transform.GetChild(i).gameObject, this);
             activeTabButtons.Add(newButton);
             uiSelection.selectableOptions[0].xIndexes.Add(newButton);
         }
         UpdateProperties(activeTabButtons[0].GetComponent<PropertieTabData>().holdingPart);
+        GetComponent<UISelection>().Initialize(true);
     }
     public void UpdateProperties(GameObject target)
     {
         currentPart = target;
-        if (uiSelection.selectableOptions.Count > 1)
+        if (uiSelection.selectableOptions.Count > 0)
         {
             uiSelection.selectableOptions[uiSelection.selectableOptions.Count - 1].xIndexes.Clear();
         }
-        int backupCount = activeMaterialButtons.Count;
-        for (int i = 0; i < backupCount; i++)
+        if(activeMaterialButtons.Count > 0)
         {
-            print(activeMaterialButtons.Count);
-            Destroy(activeMaterialButtons[0]);
-            activeMaterialButtons.RemoveAt(0);
+            int backupCount = activeMaterialButtons.Count;
+            for (int i = 0; i < backupCount; i++)
+            {
+                print(activeMaterialButtons.Count);
+                Destroy(activeMaterialButtons[0]);
+                activeMaterialButtons.RemoveAt(0);
+            }
         }
         for(int i = 0; i < target.GetComponent<PartData>().availableMaterials.Length; i++)
         {
-            print(target.GetComponent<PartData>().availableMaterials.Length);
             GameObject newMaterialButton = Instantiate(materialButton, materialHolder);
-            newMaterialButton.GetComponent<PropertieMatData>().menu = this;
-            newMaterialButton.GetComponent<PropertieMatData>().Initialize(target.GetComponent<PartData>().availableMaterials[i]);
+            newMaterialButton.GetComponent<PropertieMatData>().Initialize(target.GetComponent<PartData>().availableMaterials[i], this);
             activeMaterialButtons.Add(newMaterialButton);
             uiSelection.selectableOptions[uiSelection.selectableOptions.Count - 1].xIndexes.Add(newMaterialButton);
         }
     }
     public void ChangeMaterial(Material newMaterial)
     {
-        currentPart.GetComponent<Renderer>().material = newMaterial;
+        foreach(Placer.PlacementPart placementPart in Placer.placer.ogPartData)
+        {
+            if(placementPart.part == currentPart)
+            {
+                placementPart.ogMaterial = newMaterial;
+            }
+        }
+    }
+    public override IEnumerator Open()
+    {
+        Initialize(targetRN);
+        yield return null;
+        UIManager.uiManager.canToggle = true;
+    }
+    public override void InstantClose()
+    {
+        gameObject.SetActive(false);
     }
 }

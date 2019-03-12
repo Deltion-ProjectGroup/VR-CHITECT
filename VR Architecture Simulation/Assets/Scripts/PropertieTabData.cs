@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class PropertieTabData : MonoBehaviour
 {
     public GameObject holdingPart;
-    public PropertiesMenu menu;
+    PropertiesMenu menu;
     // Start is called before the first frame update
 
 
@@ -17,8 +15,9 @@ public class PropertieTabData : MonoBehaviour
 
 
     
-    public void Initialize(GameObject thisPart)
+    public void Initialize(GameObject thisPart, PropertiesMenu propMenu)
     {
+        menu = propMenu;
         holdingPart = thisPart;
         GetComponent<Image>().sprite = holdingPart.GetComponent<PartData>().partIcon;
     }

@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PropertieMatData : MonoBehaviour
 {
     public Material containedMaterial;
-    public PropertiesMenu menu;
+    PropertiesMenu menu;
 
     public void Select()
     {
@@ -14,8 +12,9 @@ public class PropertieMatData : MonoBehaviour
 
 
 
-    public void Initialize(Material thisMaterial)
+    public void Initialize(Material thisMaterial, PropertiesMenu propMenu)
     {
+        menu = propMenu;
         containedMaterial = thisMaterial;
     }
 }

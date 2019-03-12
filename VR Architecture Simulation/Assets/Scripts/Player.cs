@@ -1,21 +1,20 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
 
 public class Player : MonoBehaviour
 {
-    public GameObject leftHandGO, rightHandGO;
-    public SteamVR_Action_Boolean interactButton;
-    public SteamVR_Action_Boolean teleportButton;
-    public SteamVR_Action_Boolean snapButton;
+    [SerializeField] GameObject leftHandGO, rightHandGO;
+    [SerializeField] SteamVR_Action_Boolean interactButton;
+    [SerializeField] SteamVR_Action_Boolean teleportButton;
+    [SerializeField] SteamVR_Action_Boolean snapButton;
     LineRenderer pointer;
     bool teleporting;
-    public GameObject lastHoveredSnapObject;
-    public Transform vertIndicator;
-    public GameObject indicatorGO;
+    GameObject lastHoveredSnapObject;
+    Transform vertIndicator;
+    [SerializeField] GameObject indicatorGO;
     public static Vector3 nearestVert;
-    public LayerMask snapMask;
+    [SerializeField] LayerMask snapMask;
     public static bool canInteract = true;
     // Start is called before the first frame update
     void Start()
@@ -25,6 +24,58 @@ public class Player : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+
+        VertSnapping();
+
+
+        RaycastHit hitPoint;
+        if (Physics.Raycast(rightHandGO.transform.position, rightHandGO.transform.forward, out hitPoint))
+        {
+            pointer.SetPosition(0, rightHandGO.transform.position);
+            pointer.SetPosition(1, hitPoint.point);
+            Interaction(hitPoint);
+            if (teleportButton.GetStateUp(InputMan.leftHand))
+            {
+                if(hitPoint.transform.tag == "Ground")
+                {
+                    if (!teleporting)
+                    {
+                        StartCoroutine(Teleport(hitPoint.point));
+                    }
+                }
+            }
+        }
+        else
+        {
+            if (interactButton.GetStateDown(InputMan.rightHand) && lastHoveredSnapObject != null)
+            {
+                Placer.placer.vertSnapping = true;
+                Placer.placer.SetTrackingObject(lastHoveredSnapObject);
+            }
+            pointer.SetPosition(0, rightHandGO.transform.position);
+            pointer.SetPosition(1, rightHandGO.transform.forward);
+        }
+    }
+    void Interaction(RaycastHit hitPoint)
+    {
+        if (interactButton.GetStateDown(InputMan.rightHand) && canInteract)
+        {
+            if (lastHoveredSnapObject != null)
+            {
+                Placer.placer.vertSnapping = true;
+                Placer.placer.SetTrackingObject(lastHoveredSnapObject);
+            }
+            else
+            {
+                if (hitPoint.transform.tag == "Interactable")
+                {
+                    hitPoint.transform.GetComponent<Interactable>().Interact();
+                }
+            }
+        }
+    }
+    void VertSnapping()
     {
 
         if (snapButton.GetState(InputMan.leftHand) && canInteract)
@@ -66,55 +117,11 @@ public class Player : MonoBehaviour
                 lastHoveredSnapObject = null;
                 Placer.placer.offset = Vector3.zero;
                 Placer.placer.vertSnapping = false;
-                if(vertIndicator.gameObject != null)
+                if (vertIndicator != null)
                 {
                     Destroy(vertIndicator.gameObject);
                 }
             }
-        }
-
-
-
-        RaycastHit hitPoint;
-        if (Physics.Raycast(rightHandGO.transform.position, rightHandGO.transform.forward, out hitPoint))
-        {
-            pointer.SetPosition(0, rightHandGO.transform.position);
-            pointer.SetPosition(1, hitPoint.point);
-            if (interactButton.GetStateDown(InputMan.rightHand) && canInteract)
-            {
-                if(lastHoveredSnapObject != null)
-                {
-                    Placer.placer.vertSnapping = true;
-                    Placer.placer.SetTrackingObject(lastHoveredSnapObject);
-                }
-                else
-                {
-                    if (hitPoint.transform.tag == "Interactable")
-                    {
-                        hitPoint.transform.GetComponent<Interactable>().Interact();
-                    }
-                }
-            }
-            if (teleportButton.GetStateUp(InputMan.leftHand))
-            {
-                if(hitPoint.transform.tag == "Ground")
-                {
-                    if (!teleporting)
-                    {
-                        StartCoroutine(Teleport(hitPoint.point));
-                    }
-                }
-            }
-        }
-        else
-        {
-            if (interactButton.GetStateDown(InputMan.rightHand) && lastHoveredSnapObject != null)
-            {
-                Placer.placer.vertSnapping = true;
-                Placer.placer.SetTrackingObject(lastHoveredSnapObject);
-            }
-            pointer.SetPosition(0, rightHandGO.transform.position);
-            pointer.SetPosition(1, rightHandGO.transform.forward);
         }
     }
     IEnumerator Teleport(Vector3 newPosition)
