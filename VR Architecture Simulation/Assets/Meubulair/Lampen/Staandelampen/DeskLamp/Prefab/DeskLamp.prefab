@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1845649416}
   - component: {fileID: 1845649415}
   - component: {fileID: 1845649414}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Point Light (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,9 +171,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1424071580}
-  m_Layer: 0
+  - component: {fileID: 800684668}
+  - component: {fileID: 800684667}
+  m_Layer: 4
   m_Name: DeskLamp
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -195,6 +197,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &800684668
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6489397725035904152}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.28883886, y: 0.3796767, z: 0.29929668}
+  m_Center: {x: 0.0019061565, y: 0.19051188, z: -0.0013928413}
+--- !u!114 &800684667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6489397725035904152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 0}
+  moveable: 1
+  requiredObjectType: 
+  objectType: 3
 --- !u!1 &7066098796180037654
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,7 +237,7 @@ GameObject:
   - component: {fileID: 8918677827865312039}
   - component: {fileID: 2889176037720952713}
   - component: {fileID: 3093425752781132140}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +314,7 @@ GameObject:
   - component: {fileID: 4429215557542560038}
   - component: {fileID: 6640683210565124669}
   - component: {fileID: 3978094404535028857}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Cube.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4476381582198490237}
   - component: {fileID: 1121314209130754626}
   - component: {fileID: 5253347157835951909}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: PaintingFrame_Standing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,9 +102,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2672087976119514041}
-  m_Layer: 0
+  - component: {fileID: 973653012}
+  - component: {fileID: 973653011}
+  m_Layer: 4
   m_Name: PictureFrame
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,6 +127,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &973653012
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3791898480770779489}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.15808368, y: 0.23874122, z: 0.08147091}
+  m_Center: {x: -0.003882885, y: 0.089989334, z: 0.0039236248}
+--- !u!114 &973653011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3791898480770779489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 0}
+  moveable: 1
+  requiredObjectType: 
+  objectType: 3
 --- !u!1 &7694844710836305735
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +168,7 @@ GameObject:
   - component: {fileID: 7637974346142943628}
   - component: {fileID: 6079943199545554181}
   - component: {fileID: 1321035496883323110}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Standard
   m_TagString: Untagged
   m_Icon: {fileID: 0}

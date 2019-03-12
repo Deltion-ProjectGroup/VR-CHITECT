@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2456574151850953157}
   - component: {fileID: 6856083677888254533}
   - component: {fileID: 3810881826776316460}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Wide Cabinet Low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,9 +101,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1507954278875176376}
-  m_Layer: 0
+  - component: {fileID: 1575076830}
+  - component: {fileID: 1575076829}
+  m_Layer: 4
   m_Name: LowCabinet aaverage
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,6 +126,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1575076830
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3517245197438806330}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1.7831507, y: 0.44017655, z: 0.42424965}
+  m_Center: {x: -0.0024421215, y: 0.22201744, z: 0.012430668}
+--- !u!114 &1575076829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3517245197438806330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 0}
+  moveable: 1
+  requiredObjectType: 
+  objectType: 4
 --- !u!1 &8013972877684313670
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,7 +167,7 @@ GameObject:
   - component: {fileID: 5590964904839721023}
   - component: {fileID: 6141176572182022550}
   - component: {fileID: 7131919674270337792}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: WideCabinetLow Lades
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7530928916466139213}
   - component: {fileID: 6165086631339947692}
   - component: {fileID: 8564985679057057424}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Laken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 3919707925439799779}
   - component: {fileID: 2308389873675262147}
   - component: {fileID: 8564985679057057430}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 3390781603560104397}
   - component: {fileID: 6558757390597460113}
   - component: {fileID: 8564985679057057428}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Kussens
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 8688756063683293653}
   - component: {fileID: 7325646000023076285}
   - component: {fileID: 8564985679057057426}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Lades
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -377,9 +377,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 722031822196494086}
-  m_Layer: 0
+  - component: {fileID: 244295054}
+  - component: {fileID: 244295053}
+  m_Layer: 4
   m_Name: ModernBed
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -403,6 +405,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &244295054
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5207382594207023080}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1.6412599, y: 0.9825133, z: 2.1637897}
+  m_Center: {x: 0.0013910532, y: 0.49195045, z: 0.025675058}
+--- !u!114 &244295053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5207382594207023080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 0}
+  moveable: 1
+  requiredObjectType: 
+  objectType: 3
 --- !u!1 &9199464416639011701
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,7 +446,7 @@ GameObject:
   - component: {fileID: 6375669604931584800}
   - component: {fileID: 8903612461395621447}
   - component: {fileID: 8564985679057057438}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Matras
   m_TagString: Untagged
   m_Icon: {fileID: 0}

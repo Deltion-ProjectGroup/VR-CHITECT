@@ -9,9 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8275145348830731021}
-  m_Layer: 0
+  - component: {fileID: 479205651}
+  - component: {fileID: 479205650}
+  m_Layer: 4
   m_Name: TallCabinet
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,6 +34,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &479205651
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523169092743119064}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1.2155886, y: 2.3066509, z: 0.37611628}
+  m_Center: {x: 0.0044293404, y: 1.1464854, z: 0.005003214}
+--- !u!114 &479205650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523169092743119064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 0}
+  moveable: 1
+  requiredObjectType: 
+  objectType: 3
 --- !u!1 &7742979884733649560
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,7 +75,7 @@ GameObject:
   - component: {fileID: 9072190433508947863}
   - component: {fileID: 7022590047858236547}
   - component: {fileID: 4597507774103825239}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Tall Cabinet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +167,7 @@ GameObject:
   - component: {fileID: 3578103236107252056}
   - component: {fileID: 2718414926689780643}
   - component: {fileID: 1661874318961772968}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Tall CabinetHandle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

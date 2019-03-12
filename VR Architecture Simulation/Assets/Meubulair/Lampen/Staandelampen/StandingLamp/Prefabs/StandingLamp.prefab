@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1271180625}
   - component: {fileID: 1271180624}
   - component: {fileID: 1271180623}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Point Light (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 2462762327586469285}
   - component: {fileID: 597756417036300762}
   - component: {fileID: 1920303463718693759}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 2074787546243390706}
   - component: {fileID: 3359404470928068393}
   - component: {fileID: 543271060727435369}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Lamp.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,7 +327,7 @@ GameObject:
   - component: {fileID: 5351120379346867547}
   - component: {fileID: 8400953351425679180}
   - component: {fileID: 4843776200132747771}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: LampStand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -402,9 +402,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 652118265}
-  m_Layer: 0
+  - component: {fileID: 711662717}
+  - component: {fileID: 711662716}
+  m_Layer: 4
   m_Name: StandingLamp
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -427,3 +429,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 49.75, z: 0}
+--- !u!65 &711662717
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8370170595271154909}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.44956475, y: 1.4975735, z: 0.38504094}
+  m_Center: {x: -0.03302902, y: 0.73930794, z: -0.00408864}
+--- !u!114 &711662716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8370170595271154909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 0}
+  moveable: 1
+  requiredObjectType: 
+  objectType: 3

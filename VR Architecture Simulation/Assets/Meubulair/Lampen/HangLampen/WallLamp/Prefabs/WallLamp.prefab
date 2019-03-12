@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 251263042}
   - component: {fileID: 251263041}
   - component: {fileID: 251263040}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Point Light (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 3277220644022121237}
   - component: {fileID: 1807668455492006064}
   - component: {fileID: 8394572445151579624}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Cube.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 442381452341600055}
   - component: {fileID: 7453380119010825881}
   - component: {fileID: 1881746166017874232}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Lamp.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,9 +325,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 499889779}
-  m_Layer: 0
+  - component: {fileID: 373781175}
+  - component: {fileID: 373781174}
+  m_Layer: 4
   m_Name: WallLamp
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -350,6 +352,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &373781175
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6065457083723360316}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.2509699, y: 0.42258805, z: 0.468258}
+  m_Center: {x: -0.12259674, y: 0.2048491, z: -0.0014726967}
+--- !u!114 &373781174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6065457083723360316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 0}
+  moveable: 1
+  requiredObjectType: 
+  objectType: 3
 --- !u!1 &7097539909273910162
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,7 +392,7 @@ GameObject:
   - component: {fileID: 6763007091651981393}
   - component: {fileID: 3534045073626541981}
   - component: {fileID: 3809127482234620977}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

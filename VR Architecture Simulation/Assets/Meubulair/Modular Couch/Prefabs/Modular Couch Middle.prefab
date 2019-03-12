@@ -9,9 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5114009502940811481}
-  m_Layer: 0
+  - component: {fileID: 2074019112}
+  - component: {fileID: 2074019111}
+  m_Layer: 4
   m_Name: Modular Couch Middle
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,6 +34,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2074019112
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145876695715180097}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.8012011, y: 0.8659264, z: 0.9901266}
+  m_Center: {x: -0.0026928186, y: 0.4122978, z: -0.00026917458}
+--- !u!114 &2074019111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145876695715180097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 0}
+  moveable: 1
+  requiredObjectType: 
+  objectType: 3
 --- !u!1 &604787709245700636
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,7 +75,7 @@ GameObject:
   - component: {fileID: 1962714635434685358}
   - component: {fileID: 7947324066527426032}
   - component: {fileID: 4662250880922200514}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: CouchBase-Middle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +167,7 @@ GameObject:
   - component: {fileID: 7882573034888164236}
   - component: {fileID: 6862281966291880392}
   - component: {fileID: 7816864408525111891}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: CouchPillow/Middle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

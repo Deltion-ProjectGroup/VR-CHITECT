@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8847222409359229119}
   - component: {fileID: 9031237965956487321}
   - component: {fileID: 6734155566962727846}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Cube.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,9 +101,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5266491761709726587}
-  m_Layer: 0
+  - component: {fileID: 292558801}
+  - component: {fileID: 292558800}
+  m_Layer: 4
   m_Name: AverageCabinet
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,6 +127,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &292558801
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2754137419063323927}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6894715, y: 0.75461936, z: 0.67230844}
+  m_Center: {x: -0.031232715, y: 0.3630196, z: -0.0037715435}
+--- !u!114 &292558800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2754137419063323927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 0}
+  moveable: 1
+  requiredObjectType: 
+  objectType: 4
 --- !u!1 &5668461891485514009
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +168,7 @@ GameObject:
   - component: {fileID: 2793454177727594486}
   - component: {fileID: 2609731687285175586}
   - component: {fileID: 560901520133820661}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +260,7 @@ GameObject:
   - component: {fileID: 4378958308404855428}
   - component: {fileID: 1587364071486423879}
   - component: {fileID: 8034726594857933202}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Cube.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}

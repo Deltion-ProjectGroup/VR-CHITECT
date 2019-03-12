@@ -9,9 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5191619947616140354}
-  m_Layer: 0
+  - component: {fileID: 1423350715}
+  - component: {fileID: 1423350714}
+  m_Layer: 4
   m_Name: Spiegel
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,6 +36,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1423350715
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3818422169917437300}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6179149, y: 2.2260776, z: 1.027299}
+  m_Center: {x: 0.0011254549, y: 1.0990598, z: -0.0029259324}
+--- !u!114 &1423350714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3818422169917437300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 0}
+  moveable: 1
+  requiredObjectType: 
+  objectType: 3
 --- !u!1 &4641145375127693435
 GameObject:
   m_ObjectHideFlags: 0
@@ -46,7 +77,7 @@ GameObject:
   - component: {fileID: 6767802775394653746}
   - component: {fileID: 6266864141650535443}
   - component: {fileID: 8602411511968994281}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Mirror
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +169,7 @@ GameObject:
   - component: {fileID: 1321283754754114161}
   - component: {fileID: 4213779380747573220}
   - component: {fileID: 5477173338079353178}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Adjustors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +261,7 @@ GameObject:
   - component: {fileID: 4985069603848314944}
   - component: {fileID: 2047059840996605292}
   - component: {fileID: 5853917264575482683}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Schanier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,7 +353,7 @@ GameObject:
   - component: {fileID: 1053592608821012791}
   - component: {fileID: 2243359947340965026}
   - component: {fileID: 726952973868625604}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}

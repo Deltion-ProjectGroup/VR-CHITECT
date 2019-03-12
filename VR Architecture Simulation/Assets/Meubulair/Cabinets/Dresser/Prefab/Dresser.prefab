@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 2936274070618451525}
   - component: {fileID: 638263316949822376}
   - component: {fileID: 8040274750335785247}
+  - component: {fileID: 637855281}
   m_Layer: 4
   m_Name: Dresser
   m_TagString: Interactable
@@ -158,6 +159,22 @@ MonoBehaviour:
   moveable: 1
   requiredObjectType: 01000000
   objectType: 3
+--- !u!114 &637855281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5345558610762903443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 0}
+  moveable: 0
+  requiredObjectType: 
+  objectType: 4
 --- !u!1 &9048343429079561598
 GameObject:
   m_ObjectHideFlags: 0
