@@ -10,8 +10,8 @@ public class Shop : UIMenu
     [SerializeField] SteamVR_Action_Vector2 changeTabTrackpad;
     [SerializeField] SteamVR_Action_Boolean changeTabButton;
     [SerializeField] SteamVR_Action_Boolean selectButton;
-    int selectedHorIndex;
-    int selectedVerIndex;
+    sbyte selectedHorIndex;
+    sbyte selectedVerIndex;
     float verTileDistance;
     [SerializeField] GameObject[] selectionTabs;
     [SerializeField] Animation[] indicatorHolders;
@@ -19,7 +19,7 @@ public class Shop : UIMenu
     [SerializeField] Transform sectionHolder;
     [SerializeField] Transform itemHolder;
     [SerializeField] float tickDelay;
-    [SerializeField] int ticks;
+    [SerializeField] sbyte ticks;
     [SerializeField] GameObject shopItem;
     bool canMove = true;
     bool doneRemoving;
@@ -115,20 +115,20 @@ public class Shop : UIMenu
     {
         placingSystem.SetTrackingObject(Instantiate(objectToPlace, Vector3.zero, Quaternion.identity));
     }
-    IEnumerator ChangeHorIndex(int changeAmount)
+    IEnumerator ChangeHorIndex(sbyte changeAmount)
     {
         canMove = false;
         int previousHorIndex = selectedHorIndex;
         selectedHorIndex += changeAmount;
         if(selectedHorIndex < 0)
         {
-            selectedHorIndex = selectionTabs.Length - 1;
+            selectedHorIndex = (sbyte)(selectionTabs.Length - 1);
         }
         else
         {
             if(selectedHorIndex >= selectionTabs.Length)
             {
-                selectedHorIndex = 0;
+                selectedHorIndex = default;
             }
         }
         float moveAmount = selectionTabs[previousHorIndex].transform.localPosition.x - selectionTabs[selectedHorIndex].transform.localPosition.x;
@@ -136,7 +136,7 @@ public class Shop : UIMenu
         requiredHorPos.x += moveAmount;
         moveAmount /= ticks;
         StartCoroutine(ClearShopItems(false));
-        for (int i = 0; i < ticks; i++)
+        for (sbyte i = 0; i < ticks; i++)
         {
             sectionHolder.localPosition += (new Vector3(moveAmount, 0));
             yield return new WaitForSeconds(tickDelay);
@@ -150,14 +150,14 @@ public class Shop : UIMenu
         doneRemoving = false;
     }
 
-    IEnumerator ChangeVerIndex(int changeAmount)
+    IEnumerator ChangeVerIndex(sbyte changeAmount)
     {
         canMove = false;
         int previousVerIndex = selectedVerIndex;
         selectedVerIndex += changeAmount;
         if (selectedVerIndex < 0)
         {
-            selectedVerIndex = shopButtons.Count - 1;
+            selectedVerIndex = (sbyte)(shopButtons.Count - 1);
         }
         else
         {
@@ -185,7 +185,7 @@ public class Shop : UIMenu
             float newVal = CalcVerDistance();
             newVal *= selectedVerIndex - (shopButtons.Count - 1);
             itemHolder.localPosition += new Vector3(0, newVal);
-            selectedVerIndex = shopButtons.Count - 1;
+            selectedVerIndex = (sbyte)(shopButtons.Count - 1);
             print(newVal);
         }
     }
@@ -215,11 +215,11 @@ public class Shop : UIMenu
     public override IEnumerator Open()
     {
         canMove = false;
-        for(int i = 0; i < indicatorHolders.Length; i++)
+        for(byte i = 0; i < indicatorHolders.Length; i++)
         {
             indicatorHolders[i].Play();
         }
-        for(int i = 0; i < selectionTabs.Length; i++)
+        for(byte i = 0; i < selectionTabs.Length; i++)
         {
             if(i >= selectedHorIndex - 1)
             {
@@ -260,7 +260,7 @@ public class Shop : UIMenu
             Destroy(button);
             shopButtons.RemoveAt(i);
         }
-        for(int i = 0; i < selectionTabs.Length; i++)
+        for(sbyte i = 0; i < selectionTabs.Length; i++)
         {
             selectionTabs[i].transform.localScale = Vector3.zero;
         }

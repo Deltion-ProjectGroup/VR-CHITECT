@@ -7,8 +7,8 @@ public class UISelection : MonoBehaviour
 {
 
     public List<TwoDemensionalGOList> selectableOptions = new List<TwoDemensionalGOList>();
-    int currentHorIndex;
-    int currentVerIndex;
+    sbyte currentHorIndex;
+    sbyte currentVerIndex;
     UIButton currentSelected;
     [SerializeField] bool autoSelect;
     [SerializeField]Vector2 outlineScale;
@@ -18,14 +18,19 @@ public class UISelection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentSelected = selectableOptions[currentVerIndex].xIndexes[currentHorIndex].GetComponent<UIButton>();
-        Outline outline = currentSelected.gameObject.AddComponent<Outline>();
-        outline.effectDistance = outlineScale;
+
     }
 
-    public void Initialize()
+    public void Initialize(bool resetPos = false)
     {
-        currentSelected = selectableOptions[currentHorIndex].xIndexes[currentVerIndex].GetComponent<UIButton>();
+        if (resetPos)
+        {
+            currentHorIndex = default;
+            currentVerIndex = default;
+        }
+        currentSelected = selectableOptions[currentVerIndex].xIndexes[currentHorIndex].GetComponent<UIButton>();
+        Outline newOutline = currentSelected.gameObject.AddComponent<Outline>();
+        newOutline.effectDistance = outlineScale;
     }
 
     // Update is called once per frame
@@ -47,8 +52,8 @@ public class UISelection : MonoBehaviour
         Vector2 changeAmount = new Vector2();
         if (selectButton.GetLastStateDown(InputMan.rightHand))
         {
-            int rawAxisX = Mathf.RoundToInt(trackpadPos.axis.x);
-            int rawAxisY = Mathf.RoundToInt(trackpadPos.axis.y);
+            sbyte rawAxisX = (sbyte)Mathf.RoundToInt(trackpadPos.axis.x);
+            sbyte rawAxisY = (sbyte)Mathf.RoundToInt(trackpadPos.axis.y);
             if (rawAxisX != 0)
             {
                 changeAmount.x = rawAxisX;
@@ -92,30 +97,30 @@ public class UISelection : MonoBehaviour
     public void ChangeSelectPos(Vector2 changeAmount)
     {
         print(changeAmount);
-        currentVerIndex -= (int)changeAmount.y;
+        currentVerIndex -= (sbyte)changeAmount.y;
         Destroy(currentSelected.gameObject.GetComponent<Outline>());
         if(currentVerIndex < 0)
         {
-            currentVerIndex = selectableOptions.Count - 1;
+            currentVerIndex = (sbyte)(selectableOptions.Count - 1);
         }
         else
         {
             if(currentVerIndex >= selectableOptions.Count)
             {
-                currentVerIndex = 0;
+                currentVerIndex = default;
             }
         }
 
-        currentHorIndex += (int)changeAmount.x;
+        currentHorIndex += (sbyte)changeAmount.x;
         if (currentHorIndex < 0)
         {
-            currentHorIndex = selectableOptions[currentVerIndex].xIndexes.Count - 1;
+            currentHorIndex = (sbyte)(selectableOptions[currentVerIndex].xIndexes.Count - 1);
         }
         else
         {
             if (currentHorIndex >= selectableOptions[currentVerIndex].xIndexes.Count)
             {
-                currentHorIndex = 0;
+                currentHorIndex = default;
             }
         }
 

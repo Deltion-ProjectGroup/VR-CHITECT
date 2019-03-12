@@ -5,7 +5,6 @@ using UnityEngine;
 public class PropertiesMenu : UIMenu
 {
     public GameObject targetRN;
-
     UISelection uiSelection;
     GameObject currentPart;
     [SerializeField] Transform materialHolder, tabHolder;
@@ -37,6 +36,7 @@ public class PropertiesMenu : UIMenu
             uiSelection.selectableOptions[0].xIndexes.Add(newButton);
         }
         UpdateProperties(activeTabButtons[0].GetComponent<PropertieTabData>().holdingPart);
+        GetComponent<UISelection>().Initialize(true);
     }
     public void UpdateProperties(GameObject target)
     {
@@ -57,7 +57,6 @@ public class PropertiesMenu : UIMenu
         }
         for(int i = 0; i < target.GetComponent<PartData>().availableMaterials.Length; i++)
         {
-            print(target.GetComponent<PartData>().availableMaterials.Length);
             GameObject newMaterialButton = Instantiate(materialButton, materialHolder);
             newMaterialButton.GetComponent<PropertieMatData>().Initialize(target.GetComponent<PartData>().availableMaterials[i], this);
             activeMaterialButtons.Add(newMaterialButton);

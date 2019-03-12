@@ -2,7 +2,7 @@
 
 public class PropertieMatData : MonoBehaviour
 {
-    Material containedMaterial;
+    public Material containedMaterial;
     PropertiesMenu menu;
 
     public void Select()

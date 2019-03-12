@@ -26,7 +26,7 @@ public class Placer : MonoBehaviour
 
     [Range(0.1f, 1)]
     public float gritTileSize;
-    public int divisionAmount;
+    public sbyte divisionAmount;
     public GameObject tile;
     public Vector2 tileSize;
     public Vector2 gridTileSize;
