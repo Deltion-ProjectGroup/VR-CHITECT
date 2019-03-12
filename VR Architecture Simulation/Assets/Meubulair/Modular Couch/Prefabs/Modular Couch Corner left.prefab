@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4705086237855789795}
   - component: {fileID: 165432199760990499}
   - component: {fileID: 1361855499170291401}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: CouchBase-Corner-Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 6691417314063525605}
   - component: {fileID: 6651905619091646584}
   - component: {fileID: 7530259079648627143}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: CouchPillow-Corner-Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,9 +193,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9189878728074594036}
-  m_Layer: 0
+  - component: {fileID: 5327900278703755516}
+  - component: {fileID: 9001545680873940973}
+  m_Layer: 4
   m_Name: Modular Couch Corner left
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -216,3 +218,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5327900278703755516
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6368860490067324398}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.80158186, y: 0.8122164, z: 0.9783833}
+  m_Center: {x: 0.00016736984, y: 0.40619606, z: -0.0011912584}
+--- !u!114 &9001545680873940973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6368860490067324398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 0}
+  moveable: 1
+  requiredObjectType: 
+  objectType: 3
