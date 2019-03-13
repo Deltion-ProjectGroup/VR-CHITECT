@@ -15,4 +15,13 @@ public static class Attributes
             return true;
         }
     }
+
+    public static GameObject GetAbsoluteParent(this GameObject start)
+    {
+        if(start.transform.parent != null)
+        {
+            return GetAbsoluteParent(start.transform.parent.gameObject);
+        }
+        return start;
+    }
 }
