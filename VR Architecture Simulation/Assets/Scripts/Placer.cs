@@ -48,6 +48,11 @@ public class Placer : MonoBehaviour
             }
             else
             {
+                if (placeButton.GetStateDown(InputMan.leftHand))
+                {
+                    DestroyPlacingObject();
+                    return;
+                }
                 //Snapping
                 ToggleGridSnap();
                 ToggleRotationSnap();
@@ -63,6 +68,15 @@ public class Placer : MonoBehaviour
                 CheckPlacable();
             }
         }
+    }
+    public void DestroyPlacingObject()
+    {
+        Player.canInteract = true;
+        offset = Vector3.zero;
+        UIManager.uiManager.ToggleMenu(UIManager.uiManager.properties);
+        Destroy(trackingObj);
+        trackingObj = null;
+        canSetObject = true;
     }
     public static Vector3 CalculateOffset(Vector3 vertLocalPosition, Transform vertOwner, Vector3 ownerPosition)
     {
