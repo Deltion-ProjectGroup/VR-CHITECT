@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4cf57e164773f684b892323d948ae92c, type: 3}
-  m_Name: MetalGearSolid
+  m_Name: ModernBed
   m_EditorClassIdentifier: 
-  itemName: MetalGearSolid
+  itemName: Bed
   itemIcon: {fileID: 0}
-  itemObject: {fileID: 5345558610762903443, guid: 44a33c0e626e0844a9737e78dcde5d19,
+  itemObject: {fileID: 5207382594207023080, guid: eba009d66a147e446941288845b899ee,
     type: 3}
   itemDiscription: 

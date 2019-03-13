@@ -26,12 +26,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1271180621}
-  m_LocalRotation: {x: -0, y: -0.42064, z: -0, w: 0.90722764}
-  m_LocalPosition: {x: 0, y: 1.268, z: 0}
+  m_LocalRotation: {x: -0.29743734, y: -0.6415069, z: -0.6415068, w: -0.2974375}
+  m_LocalPosition: {x: -0.058007482, y: 0, z: -0.0792377}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 652118265}
-  m_RootOrder: 3
+  m_Father: {fileID: 2074787546243390706}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &1271180625
 Light:
@@ -173,6 +173,7 @@ GameObject:
   - component: {fileID: 2462762327586469285}
   - component: {fileID: 597756417036300762}
   - component: {fileID: 1920303463718693759}
+  - component: {fileID: 2255807858119106617}
   m_Layer: 4
   m_Name: Cube
   m_TagString: Untagged
@@ -239,6 +240,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &2255807858119106617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2255807858119106616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableMaterials:
+  - {fileID: 2100000, guid: 5653267916591734693861537f207514, type: 2}
+  partIcon: {fileID: 0}
+  partname: Lampshade
 --- !u!1 &2502695414403899348
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,6 +267,7 @@ GameObject:
   - component: {fileID: 2074787546243390706}
   - component: {fileID: 3359404470928068393}
   - component: {fileID: 543271060727435369}
+  - component: {fileID: 2502695414403899349}
   m_Layer: 4
   m_Name: Lamp.001
   m_TagString: Untagged
@@ -267,7 +285,8 @@ Transform:
   m_LocalRotation: {x: -0.000000053385083, y: 0.7071068, z: 0.7071067, w: -0.000000053385072}
   m_LocalPosition: {x: -0.058007494, y: 1.3472377, z: 0.00000010064105}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1271180622}
   m_Father: {fileID: 652118265}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -316,6 +335,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &2502695414403899349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2502695414403899348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableMaterials:
+  - {fileID: 2100000, guid: e67cd4c96e5a59a4498b34e5e828a775, type: 2}
+  partIcon: {fileID: 0}
+  partname: Lightbulb
 --- !u!1 &7576625350649504023
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,6 +362,7 @@ GameObject:
   - component: {fileID: 5351120379346867547}
   - component: {fileID: 8400953351425679180}
   - component: {fileID: 4843776200132747771}
+  - component: {fileID: 7576625350649504024}
   m_Layer: 4
   m_Name: LampStand
   m_TagString: Untagged
@@ -393,6 +429,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &7576625350649504024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7576625350649504023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableMaterials:
+  - {fileID: 2100000, guid: f24e02cf1a4372842906d3cf3a27934a, type: 2}
+  partIcon: {fileID: 0}
+  partname: Lamp Stand
 --- !u!1 &8370170595271154909
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,7 +477,6 @@ Transform:
   - {fileID: 2462762327586469285}
   - {fileID: 2074787546243390706}
   - {fileID: 5351120379346867547}
-  - {fileID: 1271180622}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 49.75, z: 0}
@@ -454,7 +505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 0}
+  itemData: {fileID: 11400000, guid: 765d780a35b06834da8fbd72a22cf7ea, type: 2}
   moveable: 1
-  requiredObjectType: 
+  requiredObjectType: 01000000
   objectType: 3

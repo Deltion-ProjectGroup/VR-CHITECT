@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7530928916466139213}
   - component: {fileID: 6165086631339947692}
   - component: {fileID: 8564985679057057424}
+  - component: {fileID: 47102986644000179}
   m_Layer: 4
   m_Name: Laken
   m_TagString: Untagged
@@ -92,6 +93,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300008, guid: b6a8caf5abdae92478c2ba516ccdfe1a, type: 3}
+--- !u!114 &47102986644000179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47102986644000178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableMaterials:
+  - {fileID: 2100000, guid: 19282cd5bf384874ea1ffff9bd3ba443, type: 2}
+  partIcon: {fileID: 0}
+  partname: Bed Sheets
 --- !u!1 &906769885967056301
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,6 +121,7 @@ GameObject:
   - component: {fileID: 3919707925439799779}
   - component: {fileID: 2308389873675262147}
   - component: {fileID: 8564985679057057430}
+  - component: {fileID: 906769885967056302}
   m_Layer: 4
   m_Name: Frame
   m_TagString: Untagged
@@ -184,6 +202,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300006, guid: b6a8caf5abdae92478c2ba516ccdfe1a, type: 3}
+--- !u!114 &906769885967056302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906769885967056301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableMaterials:
+  - {fileID: 2100000, guid: dd7e76f54b218a244b44b76fce7db669, type: 2}
+  partIcon: {fileID: 0}
+  partname: Bed Frame
 --- !u!1 &988067900536007337
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,6 +230,7 @@ GameObject:
   - component: {fileID: 3390781603560104397}
   - component: {fileID: 6558757390597460113}
   - component: {fileID: 8564985679057057428}
+  - component: {fileID: 988067900536007338}
   m_Layer: 4
   m_Name: Kussens
   m_TagString: Untagged
@@ -276,6 +311,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: b6a8caf5abdae92478c2ba516ccdfe1a, type: 3}
+--- !u!114 &988067900536007338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988067900536007337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableMaterials:
+  - {fileID: 2100000, guid: 3c5ff72792130554a810ffd877e1eee8, type: 2}
+  partIcon: {fileID: 0}
+  partname: Pillows
 --- !u!1 &1016136106510613792
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,6 +339,7 @@ GameObject:
   - component: {fileID: 8688756063683293653}
   - component: {fileID: 7325646000023076285}
   - component: {fileID: 8564985679057057426}
+  - component: {fileID: 1016136106510613793}
   m_Layer: 4
   m_Name: Lades
   m_TagString: Untagged
@@ -368,6 +420,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300004, guid: b6a8caf5abdae92478c2ba516ccdfe1a, type: 3}
+--- !u!114 &1016136106510613793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016136106510613792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableMaterials:
+  - {fileID: 2100000, guid: 5fb62213053bbf841992642eb2c5949e, type: 2}
+  partIcon: {fileID: 0}
+  partname: Drawers
 --- !u!1 &5207382594207023080
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,9 +498,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 0}
+  itemData: {fileID: 11400000, guid: 0e4a710dba0af374e90782e4e5af1afd, type: 2}
   moveable: 1
-  requiredObjectType: 
+  requiredObjectType: 01000000
   objectType: 3
 --- !u!1 &9199464416639011701
 GameObject:
@@ -446,6 +514,7 @@ GameObject:
   - component: {fileID: 6375669604931584800}
   - component: {fileID: 8903612461395621447}
   - component: {fileID: 8564985679057057438}
+  - component: {fileID: 9199464416639011702}
   m_Layer: 4
   m_Name: Matras
   m_TagString: Untagged
@@ -526,3 +595,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300002, guid: b6a8caf5abdae92478c2ba516ccdfe1a, type: 3}
+--- !u!114 &9199464416639011702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9199464416639011701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableMaterials:
+  - {fileID: 2100000, guid: 375d654ee574b594f8a41d650ca3fde7, type: 2}
+  partIcon: {fileID: 0}
+  partname: Matress

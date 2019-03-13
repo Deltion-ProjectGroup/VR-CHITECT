@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6192443539700482686}
   - component: {fileID: 797325804}
   - component: {fileID: 797325803}
+  - component: {fileID: 7236553933947097572}
   m_Layer: 4
   m_Name: StaandeLamp1
   m_TagString: Interactable
@@ -104,7 +105,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 0}
+  itemData: {fileID: 11400000, guid: bb36a539f3567394e835c601e3a28ce8, type: 2}
   moveable: 1
-  requiredObjectType: 
+  requiredObjectType: 01000000
   objectType: 3
+--- !u!114 &7236553933947097572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7236553933947097571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableMaterials:
+  - {fileID: 2100000, guid: c7cdf221552fff44893c3e8774f5b169, type: 2}
+  partIcon: {fileID: 0}
+  partname: Lamp Stand

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4cf57e164773f684b892323d948ae92c, type: 3}
-  m_Name: Chair
+  m_Name: Square Standing Lamp
   m_EditorClassIdentifier: 
-  itemName: Chair
+  itemName: Square Standing Lamp
   itemIcon: {fileID: 0}
-  itemObject: {fileID: 5345558610762903443, guid: 44a33c0e626e0844a9737e78dcde5d19,
+  itemObject: {fileID: 8370170595271154909, guid: 954efd804696e1b4dab46de8f58f5ba4,
     type: 3}
   itemDiscription: 

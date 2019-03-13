@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4cf57e164773f684b892323d948ae92c, type: 3}
-  m_Name: MetalGear
+  m_Name: Office Chair
   m_EditorClassIdentifier: 
-  itemName: MetalGear
+  itemName: Office Chair
   itemIcon: {fileID: 0}
-  itemObject: {fileID: 5345558610762903443, guid: 44a33c0e626e0844a9737e78dcde5d19,
+  itemObject: {fileID: 636766898704285064, guid: b4bf42ed44b6c054f9b6a2d86ef8d50d,
     type: 3}
   itemDiscription: 

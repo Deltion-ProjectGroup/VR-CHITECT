@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2284018980315008486}
   - component: {fileID: 7542437058975197025}
   - component: {fileID: 2662285338723347756}
+  - component: {fileID: 690614447432133891}
   m_Layer: 4
   m_Name: Cube.002
   m_TagString: Untagged
@@ -77,6 +78,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &690614447432133891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690614447432133890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableMaterials:
+  - {fileID: 2100000, guid: f3f60ca28fea43b4d8a53a6f4c9e93fe, type: 2}
+  partIcon: {fileID: 0}
+  partname: Cabinet Handle
 --- !u!1 &2169388481148249915
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,9 +154,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 0}
+  itemData: {fileID: 11400000, guid: 08876bd2e8964a2409f4e74e99b63443, type: 2}
   moveable: 1
-  requiredObjectType: 
+  requiredObjectType: 00000000
   objectType: 3
 --- !u!1 &3480184110152918522
 GameObject:
@@ -152,6 +169,7 @@ GameObject:
   - component: {fileID: 979105913453404880}
   - component: {fileID: 6380315069147820126}
   - component: {fileID: 9067339059892522205}
+  - component: {fileID: 3480184110152918523}
   m_Layer: 4
   m_Name: Cube.001
   m_TagString: Untagged
@@ -218,6 +236,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &3480184110152918523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3480184110152918522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableMaterials:
+  - {fileID: 2100000, guid: c59b8e6d7a46b7a40842c07f2fb71a35, type: 2}
+  partIcon: {fileID: 0}
+  partname: Cabinet Door
 --- !u!1 &4534107574832351624
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,6 +263,7 @@ GameObject:
   - component: {fileID: 288049915182402384}
   - component: {fileID: 8475878313120718686}
   - component: {fileID: 6136111326921512066}
+  - component: {fileID: 4534107574832351625}
   m_Layer: 4
   m_Name: Cube
   m_TagString: Untagged
@@ -295,3 +330,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &4534107574832351625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4534107574832351624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableMaterials:
+  - {fileID: 2100000, guid: fc5a62e76a3218e40a5a365dde98d6ca, type: 2}
+  partIcon: {fileID: 0}
+  partname: Cabinet Base

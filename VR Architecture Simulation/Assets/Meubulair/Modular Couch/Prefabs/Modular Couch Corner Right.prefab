@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7382036116630696781}
   - component: {fileID: 3750473325416626262}
   - component: {fileID: 2997979983233778316}
+  - component: {fileID: 1392056227897142133}
   m_Layer: 4
   m_Name: CouchPillow-Corner-Right
   m_TagString: Untagged
@@ -92,6 +93,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 5178f0dd4afcc0f438a6ec98ca801901, type: 3}
+--- !u!114 &1392056227897142133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392056227897142132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableMaterials:
+  - {fileID: 2100000, guid: d8241128632b44a4f83d1d470303d9be, type: 2}
+  partIcon: {fileID: 0}
+  partname: Corner Pillow
 --- !u!1 &3980256044243307134
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,6 +121,7 @@ GameObject:
   - component: {fileID: 3936864215615298357}
   - component: {fileID: 6914042953763030595}
   - component: {fileID: 1026800210070369368}
+  - component: {fileID: 3980256044243307135}
   m_Layer: 4
   m_Name: CouchBase-Corner-Right
   m_TagString: Untagged
@@ -184,6 +202,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300002, guid: 5178f0dd4afcc0f438a6ec98ca801901, type: 3}
+--- !u!114 &3980256044243307135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3980256044243307134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableMaterials:
+  - {fileID: 2100000, guid: e14740c987116e54c881225ebc207cd8, type: 2}
+  partIcon: {fileID: 0}
+  partname: Corner Base
 --- !u!1 &7229036331221859258
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,7 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 0}
+  itemData: {fileID: 11400000, guid: 491fb8526d3d62b41bdb89fdb659ca37, type: 2}
   moveable: 1
-  requiredObjectType: 
+  requiredObjectType: 01000000
   objectType: 3

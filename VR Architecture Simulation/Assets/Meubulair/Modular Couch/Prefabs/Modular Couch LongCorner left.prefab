@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2643040516584312955}
   - component: {fileID: 8539529324652520776}
   - component: {fileID: 7182608331883839231}
+  - component: {fileID: 541975410874351241}
   m_Layer: 4
   m_Name: CouchBase-LongCorner-Left
   m_TagString: Untagged
@@ -92,6 +93,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300002, guid: de6bfd72980bc624fbcc97f1e66fcf84, type: 3}
+--- !u!114 &541975410874351241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541975410874351240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableMaterials:
+  - {fileID: 2100000, guid: 6bd7f525916c65a4f8c60e5c9d27e642, type: 2}
+  partIcon: {fileID: 0}
+  partname: Long Corner Base
 --- !u!1 &3861982673854518487
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,9 +168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 0}
+  itemData: {fileID: 11400000, guid: 9a10a208815f5d24e93815fcf4699f11, type: 2}
   moveable: 1
-  requiredObjectType: 
+  requiredObjectType: 01000000
   objectType: 3
 --- !u!1 &7266295680475034395
 GameObject:
@@ -167,6 +184,7 @@ GameObject:
   - component: {fileID: 565803742829587402}
   - component: {fileID: 511562407247030117}
   - component: {fileID: 6554948866830668844}
+  - component: {fileID: 7266295680475034396}
   m_Layer: 4
   m_Name: CouchPillow-LongCorner-Left
   m_TagString: Untagged
@@ -247,3 +265,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: de6bfd72980bc624fbcc97f1e66fcf84, type: 3}
+--- !u!114 &7266295680475034396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7266295680475034395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableMaterials:
+  - {fileID: 2100000, guid: f5576614491729b4d9fba16bcc331253, type: 2}
+  partIcon: {fileID: 0}
+  partname: Long Corner Pillow

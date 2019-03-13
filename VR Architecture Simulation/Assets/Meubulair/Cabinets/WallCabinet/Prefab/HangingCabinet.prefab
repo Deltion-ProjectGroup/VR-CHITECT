@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1582433259176498924}
   - component: {fileID: 7346255528830759040}
   - component: {fileID: 220335198444872393}
+  - component: {fileID: 2723263037534490078}
   m_Layer: 4
   m_Name: Cube.001
   m_TagString: Untagged
@@ -92,6 +93,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300002, guid: 56b495f8663e11e4183522e830050ec9, type: 3}
+--- !u!114 &2723263037534490078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2723263037534490077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableMaterials:
+  - {fileID: 2100000, guid: 8666fa8b76a502443b59a471bdb32759, type: 2}
+  partIcon: {fileID: 0}
+  partname: Cabinet Door
 --- !u!1 &4347899372557972632
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,10 +169,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 0}
+  itemData: {fileID: 11400000, guid: 205f8b3d48a1eb444ace756b1c918ed7, type: 2}
   moveable: 1
-  requiredObjectType: 
-  objectType: 3
+  requiredObjectType: 00000000
+  objectType: 4
 --- !u!1 &7961884844052447659
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,6 +185,7 @@ GameObject:
   - component: {fileID: 1738681348183035535}
   - component: {fileID: 6770487565714008441}
   - component: {fileID: 6264395016825703991}
+  - component: {fileID: 7961884844052447660}
   m_Layer: 4
   m_Name: Cube.002
   m_TagString: Untagged
@@ -248,6 +266,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 56b495f8663e11e4183522e830050ec9, type: 3}
+--- !u!114 &7961884844052447660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7961884844052447659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableMaterials:
+  - {fileID: 2100000, guid: 38ddf6279f8947941b25e227890be8c9, type: 2}
+  partIcon: {fileID: 0}
+  partname: Cabinet Handle
 --- !u!1 &8366697474270381033
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,6 +294,7 @@ GameObject:
   - component: {fileID: 8557769767102734201}
   - component: {fileID: 4276778501899872393}
   - component: {fileID: 3465805806948176617}
+  - component: {fileID: 8366697474270381034}
   m_Layer: 4
   m_Name: Cube
   m_TagString: Untagged
@@ -340,3 +375,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300004, guid: 56b495f8663e11e4183522e830050ec9, type: 3}
+--- !u!114 &8366697474270381034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8366697474270381033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableMaterials:
+  - {fileID: 2100000, guid: 0c63f1a011318bb458b9f56220625b22, type: 2}
+  partIcon: {fileID: 0}
+  partname: Cabinet Base

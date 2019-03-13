@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2608887983118512155}
   - component: {fileID: 3981550189107381324}
   - component: {fileID: 4943113891772028869}
+  - component: {fileID: 2729766265062064465}
   m_Layer: 4
   m_Name: Lade
   m_TagString: Untagged
@@ -92,6 +93,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 4cd4336bbfe428a46ad2cfce8679ccfb, type: 3}
+--- !u!114 &2729766265062064465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2729766265062064464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableMaterials:
+  - {fileID: 2100000, guid: 5822423119d17c44c811e0acafde6c60, type: 2}
+  partIcon: {fileID: 0}
+  partname: Nightstand Drawers
 --- !u!1 &7064653988235344570
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,9 +168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 0}
+  itemData: {fileID: 11400000, guid: 168943a7e6ca0ad409ebdead885f84c0, type: 2}
   moveable: 1
-  requiredObjectType: 
+  requiredObjectType: 01000000
   objectType: 4
 --- !u!1 &7273696932914200412
 GameObject:
@@ -167,6 +184,7 @@ GameObject:
   - component: {fileID: 1808005718531016702}
   - component: {fileID: 3377626406191203203}
   - component: {fileID: 1020529412426437979}
+  - component: {fileID: 7273696932914200413}
   m_Layer: 4
   m_Name: Base
   m_TagString: Untagged
@@ -247,3 +265,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300002, guid: 4cd4336bbfe428a46ad2cfce8679ccfb, type: 3}
+--- !u!114 &7273696932914200413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7273696932914200412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableMaterials:
+  - {fileID: 2100000, guid: 503086937488ebb47affa2d5b8382e59, type: 2}
+  partIcon: {fileID: 0}
+  partname: Nightstand Base

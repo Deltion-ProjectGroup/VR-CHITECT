@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4cf57e164773f684b892323d948ae92c, type: 3}
-  m_Name: WoodChair
+  m_Name: LowCabinet
   m_EditorClassIdentifier: 
-  itemName: WoodChair
+  itemName: Low Cabinet
   itemIcon: {fileID: 0}
-  itemObject: {fileID: 5345558610762903443, guid: 44a33c0e626e0844a9737e78dcde5d19,
+  itemObject: {fileID: 3517245197438806330, guid: a7b9fcae0dad1f045b7d3216fad9f147,
     type: 3}
   itemDiscription: 

@@ -91,10 +91,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   availableMaterials:
-  - {fileID: 2100000, guid: e027e540c36bfcb48abe2c620eda21c0, type: 2}
-  - {fileID: 2100000, guid: aa587069092ad614eab6b0d694a87c96, type: 2}
+  - {fileID: 2100000, guid: 97d447e0ec235e847878a7d473c53c76, type: 2}
   partIcon: {fileID: 0}
-  partname: 
+  partname: Dresser Drawers
 --- !u!1 &5345558610762903443
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,9 +170,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 0}
+  itemData: {fileID: 11400000, guid: f06f3694f29d1fe42ba3a72ca76c41b1, type: 2}
   moveable: 0
-  requiredObjectType: 
+  requiredObjectType: 01000000
   objectType: 4
 --- !u!1 &9048343429079561598
 GameObject:
@@ -266,7 +265,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   availableMaterials:
-  - {fileID: 2100000, guid: e027e540c36bfcb48abe2c620eda21c0, type: 2}
-  - {fileID: 2100000, guid: aa587069092ad614eab6b0d694a87c96, type: 2}
+  - {fileID: 2100000, guid: 84544d364df71f94bbc818c0bc17de4b, type: 2}
   partIcon: {fileID: 0}
-  partname: 
+  partname: Dresser Base

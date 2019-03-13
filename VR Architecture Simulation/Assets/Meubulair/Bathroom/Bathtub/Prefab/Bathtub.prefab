@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7820176489480666410}
   - component: {fileID: 830553103}
   - component: {fileID: 830553102}
+  - component: {fileID: 1232778104337218021}
   m_Layer: 4
   m_Name: Bathtub
   m_TagString: Interactable
@@ -104,7 +105,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 0}
+  itemData: {fileID: 11400000, guid: bac1cd4c81e2ab14e8050f4bdeab5b58, type: 2}
   moveable: 1
-  requiredObjectType: 
+  requiredObjectType: 01000000
   objectType: 3
+--- !u!114 &1232778104337218021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232778104337218020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableMaterials:
+  - {fileID: 2100000, guid: 945716bb83f8a7d4590dcdd203825a03, type: 2}
+  partIcon: {fileID: 0}
+  partname: Bathtub

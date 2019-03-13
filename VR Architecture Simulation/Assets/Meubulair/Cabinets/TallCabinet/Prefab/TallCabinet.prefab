@@ -59,9 +59,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 0}
+  itemData: {fileID: 11400000, guid: 0b58053822312c147a9a0314c3689aaf, type: 2}
   moveable: 1
-  requiredObjectType: 
+  requiredObjectType: 01000000
   objectType: 3
 --- !u!1 &7742979884733649560
 GameObject:
@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 9072190433508947863}
   - component: {fileID: 7022590047858236547}
   - component: {fileID: 4597507774103825239}
+  - component: {fileID: 7742979884733649561}
   m_Layer: 4
   m_Name: Tall Cabinet
   m_TagString: Untagged
@@ -155,6 +156,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300002, guid: f71ca2125d6aa8549a737c473a07a42b, type: 3}
+--- !u!114 &7742979884733649561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7742979884733649560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableMaterials:
+  - {fileID: 2100000, guid: 525fa227cbb247c42bb3a9c4e8e22d76, type: 2}
+  partIcon: {fileID: 0}
+  partname: Cabinet Base
 --- !u!1 &8409234351818947719
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,6 +184,7 @@ GameObject:
   - component: {fileID: 3578103236107252056}
   - component: {fileID: 2718414926689780643}
   - component: {fileID: 1661874318961772968}
+  - component: {fileID: 8409234351818947720}
   m_Layer: 4
   m_Name: Tall CabinetHandle
   m_TagString: Untagged
@@ -247,3 +265,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: f71ca2125d6aa8549a737c473a07a42b, type: 3}
+--- !u!114 &8409234351818947720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8409234351818947719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableMaterials:
+  - {fileID: 2100000, guid: 3799d91c73a3b7647965a32f86934366, type: 2}
+  partIcon: {fileID: 0}
+  partname: Cabinet Handles

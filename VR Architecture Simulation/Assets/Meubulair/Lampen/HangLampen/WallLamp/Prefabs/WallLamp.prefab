@@ -27,11 +27,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 251263038}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.168, y: 0.2471, z: 0}
+  m_LocalPosition: {x: -0.16799927, y: 0.2471, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 499889779}
-  m_RootOrder: 3
+  m_Father: {fileID: 442381452341600055}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &251263042
 Light:
@@ -173,6 +173,7 @@ GameObject:
   - component: {fileID: 3277220644022121237}
   - component: {fileID: 1807668455492006064}
   - component: {fileID: 8394572445151579624}
+  - component: {fileID: 1746843016890190507}
   m_Layer: 4
   m_Name: Cube.002
   m_TagString: Untagged
@@ -239,6 +240,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1746843016890190507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746843016890190506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableMaterials:
+  - {fileID: 2100000, guid: 09619ebfb9a29134aaf414457ba7a402, type: 2}
+  partIcon: {fileID: 0}
+  partname: Lampshade
 --- !u!1 &3617515760983542701
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,6 +267,7 @@ GameObject:
   - component: {fileID: 442381452341600055}
   - component: {fileID: 7453380119010825881}
   - component: {fileID: 1881746166017874232}
+  - component: {fileID: 3617515760983542702}
   m_Layer: 4
   m_Name: Lamp.001
   m_TagString: Untagged
@@ -267,7 +285,8 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 251263039}
   m_Father: {fileID: 499889779}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -316,6 +335,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &3617515760983542702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3617515760983542701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableMaterials:
+  - {fileID: 2100000, guid: 940a1408daf6be24bbf019b7a00e49d7, type: 2}
+  partIcon: {fileID: 0}
+  partname: Lightbulb
 --- !u!1 &6065457083723360316
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,7 +383,6 @@ Transform:
   - {fileID: 6763007091651981393}
   - {fileID: 3277220644022121237}
   - {fileID: 442381452341600055}
-  - {fileID: 251263039}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -377,9 +411,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 0}
+  itemData: {fileID: 11400000, guid: 91f3c58e46513bc4cbced098fd22a0a8, type: 2}
   moveable: 1
-  requiredObjectType: 
+  requiredObjectType: 00000000
   objectType: 3
 --- !u!1 &7097539909273910162
 GameObject:
@@ -392,6 +426,7 @@ GameObject:
   - component: {fileID: 6763007091651981393}
   - component: {fileID: 3534045073626541981}
   - component: {fileID: 3809127482234620977}
+  - component: {fileID: 7097539909273910163}
   m_Layer: 4
   m_Name: Cube
   m_TagString: Untagged
@@ -458,3 +493,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &7097539909273910163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7097539909273910162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableMaterials:
+  - {fileID: 2100000, guid: b61f2056c1721b94a9a86dc1924f20fe, type: 2}
+  partIcon: {fileID: 0}
+  partname: Lamp Base

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4476381582198490237}
   - component: {fileID: 1121314209130754626}
   - component: {fileID: 5253347157835951909}
+  - component: {fileID: 2979556746767627225}
   m_Layer: 4
   m_Name: PaintingFrame_Standing
   m_TagString: Untagged
@@ -93,6 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300002, guid: 0206fa1c8cf7e32408806257cc91f77c, type: 3}
+--- !u!114 &2979556746767627225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2979556746767627224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableMaterials:
+  - {fileID: 2100000, guid: 2c628fe27f2cd0e40a75ebd0e575ec0a, type: 2}
+  partIcon: {fileID: 0}
+  partname: Picture Frame
 --- !u!1 &3791898480770779489
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,9 +169,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 0}
+  itemData: {fileID: 11400000, guid: 6d65e4de86c548d49886b9c542c85ab7, type: 2}
   moveable: 1
-  requiredObjectType: 
+  requiredObjectType: 0100000004000000
   objectType: 3
 --- !u!1 &7694844710836305735
 GameObject:
@@ -168,6 +185,7 @@ GameObject:
   - component: {fileID: 7637974346142943628}
   - component: {fileID: 6079943199545554181}
   - component: {fileID: 1321035496883323110}
+  - component: {fileID: 7694844710836305736}
   m_Layer: 4
   m_Name: Standard
   m_TagString: Untagged
@@ -248,3 +266,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 0206fa1c8cf7e32408806257cc91f77c, type: 3}
+--- !u!114 &7694844710836305736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7694844710836305735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableMaterials:
+  - {fileID: 2100000, guid: 0c55cc8342ce62443928c821da791863, type: 2}
+  partIcon: {fileID: 0}
+  partname: Frame Standard
