@@ -111,7 +111,7 @@ public class Placer : MonoBehaviour
         }
         else
         {
-            if (snappingPosition && hitData.transform.gameObject.GetComponent<PlacedObject>().objectType != ObjectTypes.Wall)
+            if (snappingPosition && hitData.transform.gameObject.GetAbsoluteParent().GetComponent<PlacedObject>().objectType != ObjectTypes.Wall)
             {
                 hitPoint.x = Mathf.RoundToInt(hitPoint.x / gritTileSize) * gritTileSize;
                 hitPoint.z = Mathf.RoundToInt(hitPoint.z / gritTileSize) * gritTileSize;
@@ -145,15 +145,25 @@ public class Placer : MonoBehaviour
     }
     public void SetTrackingObject(GameObject thisObject)
     {
+        thisObject = thisObject.GetAbsoluteParent();
         if(trackingObj == null && canSetObject)
         {
             canSetObject = false;
             trackingObj = thisObject;
-            trackingObj.GetComponent<Collider>().enabled = false;
             List<PlacementPart> allObjectMaterials = new List<PlacementPart>();
-            for(int i = 0; i < thisObject.transform.childCount; i++)
+            if(thisObject.transform.childCount > 0)
             {
-                allObjectMaterials.Add(new PlacementPart(thisObject.transform.GetChild(i).gameObject));
+                for (int i = 0; i < thisObject.transform.childCount; i++)
+                {
+                    thisObject.transform.GetChild(i).GetComponent<Collider>().enabled = false;
+                    allObjectMaterials.Add(new PlacementPart(thisObject.transform.GetChild(i).gameObject));
+                    allObjectMaterials[allObjectMaterials.Count - 1].part.GetComponent<MeshRenderer>().material = placementMaterial;
+                }
+            }
+            else
+            {
+                thisObject.GetComponent<Collider>().enabled = false;
+                allObjectMaterials.Add(new PlacementPart(thisObject));
                 allObjectMaterials[allObjectMaterials.Count - 1].part.GetComponent<MeshRenderer>().material = placementMaterial;
             }
             ogPartData = allObjectMaterials.ToArray();
@@ -177,7 +187,17 @@ public class Placer : MonoBehaviour
         trackingObj = null;
         yield return null;
         canSetObject = true;
-        oldTracker.GetComponent<Collider>().enabled = true;
+        if(oldTracker.transform.childCount > 0)
+        {
+            for(int i = 0; i < oldTracker.transform.childCount; i++)
+            {
+                oldTracker.transform.GetChild(i).gameObject.GetComponent<Collider>().enabled = true;
+            }
+        }
+        else
+        {
+            oldTracker.GetComponent<Collider>().enabled = true;
+        }
     }
     void ToggleGridSnap()
     {
@@ -301,7 +321,7 @@ public class Placer : MonoBehaviour
         Collider[] collisions = Physics.OverlapBox(trackingObj.transform.position + trackingObj.GetComponent<BoxCollider>().center, trackingObj.GetComponent<BoxCollider>().size / 2, trackingObj.transform.rotation);
         foreach(Collider col in collisions)
         {
-            if(col.gameObject != trackingObj)
+            if(col.gameObject.GetAbsoluteParent() != trackingObj)
             {
                 print("COLLIDED");
                 placementMaterial.SetColor("_BaseColor", cannotPlaceColor);
@@ -314,7 +334,7 @@ public class Placer : MonoBehaviour
             bool found = false; ;
             foreach (ObjectTypes type in trackingObj.GetComponent<PlacedObject>().requiredObjectType)
             {
-                if(type == hitObject.transform.GetComponent<PlacedObject>().objectType)
+                if(type == hitObject.transform.gameObject.GetAbsoluteParent().GetComponent<PlacedObject>().objectType)
                 {
                     found = true;
                 }

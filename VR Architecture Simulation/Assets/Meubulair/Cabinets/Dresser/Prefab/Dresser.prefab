@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 815596850942392318}
   - component: {fileID: 3287318934105505830}
   - component: {fileID: 1956748450344411203}
+  - component: {fileID: 1988750545043067835}
   m_Layer: 4
   m_Name: Lades
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,6 +95,20 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 97d447e0ec235e847878a7d473c53c76, type: 2}
   partIcon: {fileID: 0}
   partname: Dresser Drawers
+--- !u!64 &1988750545043067835
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504477231018732643}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300002, guid: 321b019f46804a04e979f2f0ca591eb0, type: 3}
 --- !u!1 &5345558610762903443
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,9 +201,10 @@ GameObject:
   - component: {fileID: 6268502043254358977}
   - component: {fileID: 4121728731912748201}
   - component: {fileID: 1317729008982459335}
+  - component: {fileID: 6762796000110501320}
   m_Layer: 4
   m_Name: Base
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -268,3 +284,17 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 84544d364df71f94bbc818c0bc17de4b, type: 2}
   partIcon: {fileID: 0}
   partname: Dresser Base
+--- !u!64 &6762796000110501320
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9048343429079561598}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 321b019f46804a04e979f2f0ca591eb0, type: 3}

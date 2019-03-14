@@ -7,14 +7,7 @@ public static class Attributes
     public static List<GameObject> allChildren = new List<GameObject>();
     public static bool ToggleBool(this bool boolToToggle)
     {
-        if (boolToToggle)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+        return !boolToToggle;
     }
 
     public static GameObject GetAbsoluteParent(this GameObject start)

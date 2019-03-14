@@ -74,11 +74,11 @@ GameObject:
   - component: {fileID: 2054285396923946622}
   - component: {fileID: 1962714635434685358}
   - component: {fileID: 7947324066527426032}
-  - component: {fileID: 4662250880922200514}
   - component: {fileID: 604787709245700637}
+  - component: {fileID: 2599953723014768806}
   m_Layer: 4
   m_Name: CouchBase-Middle
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,20 +142,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &4662250880922200514
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 604787709245700636}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300002, guid: e63a2024a58972e40a00b296757b7fd8, type: 3}
 --- !u!114 &604787709245700637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,6 +158,20 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 69ab4b419cf29fa41a23c0ca9d9f924d, type: 2}
   partIcon: {fileID: 0}
   partname: Couch Base
+--- !u!64 &2599953723014768806
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604787709245700636}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300002, guid: e63a2024a58972e40a00b296757b7fd8, type: 3}
 --- !u!1 &4713012720445569520
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,11 +183,11 @@ GameObject:
   - component: {fileID: 2144784229162886951}
   - component: {fileID: 7882573034888164236}
   - component: {fileID: 6862281966291880392}
-  - component: {fileID: 7816864408525111891}
   - component: {fileID: 4713012720445569521}
+  - component: {fileID: 5830914843710989258}
   m_Layer: 4
   m_Name: CouchPillow/Middle
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -251,20 +251,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &7816864408525111891
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4713012720445569520}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: e63a2024a58972e40a00b296757b7fd8, type: 3}
 --- !u!114 &4713012720445569521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,3 +267,17 @@ MonoBehaviour:
   - {fileID: 2100000, guid: b40b7d88fd88fa4418f9b3f4347f9cb8, type: 2}
   partIcon: {fileID: 0}
   partname: Couch Pillow
+--- !u!64 &5830914843710989258
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4713012720445569520}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: e63a2024a58972e40a00b296757b7fd8, type: 3}

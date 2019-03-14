@@ -9,7 +9,7 @@ public class Options : UIMenu
     // Start is called before the first frame update
     void Start()
     {
-        UpdateGridDivision(Placer.placer.divisionAmount);
+        UpdateGridDivision(Placer.placer.gritTileSize);
         //UpdateRotationSnap(Placer.placer.rotateTurnAmount);
     }
 
@@ -34,6 +34,7 @@ public class Options : UIMenu
     }
     public override IEnumerator Open()
     {
+        GetComponent<UISelection>().Initialize(false);
         yield return null;
         UIManager.uiManager.canToggle = true;
     }

@@ -174,9 +174,10 @@ GameObject:
   - component: {fileID: 597756417036300762}
   - component: {fileID: 1920303463718693759}
   - component: {fileID: 2255807858119106617}
+  - component: {fileID: 3230712602348430064}
   m_Layer: 4
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -256,6 +257,20 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 5653267916591734693861537f207514, type: 2}
   partIcon: {fileID: 0}
   partname: Lampshade
+--- !u!64 &3230712602348430064
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2255807858119106616}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300002, guid: ce865dc06a9dc3442ac5bc4475555401, type: 3}
 --- !u!1 &2502695414403899348
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,9 +283,10 @@ GameObject:
   - component: {fileID: 3359404470928068393}
   - component: {fileID: 543271060727435369}
   - component: {fileID: 2502695414403899349}
+  - component: {fileID: 8538899858007475699}
   m_Layer: 4
   m_Name: Lamp.001
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -351,6 +367,20 @@ MonoBehaviour:
   - {fileID: 2100000, guid: e67cd4c96e5a59a4498b34e5e828a775, type: 2}
   partIcon: {fileID: 0}
   partname: Lightbulb
+--- !u!64 &8538899858007475699
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2502695414403899348}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: ce865dc06a9dc3442ac5bc4475555401, type: 3}
 --- !u!1 &7576625350649504023
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,9 +393,10 @@ GameObject:
   - component: {fileID: 8400953351425679180}
   - component: {fileID: 4843776200132747771}
   - component: {fileID: 7576625350649504024}
+  - component: {fileID: 838783419597724213}
   m_Layer: 4
   m_Name: LampStand
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -445,6 +476,20 @@ MonoBehaviour:
   - {fileID: 2100000, guid: f24e02cf1a4372842906d3cf3a27934a, type: 2}
   partIcon: {fileID: 0}
   partname: Lamp Stand
+--- !u!64 &838783419597724213
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7576625350649504023}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300004, guid: ce865dc06a9dc3442ac5bc4475555401, type: 3}
 --- !u!1 &8370170595271154909
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 1739647262337875547}
   - component: {fileID: 7530928916466139213}
   - component: {fileID: 6165086631339947692}
-  - component: {fileID: 8564985679057057424}
   - component: {fileID: 47102986644000179}
+  - component: {fileID: 2217962302297968722}
   m_Layer: 4
   m_Name: Laken
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,20 +79,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &8564985679057057424
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 47102986644000178}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300008, guid: b6a8caf5abdae92478c2ba516ccdfe1a, type: 3}
 --- !u!114 &47102986644000179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,6 +95,20 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 19282cd5bf384874ea1ffff9bd3ba443, type: 2}
   partIcon: {fileID: 0}
   partname: Bed Sheets
+--- !u!64 &2217962302297968722
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47102986644000178}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300008, guid: b6a8caf5abdae92478c2ba516ccdfe1a, type: 3}
 --- !u!1 &906769885967056301
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,11 +120,11 @@ GameObject:
   - component: {fileID: 1283765819559691253}
   - component: {fileID: 3919707925439799779}
   - component: {fileID: 2308389873675262147}
-  - component: {fileID: 8564985679057057430}
   - component: {fileID: 906769885967056302}
+  - component: {fileID: 1805472896931633503}
   m_Layer: 4
   m_Name: Frame
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -188,20 +188,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &8564985679057057430
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 906769885967056301}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300006, guid: b6a8caf5abdae92478c2ba516ccdfe1a, type: 3}
 --- !u!114 &906769885967056302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,6 +204,20 @@ MonoBehaviour:
   - {fileID: 2100000, guid: dd7e76f54b218a244b44b76fce7db669, type: 2}
   partIcon: {fileID: 0}
   partname: Bed Frame
+--- !u!64 &1805472896931633503
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906769885967056301}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300006, guid: b6a8caf5abdae92478c2ba516ccdfe1a, type: 3}
 --- !u!1 &988067900536007337
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,11 +229,11 @@ GameObject:
   - component: {fileID: 2984097871136236314}
   - component: {fileID: 3390781603560104397}
   - component: {fileID: 6558757390597460113}
-  - component: {fileID: 8564985679057057428}
   - component: {fileID: 988067900536007338}
+  - component: {fileID: 2238923284524588722}
   m_Layer: 4
   m_Name: Kussens
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -297,20 +297,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &8564985679057057428
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 988067900536007337}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: b6a8caf5abdae92478c2ba516ccdfe1a, type: 3}
 --- !u!114 &988067900536007338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,6 +313,20 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3c5ff72792130554a810ffd877e1eee8, type: 2}
   partIcon: {fileID: 0}
   partname: Pillows
+--- !u!64 &2238923284524588722
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988067900536007337}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: b6a8caf5abdae92478c2ba516ccdfe1a, type: 3}
 --- !u!1 &1016136106510613792
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,11 +338,11 @@ GameObject:
   - component: {fileID: 5219342781000177183}
   - component: {fileID: 8688756063683293653}
   - component: {fileID: 7325646000023076285}
-  - component: {fileID: 8564985679057057426}
   - component: {fileID: 1016136106510613793}
+  - component: {fileID: 447519926683330296}
   m_Layer: 4
   m_Name: Lades
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -406,20 +406,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &8564985679057057426
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1016136106510613792}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300004, guid: b6a8caf5abdae92478c2ba516ccdfe1a, type: 3}
 --- !u!114 &1016136106510613793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,6 +422,20 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 5fb62213053bbf841992642eb2c5949e, type: 2}
   partIcon: {fileID: 0}
   partname: Drawers
+--- !u!64 &447519926683330296
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016136106510613792}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300004, guid: b6a8caf5abdae92478c2ba516ccdfe1a, type: 3}
 --- !u!1 &5207382594207023080
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,11 +513,11 @@ GameObject:
   - component: {fileID: 5079301373052837978}
   - component: {fileID: 6375669604931584800}
   - component: {fileID: 8903612461395621447}
-  - component: {fileID: 8564985679057057438}
   - component: {fileID: 9199464416639011702}
+  - component: {fileID: 6411167150487129807}
   m_Layer: 4
   m_Name: Matras
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -581,20 +581,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &8564985679057057438
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9199464416639011701}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300002, guid: b6a8caf5abdae92478c2ba516ccdfe1a, type: 3}
 --- !u!114 &9199464416639011702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -611,3 +597,17 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 375d654ee574b594f8a41d650ca3fde7, type: 2}
   partIcon: {fileID: 0}
   partname: Matress
+--- !u!64 &6411167150487129807
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9199464416639011701}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300002, guid: b6a8caf5abdae92478c2ba516ccdfe1a, type: 3}

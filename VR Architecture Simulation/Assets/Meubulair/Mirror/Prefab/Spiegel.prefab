@@ -76,11 +76,11 @@ GameObject:
   - component: {fileID: 4933826784220709716}
   - component: {fileID: 6767802775394653746}
   - component: {fileID: 6266864141650535443}
-  - component: {fileID: 8602411511968994281}
   - component: {fileID: 4641145375127693436}
+  - component: {fileID: 7734836341061181212}
   m_Layer: 4
   m_Name: Mirror
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,20 +144,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &8602411511968994281
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4641145375127693435}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300004, guid: 35aa4efa4be717f4f894f267e03c1bfc, type: 3}
 --- !u!114 &4641145375127693436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,6 +160,20 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 811792b1c550e334bbb011b4a7624f18, type: 2}
   partIcon: {fileID: 0}
   partname: Mirror
+--- !u!64 &7734836341061181212
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4641145375127693435}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300004, guid: 35aa4efa4be717f4f894f267e03c1bfc, type: 3}
 --- !u!1 &6399349731535805652
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,11 +185,11 @@ GameObject:
   - component: {fileID: 6899125752907490824}
   - component: {fileID: 1321283754754114161}
   - component: {fileID: 4213779380747573220}
-  - component: {fileID: 5477173338079353178}
   - component: {fileID: 6399349731535805653}
+  - component: {fileID: 6171602013612205560}
   m_Layer: 4
   m_Name: Adjustors
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -253,20 +253,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &5477173338079353178
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6399349731535805652}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300002, guid: 35aa4efa4be717f4f894f267e03c1bfc, type: 3}
 --- !u!114 &6399349731535805653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,6 +269,20 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 30152a9553b5e824bbabc0944c41c2b5, type: 2}
   partIcon: {fileID: 0}
   partname: Adjustors
+--- !u!64 &6171602013612205560
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6399349731535805652}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300002, guid: 35aa4efa4be717f4f894f267e03c1bfc, type: 3}
 --- !u!1 &6500128032535914856
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,11 +294,11 @@ GameObject:
   - component: {fileID: 6771318229318595968}
   - component: {fileID: 4985069603848314944}
   - component: {fileID: 2047059840996605292}
-  - component: {fileID: 5853917264575482683}
   - component: {fileID: 6500128032535914857}
+  - component: {fileID: 1579977187749747409}
   m_Layer: 4
   m_Name: Schanier
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -362,20 +362,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &5853917264575482683
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6500128032535914856}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: 35aa4efa4be717f4f894f267e03c1bfc, type: 3}
 --- !u!114 &6500128032535914857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,6 +378,20 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 07d8ad8bfd6080c4e936de771f8211ac, type: 2}
   partIcon: {fileID: 0}
   partname: Hinges
+--- !u!64 &1579977187749747409
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6500128032535914856}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 35aa4efa4be717f4f894f267e03c1bfc, type: 3}
 --- !u!1 &6752892018389473254
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,11 +403,11 @@ GameObject:
   - component: {fileID: 8094566457598350615}
   - component: {fileID: 1053592608821012791}
   - component: {fileID: 2243359947340965026}
-  - component: {fileID: 726952973868625604}
   - component: {fileID: 6752892018389473255}
+  - component: {fileID: 8540904624334451335}
   m_Layer: 4
   m_Name: Frame
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -471,20 +471,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &726952973868625604
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6752892018389473254}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300006, guid: 35aa4efa4be717f4f894f267e03c1bfc, type: 3}
 --- !u!114 &6752892018389473255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,3 +487,17 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 22aefc9e1b9cd5a4f803670f44161724, type: 2}
   partIcon: {fileID: 0}
   partname: Stand
+--- !u!64 &8540904624334451335
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6752892018389473254}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300006, guid: 35aa4efa4be717f4f894f267e03c1bfc, type: 3}

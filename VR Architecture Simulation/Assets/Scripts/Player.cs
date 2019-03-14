@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] SteamVR_Action_Boolean interactButton;
     [SerializeField] SteamVR_Action_Boolean teleportButton;
     [SerializeField] SteamVR_Action_Boolean snapButton;
+    [SerializeField] SteamVR_Action_Boolean duplicateButton;
     LineRenderer pointer;
     bool teleporting;
     GameObject lastHoveredSnapObject;
@@ -59,6 +60,14 @@ public class Player : MonoBehaviour
     }
     void Interaction(RaycastHit hitPoint)
     {
+        if (duplicateButton.GetStateDown(InputMan.leftHand) && Placer.placer.canSetObject)
+        {
+            if(hitPoint.transform.tag == "Interactable")
+            {
+                Placer.placer.SetTrackingObject(Instantiate(hitPoint.transform.gameObject.GetAbsoluteParent()));
+            }
+        }
+
         if (interactButton.GetStateDown(InputMan.rightHand) && canInteract)
         {
             if (lastHoveredSnapObject != null)
@@ -70,7 +79,7 @@ public class Player : MonoBehaviour
             {
                 if (hitPoint.transform.tag == "Interactable")
                 {
-                    hitPoint.transform.GetComponent<Interactable>().Interact();
+                    hitPoint.transform.gameObject.GetAbsoluteParent().GetComponent<Interactable>().Interact();
                 }
             }
         }
@@ -88,12 +97,26 @@ public class Player : MonoBehaviour
             Ray ray = new Ray(rightHandGO.transform.position, rightHandGO.transform.forward);
             if (Physics.Raycast(ray, out hit, 1000f, snapMask, QueryTriggerInteraction.Ignore))
             {
-                lastHoveredSnapObject = hit.transform.gameObject;
+                lastHoveredSnapObject = hit.transform.gameObject.GetAbsoluteParent();
                 nearestVert = Vector3.zero;
                 float nearestVertDistance = Mathf.Infinity;
-                foreach (Transform child in hit.transform)
+                if(hit.transform.childCount > 0)
                 {
-                    foreach (Vector3 vert in child.GetComponent<MeshFilter>().mesh.vertices)
+                    foreach (Transform child in hit.transform)
+                    {
+                        foreach (Vector3 vert in child.GetComponent<MeshFilter>().mesh.vertices)
+                        {
+                            if (Vector3.Distance(hit.point, hit.transform.TransformPoint(vert)) < nearestVertDistance)
+                            {
+                                nearestVert = vert;
+                                nearestVertDistance = Vector3.Distance(hit.point, hit.transform.TransformPoint(vert));
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (Vector3 vert in hit.transform.GetComponent<MeshFilter>().mesh.vertices)
                     {
                         if (Vector3.Distance(hit.point, hit.transform.TransformPoint(vert)) < nearestVertDistance)
                         {

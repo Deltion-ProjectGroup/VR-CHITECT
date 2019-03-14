@@ -237,9 +237,10 @@ GameObject:
   - component: {fileID: 2889176037720952713}
   - component: {fileID: 3093425752781132140}
   - component: {fileID: 7066098796180037655}
+  - component: {fileID: 5473963072539392638}
   m_Layer: 4
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -319,6 +320,20 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 900fa2269cf571b43bef00f5ba1a2f72, type: 2}
   partIcon: {fileID: 0}
   partname: Lamp Base
+--- !u!64 &5473963072539392638
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7066098796180037654}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300002, guid: 6f2b1d4912e2cbd4ebd21fc93583ad56, type: 3}
 --- !u!1 &8552848719361444352
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,9 +346,10 @@ GameObject:
   - component: {fileID: 6640683210565124669}
   - component: {fileID: 3978094404535028857}
   - component: {fileID: 8552848719361444353}
+  - component: {fileID: 2378792944129210972}
   m_Layer: 4
   m_Name: Cube.002
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -414,3 +430,17 @@ MonoBehaviour:
   - {fileID: 2100000, guid: b1aacd92d1464aa4c80cb87ea89e5c47, type: 2}
   partIcon: {fileID: 0}
   partname: Lampshade
+--- !u!64 &2378792944129210972
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8552848719361444352}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 6f2b1d4912e2cbd4ebd21fc93583ad56, type: 3}

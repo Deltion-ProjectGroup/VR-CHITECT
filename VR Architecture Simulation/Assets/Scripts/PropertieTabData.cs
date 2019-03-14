@@ -19,6 +19,6 @@ public class PropertieTabData : MonoBehaviour
     {
         menu = propMenu;
         holdingPart = thisPart;
-        GetComponent<Image>().sprite = holdingPart.GetComponent<PartData>().partIcon;
+        //GetComponent<Image>().sprite = holdingPart.GetComponent<PartData>().partIcon;
     }
 }

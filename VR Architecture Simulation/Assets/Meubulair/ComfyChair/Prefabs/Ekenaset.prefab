@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 5867944571631510598}
   - component: {fileID: 3369656172785500404}
   - component: {fileID: 3661891665674915865}
-  - component: {fileID: 4004250039390126228}
   - component: {fileID: 2751737218874498009}
+  - component: {fileID: 8231867192738899239}
   m_Layer: 4
   m_Name: Frame
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,20 +79,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &4004250039390126228
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2751737218874498008}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300002, guid: c667394b24ceced458b3ee1f052a69db, type: 3}
 --- !u!114 &2751737218874498009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,6 +95,20 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 236f41ea760bfce41b7dc727bd6a113c, type: 2}
   partIcon: {fileID: 0}
   partname: Chair Frame
+--- !u!64 &8231867192738899239
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2751737218874498008}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300002, guid: c667394b24ceced458b3ee1f052a69db, type: 3}
 --- !u!1 &4244508629077790145
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,11 +120,11 @@ GameObject:
   - component: {fileID: 2507197532156795890}
   - component: {fileID: 3143705189212459654}
   - component: {fileID: 5866563908946466718}
-  - component: {fileID: 6527491758427274589}
   - component: {fileID: 4244508629077790146}
+  - component: {fileID: 7633670999752742115}
   m_Layer: 4
   m_Name: Kussen
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -188,20 +188,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &6527491758427274589
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4244508629077790145}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: c667394b24ceced458b3ee1f052a69db, type: 3}
 --- !u!114 &4244508629077790146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,6 +204,20 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 404808f35b1aaab438ff3e5673433b2a, type: 2}
   partIcon: {fileID: 0}
   partname: Chair Pillow
+--- !u!64 &7633670999752742115
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4244508629077790145}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: c667394b24ceced458b3ee1f052a69db, type: 3}
 --- !u!1 &6103055145530503524
 GameObject:
   m_ObjectHideFlags: 0
