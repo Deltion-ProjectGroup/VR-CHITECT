@@ -30,20 +30,27 @@ public class PropertiesMenu : UIMenu
         }
         if(target.transform.childCount > 0)
         {
-            for (int i = 0; i < target.transform.childCount; i++)
+            GameObject[] allChilds = target.GetAllChildren();
+            for (int i = 0; i < allChilds.Length; i++)
             {
-                GameObject newButton = Instantiate(tabButton, tabHolder);
-                newButton.GetComponent<PropertieTabData>().Initialize(target.transform.GetChild(i).gameObject, this);
-                activeTabButtons.Add(newButton);
-                uiSelection.selectableOptions[0].xIndexes.Add(newButton);
+                if(allChilds[i].GetComponent<PartData>() != null)
+                {
+                    GameObject newButton = Instantiate(tabButton, tabHolder);
+                    newButton.GetComponent<PropertieTabData>().Initialize(allChilds[i], this);
+                    activeTabButtons.Add(newButton);
+                    uiSelection.selectableOptions[0].xIndexes.Add(newButton);
+                }
             }
         }
         else
         {
-            GameObject newButton = Instantiate(tabButton, tabHolder);
-            newButton.GetComponent<PropertieTabData>().Initialize(target, this);
-            activeTabButtons.Add(newButton);
-            uiSelection.selectableOptions[0].xIndexes.Add(newButton);
+            if(target.GetComponent<PartData>() != null)
+            {
+                GameObject newButton = Instantiate(tabButton, tabHolder);
+                newButton.GetComponent<PropertieTabData>().Initialize(target, this);
+                activeTabButtons.Add(newButton);
+                uiSelection.selectableOptions[0].xIndexes.Add(newButton);
+            }
         }
         UpdateProperties(activeTabButtons[0].GetComponent<PropertieTabData>().holdingPart);
         GetComponent<UISelection>().Initialize(true);
