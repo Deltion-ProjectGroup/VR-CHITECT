@@ -153,16 +153,25 @@ public class Placer : MonoBehaviour
             List<PlacementPart> allObjectMaterials = new List<PlacementPart>();
             if(thisObject.transform.childCount > 0)
             {
-                for (int i = 0; i < thisObject.transform.childCount; i++)
+                GameObject[] allChildren = thisObject.GetAllChildren();
+                for (int i = 0; i < allChildren.Length; i++)
                 {
-                    thisObject.transform.GetChild(i).GetComponent<Collider>().enabled = false;
-                    allObjectMaterials.Add(new PlacementPart(thisObject.transform.GetChild(i).gameObject));
-                    allObjectMaterials[allObjectMaterials.Count - 1].part.GetComponent<MeshRenderer>().material = placementMaterial;
+                    GameObject thisChild = allChildren[i];
+                    if (thisChild.GetComponent<PartData>())
+                    {
+                        thisChild.GetComponent<Collider>().enabled = false;
+                        Rigidbody thisRigid = thisChild.AddComponent<Rigidbody>();
+                        thisRigid.isKinematic = true;
+                        allObjectMaterials.Add(new PlacementPart(thisChild));
+                        allObjectMaterials[allObjectMaterials.Count - 1].part.GetComponent<MeshRenderer>().material = placementMaterial;
+                    }
                 }
             }
             else
             {
                 thisObject.GetComponent<Collider>().enabled = false;
+                Rigidbody thisRigid = thisObject.AddComponent<Rigidbody>();
+                thisRigid.isKinematic = true;
                 allObjectMaterials.Add(new PlacementPart(thisObject));
                 allObjectMaterials[allObjectMaterials.Count - 1].part.GetComponent<MeshRenderer>().material = placementMaterial;
             }
@@ -182,22 +191,13 @@ public class Placer : MonoBehaviour
         foreach(PlacementPart partData in ogPartData)
         {
             partData.ResetMaterial();
+            partData.part.GetComponent<Collider>().enabled = true;
         }
         UIManager.uiManager.ToggleMenu(UIManager.uiManager.properties);
+        trackingObj.GetComponent<PlacedObject>().OnPlace();
         trackingObj = null;
         yield return null;
         canSetObject = true;
-        if(oldTracker.transform.childCount > 0)
-        {
-            for(int i = 0; i < oldTracker.transform.childCount; i++)
-            {
-                oldTracker.transform.GetChild(i).gameObject.GetComponent<Collider>().enabled = true;
-            }
-        }
-        else
-        {
-            oldTracker.GetComponent<Collider>().enabled = true;
-        }
     }
     void ToggleGridSnap()
     {
@@ -318,7 +318,32 @@ public class Placer : MonoBehaviour
     void CheckPlacable()
     {
         canPlace = false;
-        Collider[] collisions = Physics.OverlapBox(trackingObj.transform.position + trackingObj.GetComponent<BoxCollider>().center, trackingObj.GetComponent<BoxCollider>().size / 2, trackingObj.transform.rotation);
+        if(trackingObj.transform.childCount > 0)
+        {
+            GameObject[] allChilds = trackingObj.GetAllChildren();
+            foreach(GameObject thisChild in allChilds)
+            {
+                if (thisChild.GetComponent<Rigidbody>())
+                {
+                    RaycastHit hitInfo;
+                    if(thisChild.GetComponent<Rigidbody>().SweepTest(Vector3.zero, out hitInfo))
+                    {
+                        placementMaterial.SetColor("_BaseColor", cannotPlaceColor);
+                        return;
+                    }
+                }
+            }
+        }
+        else
+        {
+            RaycastHit hitInfo;
+            if(trackingObj.GetComponent<Rigidbody>().SweepTest(Vector3.zero, out hitInfo))
+            {
+                placementMaterial.SetColor("_BaseColor", cannotPlaceColor);
+                return;
+            }
+        }
+        /*Collider[] collisions = Physics.OverlapBox(trackingObj.transform.position + trackingObj.GetComponent<BoxCollider>().center, trackingObj.GetComponent<BoxCollider>().size / 2, trackingObj.transform.rotation);
         foreach(Collider col in collisions)
         {
             if(col.gameObject.GetAbsoluteParent() != trackingObj)
@@ -327,7 +352,7 @@ public class Placer : MonoBehaviour
                 placementMaterial.SetColor("_BaseColor", cannotPlaceColor);
                 return;
             }
-        }
+        }*/
         RaycastHit hitObject;
         if(Physics.Raycast(trackingObj.transform.position, -trackingObj.transform.up, out hitObject, 1000))
         {
