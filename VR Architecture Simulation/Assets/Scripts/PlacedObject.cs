@@ -16,15 +16,16 @@ public class PlacedObject : Interactable
     {
         if (CanPickup())
         {
-            OnPickUp();
             Placer.placer.SetTrackingObject(gameObject);
         }
     }
     public void OnPlace()
     {
+        print("ONPLACE");
         RaycastHit hitData;
         if(Physics.Raycast(transform.position, Vector3.down, out hitData, 1))
         {
+            print(hitData.transform.gameObject.GetAbsoluteParent().name);
             objectPlacedOn = hitData.transform.gameObject.GetAbsoluteParent();
             objectPlacedOn.GetComponent<PlacedObject>().objectsPlacedOnTop.Add(gameObject);
         }
@@ -39,8 +40,12 @@ public class PlacedObject : Interactable
     }
     public void OnPickUp()
     {
-        objectPlacedOn.GetComponent<PlacedObject>().objectsPlacedOnTop.Remove(gameObject);
-        objectPlacedOn = null;
+        if (objectPlacedOn)
+        {
+            print("PICKUP" + gameObject.name);
+            objectPlacedOn.GetComponent<PlacedObject>().objectsPlacedOnTop.Remove(gameObject);
+            objectPlacedOn = null;
+        }
     }
 }
 

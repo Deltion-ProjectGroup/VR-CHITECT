@@ -22,7 +22,7 @@ public static class Attributes
     {
         if (first)
         {
-            allChildren = null;
+            allChildren = new List<GameObject>();
             foreach (Transform child in start.transform)
             {
                 allChildren.Add(child.gameObject);

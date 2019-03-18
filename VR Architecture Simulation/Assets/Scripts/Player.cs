@@ -73,7 +73,7 @@ public class Player : MonoBehaviour
             if (lastHoveredSnapObject != null)
             {
                 Placer.placer.vertSnapping = true;
-                Placer.placer.SetTrackingObject(lastHoveredSnapObject);
+                lastHoveredSnapObject.GetComponent<PlacedObject>().Interact();
             }
             else
             {

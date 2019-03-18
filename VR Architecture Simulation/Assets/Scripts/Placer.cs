@@ -65,7 +65,7 @@ public class Placer : MonoBehaviour
                 {
                     ChangePosition(hit);
                 }
-                CheckPlacable();
+                CheckPlacable(hit);
             }
         }
     }
@@ -150,6 +150,7 @@ public class Placer : MonoBehaviour
         {
             canSetObject = false;
             trackingObj = thisObject;
+            trackingObj.GetComponent<PlacedObject>().OnPickUp();
             List<PlacementPart> allObjectMaterials = new List<PlacementPart>();
             if(thisObject.transform.childCount > 0)
             {
@@ -179,7 +180,6 @@ public class Placer : MonoBehaviour
             UIManager.uiManager.properties.GetComponent<PropertiesMenu>().targetRN = trackingObj;
             UIManager.uiManager.ToggleMenu(UIManager.uiManager.properties);
             UIManager.uiManager.properties.GetComponent<PropertiesMenu>().Initialize(trackingObj);
-            CheckPlacable();
         }
     }
     IEnumerator PlaceTrackingObject()
@@ -192,6 +192,7 @@ public class Placer : MonoBehaviour
         {
             partData.ResetMaterial();
             partData.part.GetComponent<Collider>().enabled = true;
+            Destroy(partData.part.GetComponent<Rigidbody>());
         }
         UIManager.uiManager.ToggleMenu(UIManager.uiManager.properties);
         trackingObj.GetComponent<PlacedObject>().OnPlace();
@@ -315,35 +316,10 @@ public class Placer : MonoBehaviour
         }
         return false;
     }
-    void CheckPlacable()
+    void CheckPlacable(RaycastHit hitData)
     {
         canPlace = false;
-        if(trackingObj.transform.childCount > 0)
-        {
-            GameObject[] allChilds = trackingObj.GetAllChildren();
-            foreach(GameObject thisChild in allChilds)
-            {
-                if (thisChild.GetComponent<Rigidbody>())
-                {
-                    RaycastHit hitInfo;
-                    if(thisChild.GetComponent<Rigidbody>().SweepTest(Vector3.zero, out hitInfo))
-                    {
-                        placementMaterial.SetColor("_BaseColor", cannotPlaceColor);
-                        return;
-                    }
-                }
-            }
-        }
-        else
-        {
-            RaycastHit hitInfo;
-            if(trackingObj.GetComponent<Rigidbody>().SweepTest(Vector3.zero, out hitInfo))
-            {
-                placementMaterial.SetColor("_BaseColor", cannotPlaceColor);
-                return;
-            }
-        }
-        /*Collider[] collisions = Physics.OverlapBox(trackingObj.transform.position + trackingObj.GetComponent<BoxCollider>().center, trackingObj.GetComponent<BoxCollider>().size / 2, trackingObj.transform.rotation);
+        Collider[] collisions = Physics.OverlapBox(trackingObj.transform.position + trackingObj.GetComponent<BoxCollider>().center, trackingObj.GetComponent<BoxCollider>().size / 2, trackingObj.transform.rotation);
         foreach(Collider col in collisions)
         {
             if(col.gameObject.GetAbsoluteParent() != trackingObj)
@@ -352,14 +328,13 @@ public class Placer : MonoBehaviour
                 placementMaterial.SetColor("_BaseColor", cannotPlaceColor);
                 return;
             }
-        }*/
-        RaycastHit hitObject;
-        if(Physics.Raycast(trackingObj.transform.position, -trackingObj.transform.up, out hitObject, 1000))
+        }
+        if(hitData.transform != null)
         {
-            bool found = false; ;
+            bool found = false;
             foreach (ObjectTypes type in trackingObj.GetComponent<PlacedObject>().requiredObjectType)
             {
-                if(type == hitObject.transform.gameObject.GetAbsoluteParent().GetComponent<PlacedObject>().objectType)
+                if(type == hitData.transform.gameObject.GetAbsoluteParent().GetComponent<PlacedObject>().objectType)
                 {
                     found = true;
                 }
@@ -370,6 +345,11 @@ public class Placer : MonoBehaviour
                 print("NOT FOUND");
                 return;
             }
+        }
+        else
+        {
+            placementMaterial.SetColor("_BaseColor", cannotPlaceColor);
+            return;
         }
         canPlace = true;
         placementMaterial.SetColor("_BaseColor", canPlaceColor);
