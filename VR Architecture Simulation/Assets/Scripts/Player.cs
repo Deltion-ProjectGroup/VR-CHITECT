@@ -127,7 +127,7 @@ public class Player : MonoBehaviour
                 }
                 if (nearestVert != Vector3.zero)
                 {
-                    Placer.placer.offset = Placer.CalculateOffset(nearestVert, hit.transform, hit.transform.position);
+                    Placer.placer.offset = Placer.CalculateOffset(hit.transform.TransformPoint(nearestVert), hit.transform.position);
                     vertIndicator.position = hit.transform.TransformPoint(nearestVert);
                     //to - from
                 }

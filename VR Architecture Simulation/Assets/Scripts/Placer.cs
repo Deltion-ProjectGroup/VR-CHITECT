@@ -31,6 +31,8 @@ public class Placer : MonoBehaviour
     public Vector2 tileSize;
     public Vector2 gridTileSize;
     public List<GameObject> allTiles = new List<GameObject>();
+    GameObject[] extraTrackingObjects;
+    List<PlacementPart> extraTrackingObjectsOGData = new List<PlacementPart>();
     // Start is called before the first frame update
     void Awake()
     {
@@ -78,11 +80,9 @@ public class Placer : MonoBehaviour
         trackingObj = null;
         canSetObject = true;
     }
-    public static Vector3 CalculateOffset(Vector3 vertLocalPosition, Transform vertOwner, Vector3 ownerPosition)
+    public static Vector3 CalculateOffset(Vector3 vertWorldPosition, Vector3 ownerPosition)
     {
-
-        Vector3 vertWorldPos = vertOwner.TransformPoint(vertLocalPosition);
-        return vertWorldPos - ownerPosition;
+        return vertWorldPosition - ownerPosition;
     }
     void ChangePosition(RaycastHit hitData)
     {
@@ -92,11 +92,11 @@ public class Placer : MonoBehaviour
 
             Vector3 nearestVert = Vector3.zero;
             float nearestVertDistance = Mathf.Infinity;
-            foreach (Transform child in hitData.transform)
+            if (hitData.transform.gameObject.GetComponent<MeshFilter>())
             {
-                foreach (Vector3 vert in child.GetComponent<MeshFilter>().mesh.vertices)
+                foreach(Vector3 vert in hitData.transform.gameObject.GetComponent<MeshFilter>().mesh.vertices)
                 {
-                    if (Vector3.Distance(hitData.point, hitData.transform.TransformPoint(vert)) < nearestVertDistance)
+                    if(Vector3.Distance(hitData.point, hitData.transform.TransformPoint(vert)) < nearestVertDistance)
                     {
                         nearestVert = vert;
                         nearestVertDistance = Vector3.Distance(hitData.point, hitData.transform.TransformPoint(vert));
@@ -140,7 +140,7 @@ public class Placer : MonoBehaviour
         }
         if (vertSnapping)
         {
-            offset = CalculateOffset(Player.nearestVert, trackingObj.transform, trackingObj.transform.position);
+            offset = CalculateOffset(trackingObj.transform.TransformPoint(Player.nearestVert), trackingObj.transform.position);
         }
     }
     public void SetTrackingObject(GameObject thisObject)
@@ -148,6 +148,7 @@ public class Placer : MonoBehaviour
         thisObject = thisObject.GetAbsoluteParent();
         if(trackingObj == null && canSetObject)
         {
+            extraTrackingObjects = thisObject.GetComponent<PlacedObject>().objectsPlacedOnTop.ToArray();
             canSetObject = false;
             trackingObj = thisObject;
             trackingObj.GetComponent<PlacedObject>().OnPickUp();
@@ -161,20 +162,38 @@ public class Placer : MonoBehaviour
                     if (thisChild.GetComponent<PartData>())
                     {
                         thisChild.GetComponent<Collider>().enabled = false;
-                        Rigidbody thisRigid = thisChild.AddComponent<Rigidbody>();
-                        thisRigid.isKinematic = true;
                         allObjectMaterials.Add(new PlacementPart(thisChild));
                         allObjectMaterials[allObjectMaterials.Count - 1].part.GetComponent<MeshRenderer>().material = placementMaterial;
+
                     }
                 }
             }
             else
             {
                 thisObject.GetComponent<Collider>().enabled = false;
-                Rigidbody thisRigid = thisObject.AddComponent<Rigidbody>();
-                thisRigid.isKinematic = true;
                 allObjectMaterials.Add(new PlacementPart(thisObject));
                 allObjectMaterials[allObjectMaterials.Count - 1].part.GetComponent<MeshRenderer>().material = placementMaterial;
+            }
+            foreach(GameObject extraObject in extraTrackingObjects)
+            {
+                extraObject.transform.SetParent(trackingObj.transform);
+                if(extraObject.transform.childCount > 0)
+                {
+                    GameObject[] allChilds = extraObject.GetAllChildren();
+                    foreach(GameObject child in allChilds)
+                    {
+                        if (child.GetComponent<MeshRenderer>())
+                        {
+                            extraTrackingObjectsOGData.Add(new PlacementPart(child));
+                            child.GetComponent<MeshRenderer>().material = placementMaterial;
+                        }
+                    }
+                }
+                else
+                {
+                    extraTrackingObjectsOGData.Add(new PlacementPart(extraObject));
+                    extraObject.GetComponent<MeshRenderer>().material = placementMaterial;
+                }
             }
             ogPartData = allObjectMaterials.ToArray();
             UIManager.uiManager.properties.GetComponent<PropertiesMenu>().targetRN = trackingObj;
@@ -192,7 +211,15 @@ public class Placer : MonoBehaviour
         {
             partData.ResetMaterial();
             partData.part.GetComponent<Collider>().enabled = true;
-            Destroy(partData.part.GetComponent<Rigidbody>());
+        }
+        foreach(PlacementPart partData in extraTrackingObjectsOGData)
+        {
+            partData.ResetMaterial();
+            extraTrackingObjectsOGData.Remove(partData);
+        }
+        foreach(GameObject extraObject in extraTrackingObjects)
+        {
+            extraObject.transform.SetParent(null);
         }
         UIManager.uiManager.ToggleMenu(UIManager.uiManager.properties);
         trackingObj.GetComponent<PlacedObject>().OnPlace();
@@ -318,6 +345,7 @@ public class Placer : MonoBehaviour
     }
     void CheckPlacable(RaycastHit hitData)
     {
+        placementMaterial.SetColor("_BaseColor", cannotPlaceColor);
         canPlace = false;
         Collider[] collisions = Physics.OverlapBox(trackingObj.transform.position + trackingObj.GetComponent<BoxCollider>().center, trackingObj.GetComponent<BoxCollider>().size / 2, trackingObj.transform.rotation);
         foreach(Collider col in collisions)
@@ -325,30 +353,43 @@ public class Placer : MonoBehaviour
             if(col.gameObject.GetAbsoluteParent() != trackingObj)
             {
                 print("COLLIDED");
-                placementMaterial.SetColor("_BaseColor", cannotPlaceColor);
                 return;
             }
         }
         if(hitData.transform != null)
         {
-            bool found = false;
-            foreach (ObjectTypes type in trackingObj.GetComponent<PlacedObject>().requiredObjectType)
+            if (vertSnapping)
             {
-                if(type == hitData.transform.gameObject.GetAbsoluteParent().GetComponent<PlacedObject>().objectType)
+                if(Physics.Raycast(trackingObj.transform.position, Vector3.down, out hitData))
                 {
-                    found = true;
+                    foreach(ObjectTypes type in trackingObj.GetComponent<PlacedObject>().requiredObjectType)
+                    {
+                        if(type != hitData.transform.GetComponent<PlacedObject>().objectType)
+                        {
+                            return;
+                        }
+                    }
                 }
             }
-            if (!found)
+            else
             {
-                placementMaterial.SetColor("_BaseColor", cannotPlaceColor);
-                print("NOT FOUND");
-                return;
+                bool found = false;
+                foreach (ObjectTypes type in trackingObj.GetComponent<PlacedObject>().requiredObjectType)
+                {
+                    if (type == hitData.transform.gameObject.GetAbsoluteParent().GetComponent<PlacedObject>().objectType)
+                    {
+                        found = true;
+                    }
+                }
+                if (!found)
+                {
+                    print("NOT FOUND");
+                    return;
+                }
             }
         }
         else
         {
-            placementMaterial.SetColor("_BaseColor", cannotPlaceColor);
             return;
         }
         canPlace = true;

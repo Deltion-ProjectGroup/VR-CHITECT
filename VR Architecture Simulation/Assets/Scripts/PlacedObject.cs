@@ -14,10 +14,7 @@ public class PlacedObject : Interactable
 
     public override void Interact()
     {
-        if (CanPickup())
-        {
-            Placer.placer.SetTrackingObject(gameObject);
-        }
+        Placer.placer.SetTrackingObject(gameObject);
     }
     public void OnPlace()
     {
@@ -29,14 +26,6 @@ public class PlacedObject : Interactable
             objectPlacedOn = hitData.transform.gameObject.GetAbsoluteParent();
             objectPlacedOn.GetComponent<PlacedObject>().objectsPlacedOnTop.Add(gameObject);
         }
-    }
-    public bool CanPickup()
-    {
-        if(objectsPlacedOnTop.Count > 0)
-        {
-            return false;
-        }
-        return true;
     }
     public void OnPickUp()
     {
