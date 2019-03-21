@@ -9,7 +9,7 @@ public class UISelection : MonoBehaviour
     public List<TwoDemensionalGOList> selectableOptions = new List<TwoDemensionalGOList>();
     sbyte currentHorIndex;
     sbyte currentVerIndex;
-    UIButton currentSelected;
+    UIButtonBase currentSelected;
     [SerializeField] bool autoSelect;
     [SerializeField]Vector2 outlineScale;
     [SerializeField]SteamVR_Action_Boolean acceptButton, selectButton;
@@ -28,7 +28,7 @@ public class UISelection : MonoBehaviour
             currentHorIndex = default;
             currentVerIndex = default;
         }
-        currentSelected = selectableOptions[currentVerIndex].xIndexes[currentHorIndex].GetComponent<UIButton>();
+        currentSelected = selectableOptions[currentVerIndex].xIndexes[currentHorIndex].GetComponent<UIButtonBase>();
         Outline newOutline = currentSelected.gameObject.AddComponent<Outline>();
         newOutline.effectDistance = outlineScale;
     }
@@ -124,7 +124,7 @@ public class UISelection : MonoBehaviour
             }
         }
 
-        currentSelected = selectableOptions[currentVerIndex].xIndexes[currentHorIndex].GetComponent<UIButton>();
+        currentSelected = selectableOptions[currentVerIndex].xIndexes[currentHorIndex].GetComponent<UIButtonBase>();
         Outline outline = currentSelected.gameObject.AddComponent<Outline>();
         outline.effectDistance = outlineScale;
         if (autoSelect)
