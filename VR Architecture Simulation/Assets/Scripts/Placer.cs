@@ -32,7 +32,7 @@ public class Placer : MonoBehaviour
     public Vector2 gridTileSize;
     public List<GameObject> allTiles = new List<GameObject>();
     GameObject[] extraTrackingObjects;
-    List<PlacementPart> extraTrackingObjectsOGData = new List<PlacementPart>();
+    public List<PlacementPart> extraTrackingObjectsOGData = new List<PlacementPart>();
     // Start is called before the first frame update
     void Awake()
     {
@@ -215,11 +215,11 @@ public class Placer : MonoBehaviour
         foreach(PlacementPart partData in extraTrackingObjectsOGData)
         {
             partData.ResetMaterial();
-            extraTrackingObjectsOGData.Remove(partData);
         }
+        extraTrackingObjectsOGData = new List<PlacementPart>();
         foreach(GameObject extraObject in extraTrackingObjects)
         {
-            extraObject.transform.SetParent(null);
+            extraObject.transform.parent = null;
         }
         UIManager.uiManager.ToggleMenu(UIManager.uiManager.properties);
         trackingObj.GetComponent<PlacedObject>().OnPlace();
@@ -395,6 +395,7 @@ public class Placer : MonoBehaviour
         canPlace = true;
         placementMaterial.SetColor("_BaseColor", canPlaceColor);
     }
+    [System.Serializable]
     public class PlacementPart
     {
         public GameObject part;

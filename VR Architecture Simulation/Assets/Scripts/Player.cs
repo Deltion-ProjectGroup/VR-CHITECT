@@ -64,7 +64,10 @@ public class Player : MonoBehaviour
         {
             if(hitPoint.transform.tag == "Interactable")
             {
-                Placer.placer.SetTrackingObject(Instantiate(hitPoint.transform.gameObject.GetAbsoluteParent()));
+                GameObject clonedObject = Instantiate(hitPoint.transform.gameObject.GetAbsoluteParent());
+                clonedObject.GetComponent<PlacedObject>().objectPlacedOn = null;
+                clonedObject.GetComponent<PlacedObject>().objectsPlacedOnTop = new System.Collections.Generic.List<GameObject>();
+                Placer.placer.SetTrackingObject(clonedObject);
             }
         }
 
