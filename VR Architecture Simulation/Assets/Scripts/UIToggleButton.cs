@@ -1,18 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class UIToggleButton : Interactable
+public class UIToggleButton : UIButtonBase
 {
-    public Animator toggleAnimator;
-
     public override void Interact()
     {
-
-    }
-
-    public void OnToggle()
-    {
-
+        GetComponent<Toggle>().isOn = !GetComponent<Toggle>().isOn;
     }
 }

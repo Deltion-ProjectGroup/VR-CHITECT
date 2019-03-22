@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using UnityEngine.Audio;
 
 public class Options : UIMenu
 {
     [SerializeField]Text gridDivText;
     [SerializeField]Text rotSnapText;
+    public List<UISelection.TDGODataHolder> settingsDataHolder = new List<UISelection.TDGODataHolder>();
+    [SerializeField] AudioMixer audioMixer;
     // Start is called before the first frame update
     void Start()
     {
-        UpdateGridDivision(Placer.placer.gritTileSize);
         //UpdateRotationSnap(Placer.placer.rotateTurnAmount);
     }
 
@@ -18,19 +21,18 @@ public class Options : UIMenu
     {
 
     }
-
-    public void UpdateGridDivision(float newDivValue)
+    public void UpdateGridDivision(UISlider uiSlider)
     {
-        gridDivText.text = newDivValue.ToString();
+        Placer.placer.ChangeTileDivision(uiSlider.thisSlider.value);
     }
 
-    public void UpdateRotationSnap(int newSnapValue)
+    public void UpdateRotationSnap(UISlider uiSlider)
     {
-        rotSnapText.text = newSnapValue.ToString();
+        Placer.placer.ChangeSnapRotation((int)uiSlider.thisSlider.value);
     }
-    public void ChangePrimaryHand(bool isRightHanded)
+    public void ChangePrimaryHand(Toggle toggle)
     {
-        InputMan.ChangePrimaryHand(isRightHanded);
+        InputMan.ChangePrimaryHand(toggle.isOn);
     }
     public override IEnumerator Open()
     {
@@ -42,5 +44,20 @@ public class Options : UIMenu
     {
         gameObject.SetActive(false);
     }
+    public void ChangeData(byte dataIndex)
+    {
+        if(dataIndex >= 0 && dataIndex < settingsDataHolder.Count)
+        {
+            GetComponent<UISelection>().selectableOptions = settingsDataHolder[dataIndex].data;
+        }
+    }
 
+    public void ChangeLinear(float newValue)
+    {
+
+    }
+    public void ChangeMasterVolume(Slider bar)
+    {
+        audioMixer.SetFloat("MasterVolume", bar.value);
+    }
 }

@@ -316,18 +316,16 @@ public class Placer : MonoBehaviour
             tile.SetActive(show);
         }
     }
-    public void ChangeTileDivision(float changeAmount)
+    public void ChangeTileDivision(float newAmount)
     {
-        gritTileSize += changeAmount;
+        gritTileSize = newAmount;
         gritTileSize = Mathf.Clamp(gritTileSize, 0.1f, 1);
-        UIManager.uiManager.settings.GetComponent<Options>().UpdateGridDivision(gritTileSize);
         //CalculateTilePositions(GameObject.FindGameObjectsWithTag("Ground"));
     }
     public void ChangeSnapRotation(int changeAmount)
     {
         rotateTurnAmount += changeAmount;
         rotateTurnAmount = Mathf.Clamp(rotateTurnAmount, 0, 360);
-        UIManager.uiManager.settings.GetComponent<Options>().UpdateRotationSnap(rotateTurnAmount);
     }
     bool CheckPosition(GameObject hitObject)
     {

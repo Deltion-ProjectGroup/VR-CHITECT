@@ -9,16 +9,19 @@ public class UISelection : MonoBehaviour
     public List<TwoDemensionalGOList> selectableOptions = new List<TwoDemensionalGOList>();
     sbyte currentHorIndex;
     sbyte currentVerIndex;
-    UIButtonBase currentSelected;
+    public UIButtonBase currentSelected;
     [SerializeField] bool autoSelect;
     [SerializeField]Vector2 outlineScale;
     [SerializeField]SteamVR_Action_Boolean acceptButton, selectButton;
     [SerializeField]SteamVR_Action_Vector2 trackpadPos;
+    public SelectionState selectionState;
 
+
+    public enum SelectionState {Selecting, Frozen }
     // Start is called before the first frame update
     void Start()
     {
-
+        Initialize();
     }
 
     public void Initialize(bool resetPos = false)
@@ -37,7 +40,10 @@ public class UISelection : MonoBehaviour
 
     void Update()
     {
-        SelectionNavigation();
+        if(selectionState == SelectionState.Selecting)
+        {
+            SelectionNavigation();
+        }
         if (!autoSelect)
         {
             if (Input.GetKeyDown(KeyCode.KeypadEnter) || acceptButton.GetStateDown(InputMan.rightHand))
@@ -137,5 +143,10 @@ public class UISelection : MonoBehaviour
     public struct TwoDemensionalGOList
     {
         public List<GameObject> xIndexes;
+    }
+    [System.Serializable]
+    public struct TDGODataHolder
+    {
+        public List<TwoDemensionalGOList> data;
     }
 }
