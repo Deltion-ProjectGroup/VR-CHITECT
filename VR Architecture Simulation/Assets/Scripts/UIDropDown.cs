@@ -21,14 +21,24 @@ public class UIDropDown : UIButtonBase
     {
         if (selecting)
         {
-            int moveAmt;
+            int moveAmt = 0;
             if (acceptButton.GetState(InputMan.rightHand))
             {
                 moveAmt = Mathf.CeilToInt(movement.axis.y);
             }
             else
             {
-                moveAmt = (int)Input.GetAxisRaw("Vertical");
+                if(Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.UpArrow))
+                {
+                    if (Input.GetKeyDown(KeyCode.DownArrow))
+                    {
+                        moveAmt = 1;
+                    }
+                    else
+                    {
+                        moveAmt = -1;
+                    }
+                }
             }
             if(moveAmt != 0)
             {
@@ -46,7 +56,9 @@ public class UIDropDown : UIButtonBase
         }
         else
         {
-            thisDropdown.OnPointerClick(new PointerEventData(EventSystem.current));
+            print(thisDropdown.value);
+            thisDropdown.Select();
+            thisDropdown.Hide();
             UIManager.uiManager.settings.GetComponent<UISelection>().selectionState = UISelection.SelectionState.Selecting;
         }
         print(UIManager.uiManager.settings.GetComponent<UISelection>().selectionState.ToString());
@@ -65,5 +77,6 @@ public class UIDropDown : UIButtonBase
                 newVal = 0;
             }
         }
+        thisDropdown.value = newVal;
     }
 }

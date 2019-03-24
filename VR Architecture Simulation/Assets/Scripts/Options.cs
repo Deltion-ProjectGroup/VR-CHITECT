@@ -44,7 +44,7 @@ public class Options : UIMenu
     {
         gameObject.SetActive(false);
     }
-    public void ChangeData(byte dataIndex)
+    public void ChangeData(int dataIndex)
     {
         if(dataIndex >= 0 && dataIndex < settingsDataHolder.Count)
         {

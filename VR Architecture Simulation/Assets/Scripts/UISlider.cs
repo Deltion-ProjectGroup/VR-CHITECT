@@ -29,7 +29,7 @@ public class UISlider : UIButtonBase
                 GetComponent<Slider>().value += moveAmount.axis.x * speedModifier * Time.deltaTime;
             }
             GetComponent<Slider>().value += Input.GetAxis("Horizontal") * speedModifier * Time.deltaTime;
-            amountShower.text = thisSlider.value.ToString("2F");
+            amountShower.text = thisSlider.value.ToString("F2");
         }
     }
 

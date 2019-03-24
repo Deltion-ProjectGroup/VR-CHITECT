@@ -21,7 +21,7 @@ public class UISelection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Initialize();
+
     }
 
     public void Initialize(bool resetPos = false)
@@ -46,7 +46,7 @@ public class UISelection : MonoBehaviour
         }
         if (!autoSelect)
         {
-            if (Input.GetKeyDown(KeyCode.KeypadEnter) || acceptButton.GetStateDown(InputMan.rightHand))
+            if (Input.GetKeyDown(KeyCode.Q) || acceptButton.GetStateDown(InputMan.rightHand))
             {
                 currentSelected.Interact();
             }
@@ -88,11 +88,11 @@ public class UISelection : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                changeAmtPC.y += 1;
+                changeAmtPC.y -= 1;
             }
             else
             {
-                changeAmtPC.y -= 1;
+                changeAmtPC.y += 1;
             }
         }
         if (changeAmtPC != Vector2.zero)
