@@ -7,7 +7,6 @@ public class ScreenData : MonoBehaviour
 {
     public Dropdown resolutionDropdown;
     public Dropdown qualityDropdown;
-    public Toggle fullscreenToggle;
     // Start is called before the first frame update
     void Awake()
     {
@@ -25,7 +24,6 @@ public class ScreenData : MonoBehaviour
         resolutionDropdown.AddOptions(optionData);
         resolutionDropdown.value = initializeOption;
         resolutionDropdown.RefreshShownValue();
-        fullscreenToggle.isOn = Screen.fullScreen;
         optionData = new List<Dropdown.OptionData>();
         qualityDropdown.ClearOptions();
         foreach(string qualityName in QualitySettings.names)

@@ -157,7 +157,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   availableMaterials:
-  - {fileID: 2100000, guid: 900fa2269cf571b43bef00f5ba1a2f72, type: 2}
+  - thisMaterial: {fileID: 2100000, guid: 900fa2269cf571b43bef00f5ba1a2f72, type: 2}
+    iconColor: {r: 0, g: 0, b: 0, a: 1}
   partIcon: {fileID: 0}
   partname: Lamp Base
 --- !u!64 &5473963072539392638
@@ -266,7 +267,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   availableMaterials:
-  - {fileID: 2100000, guid: b1aacd92d1464aa4c80cb87ea89e5c47, type: 2}
+  - thisMaterial: {fileID: 2100000, guid: b1aacd92d1464aa4c80cb87ea89e5c47, type: 2}
+    iconColor: {r: 0.97075844, g: 1, b: 0.6556604, a: 1}
   partIcon: {fileID: 0}
   partname: Lampshade
 --- !u!64 &2378792944129210972
