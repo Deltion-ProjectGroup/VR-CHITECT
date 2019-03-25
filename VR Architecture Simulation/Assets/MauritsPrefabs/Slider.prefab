@@ -111,7 +111,7 @@ MonoBehaviour:
     actionPath: /actions/default/in/TrackpadTouch
     needsReinit: 0
   confirmMove:
-    actionPath: /actions/default/in/GrabPinch
+    actionPath: /actions/default/in/Teleport
     needsReinit: 0
 --- !u!1 &2759566032328886992
 GameObject:

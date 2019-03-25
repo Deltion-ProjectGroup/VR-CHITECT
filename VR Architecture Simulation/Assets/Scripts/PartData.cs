@@ -2,7 +2,13 @@
 
 public class PartData : MonoBehaviour
 {
-    public Material[] availableMaterials;
+    public MaterialData[] availableMaterials;
     public Sprite partIcon;
     public string partname;
+}
+[System.Serializable]
+public class MaterialData
+{
+    public Material thisMaterial;
+    public Color iconColor;
 }

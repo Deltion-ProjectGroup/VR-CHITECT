@@ -22,9 +22,9 @@ public class UIDropDown : UIButtonBase
         if (selecting)
         {
             int moveAmt = 0;
-            if (acceptButton.GetState(InputMan.rightHand))
+            if (acceptButton.GetStateDown(InputMan.rightHand))
             {
-                moveAmt = Mathf.CeilToInt(movement.axis.y);
+                moveAmt = Mathf.RoundToInt(movement.axis.y);
             }
             else
             {

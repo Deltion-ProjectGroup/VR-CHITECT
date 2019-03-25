@@ -75,7 +75,7 @@ public class PropertiesMenu : UIMenu
         for(int i = 0; i < target.GetComponent<PartData>().availableMaterials.Length; i++)
         {
             GameObject newMaterialButton = Instantiate(materialButton, materialHolder);
-            newMaterialButton.GetComponent<PropertieMatData>().Initialize(target.GetComponent<PartData>().availableMaterials[i], this);
+            newMaterialButton.GetComponent<PropertieMatData>().Initialize(target.GetComponent<PartData>().availableMaterials[i].thisMaterial, this, target.GetComponent<PartData>().availableMaterials[i].iconColor);
             activeMaterialButtons.Add(newMaterialButton);
             uiSelection.selectableOptions[uiSelection.selectableOptions.Count - 1].xIndexes.Add(newMaterialButton);
         }
@@ -87,6 +87,15 @@ public class PropertiesMenu : UIMenu
             if(placementPart.part == currentPart)
             {
                 placementPart.ogMaterial = newMaterial;
+                return;
+            }
+        }
+        foreach(Placer.PlacementPart placementPart in Placer.placer.extraTrackingObjectsOGData)
+        {
+            if(placementPart.part == currentPart)
+            {
+                placementPart.ogMaterial = newMaterial;
+                return;
             }
         }
     }
