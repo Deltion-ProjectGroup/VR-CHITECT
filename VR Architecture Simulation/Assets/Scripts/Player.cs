@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
     }
     void Interaction(RaycastHit hitPoint)
     {
-        if (duplicateButton.GetStateDown(InputMan.leftHand) && Placer.placer.canSetObject)
+        if (duplicateButton.GetStateDown(InputMan.leftHand) && Placer.placer.canSetObject && Player.canInteract)
         {
             if(hitPoint.transform.tag == "Interactable")
             {

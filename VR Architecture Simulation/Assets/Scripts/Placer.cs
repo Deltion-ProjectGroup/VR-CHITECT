@@ -322,10 +322,9 @@ public class Placer : MonoBehaviour
         gritTileSize = Mathf.Clamp(gritTileSize, 0.1f, 1);
         //CalculateTilePositions(GameObject.FindGameObjectsWithTag("Ground"));
     }
-    public void ChangeSnapRotation(int changeAmount)
+    public void ChangeSnapRotation(int newAmount)
     {
-        rotateTurnAmount += changeAmount;
-        rotateTurnAmount = Mathf.Clamp(rotateTurnAmount, 0, 360);
+        rotateTurnAmount = newAmount;
     }
     bool CheckPosition(GameObject hitObject)
     {
