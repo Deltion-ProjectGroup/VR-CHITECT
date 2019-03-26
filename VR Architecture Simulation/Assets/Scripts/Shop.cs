@@ -10,6 +10,7 @@ public class Shop : UIMenu
     [SerializeField] SteamVR_Action_Vector2 changeTabTrackpad;
     [SerializeField] SteamVR_Action_Boolean changeTabButton;
     [SerializeField] SteamVR_Action_Boolean selectButton;
+    [SerializeField] SteamVR_Input_Sources controllerSource;
     sbyte selectedHorIndex;
     sbyte selectedVerIndex;
     float verTileDistance;
@@ -45,7 +46,7 @@ public class Shop : UIMenu
         if (canMove)
         {
             ShopNavigation();
-            if (selectButton.GetStateDown(InputMan.rightHand) || Input.GetKeyDown(KeyCode.KeypadEnter))
+            if (selectButton.GetStateDown(InputMan.GetHand(controllerSource)) || Input.GetKeyDown(KeyCode.KeypadEnter))
             {
                 shopButtons[selectedVerIndex].GetComponent<ItemButton>().Select();
             }
@@ -55,7 +56,7 @@ public class Shop : UIMenu
     }
     void ShopNavigation()
     {
-        if (changeTabButton.GetState(InputMan.rightHand))
+        if (changeTabButton.GetState(InputMan.GetHand(controllerSource)))
         {
             int x = Mathf.RoundToInt(changeTabTrackpad.axis.x);
             if (x != 0)

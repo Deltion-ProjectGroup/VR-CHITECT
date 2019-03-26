@@ -14,6 +14,7 @@ public class UISelection : MonoBehaviour
     [SerializeField]Vector2 outlineScale;
     [SerializeField]SteamVR_Action_Boolean acceptButton, selectButton;
     [SerializeField]SteamVR_Action_Vector2 trackpadPos;
+    [SerializeField] SteamVR_Input_Sources controllerSource;
     public SelectionState selectionState;
 
 
@@ -46,7 +47,7 @@ public class UISelection : MonoBehaviour
         }
         if (!autoSelect)
         {
-            if (Input.GetKeyDown(KeyCode.Q) || acceptButton.GetStateDown(InputMan.rightHand))
+            if (Input.GetKeyDown(KeyCode.Q) || acceptButton.GetStateDown(InputMan.GetHand(controllerSource)))
             {
                 currentSelected.Interact();
             }
@@ -56,7 +57,7 @@ public class UISelection : MonoBehaviour
     {
         //VR
         Vector2 changeAmount = new Vector2();
-        if (selectButton.GetLastStateDown(InputMan.rightHand))
+        if (selectButton.GetLastStateDown(InputMan.GetHand(controllerSource)))
         {
             sbyte rawAxisX = (sbyte)Mathf.RoundToInt(trackpadPos.axis.x);
             sbyte rawAxisY = (sbyte)Mathf.RoundToInt(trackpadPos.axis.y);

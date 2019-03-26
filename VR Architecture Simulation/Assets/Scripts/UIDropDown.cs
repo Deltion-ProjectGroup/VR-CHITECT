@@ -12,6 +12,7 @@ public class UIDropDown : UIButtonBase
     public SteamVR_Action_Vector2 movement;
     public float movementModifier;
     public Dropdown thisDropdown;
+    [SerializeField] SteamVR_Input_Sources controlSource;
 
     public void Awake()
     {
@@ -22,7 +23,7 @@ public class UIDropDown : UIButtonBase
         if (selecting)
         {
             int moveAmt = 0;
-            if (acceptButton.GetStateDown(InputMan.rightHand))
+            if (acceptButton.GetStateDown(InputMan.GetHand(controlSource)))
             {
                 moveAmt = Mathf.RoundToInt(movement.axis.y);
             }

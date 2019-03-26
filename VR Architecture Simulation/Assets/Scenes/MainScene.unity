@@ -2232,6 +2232,11 @@ MonoBehaviour:
   gridTileSize: {x: 0, y: 0}
   allTiles: []
   extraTrackingObjectsOGData: []
+  placeSource: 2
+  destroySource: 1
+  rotateSource: 2
+  rotateSnapSource: 2
+  positionSnapSource: 1
 --- !u!114 &174171573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2263,6 +2268,10 @@ MonoBehaviour:
   snapMask:
     serializedVersion: 2
     m_Bits: 16
+  interactSource: 2
+  teleportSource: 1
+  vertSnapSource: 1
+  duplicateSource: 1
 --- !u!1 &181820111
 GameObject:
   m_ObjectHideFlags: 0
@@ -2380,6 +2389,7 @@ MonoBehaviour:
   trackpadPos:
     actionPath: /actions/default/in/TrackpadTouch
     needsReinit: 0
+  controllerSource: 0
   selectionState: 0
 --- !u!222 &181820116
 CanvasRenderer:
@@ -5260,6 +5270,7 @@ MonoBehaviour:
   selectButton:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
+  controllerSource: 2
   selectionTabs: []
   indicatorHolders:
   - {fileID: 648046681}
@@ -6407,6 +6418,7 @@ MonoBehaviour:
   trackpadPos:
     actionPath: /actions/default/in/TrackpadTouch
     needsReinit: 0
+  controllerSource: 2
   selectionState: 0
 --- !u!114 &542781383
 MonoBehaviour:
@@ -7865,6 +7877,7 @@ MonoBehaviour:
   selectButton:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
+  controllerSource: 0
   selectionTabs: []
   indicatorHolders:
   - {fileID: 1419035330}
@@ -10752,6 +10765,7 @@ MonoBehaviour:
   trackpadPos:
     actionPath: /actions/default/in/TrackpadTouch
     needsReinit: 0
+  controllerSource: 0
   selectionState: 0
 --- !u!114 &924005699
 MonoBehaviour:
@@ -14067,6 +14081,8 @@ MonoBehaviour:
   fadeAnimation: {fileID: 1376926105}
   fadeAppear: {fileID: 7400000, guid: 1674e77172dac8248a5a481b91598380, type: 2}
   fadeRemove: {fileID: 7400000, guid: bf40c13b0557ee146a691c7bd277934e, type: 2}
+  shopToggleSource: 0
+  settingsToggleSource: 0
 --- !u!4 &1268703370
 Transform:
   m_ObjectHideFlags: 0
@@ -16439,6 +16455,7 @@ MonoBehaviour:
   trackpadPos:
     actionPath: /actions/default/in/TrackpadTouch
     needsReinit: 0
+  controllerSource: 2
   selectionState: 0
 --- !u!222 &1482851309
 CanvasRenderer:
@@ -17975,6 +17992,10 @@ MonoBehaviour:
   snapMask:
     serializedVersion: 2
     m_Bits: 16
+  interactSource: 0
+  teleportSource: 0
+  vertSnapSource: 0
+  duplicateSource: 0
 --- !u!114 &1639366841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18025,6 +18046,11 @@ MonoBehaviour:
   gridTileSize: {x: 0, y: 0}
   allTiles: []
   extraTrackingObjectsOGData: []
+  placeSource: 0
+  destroySource: 0
+  rotateSource: 0
+  rotateSnapSource: 0
+  positionSnapSource: 0
 --- !u!1001 &1640844387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22406,6 +22432,8 @@ MonoBehaviour:
   fadeAnimation: {fileID: 1376926105}
   fadeAppear: {fileID: 7400000, guid: 1674e77172dac8248a5a481b91598380, type: 2}
   fadeRemove: {fileID: 7400000, guid: bf40c13b0557ee146a691c7bd277934e, type: 2}
+  shopToggleSource: 0
+  settingsToggleSource: 0
 --- !u!1 &2084892782 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4638554706289637454, guid: 1f570016755d0b348bcd325de3ec67bf,

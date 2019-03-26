@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour
     public Animation fadeAnimation;
     [SerializeField] AnimationClip fadeAppear;
     [SerializeField] AnimationClip fadeRemove;
+    [SerializeField] SteamVR_Input_Sources shopToggleSource, settingsToggleSource;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -24,11 +25,11 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (shopToggleButton.GetStateDown(InputMan.leftHand) && canToggle)
+        if (shopToggleButton.GetStateDown(InputMan.GetHand(shopToggleSource)) && canToggle)
         {
             ToggleMenu(shop);
         }
-        if (settingsToggleButton.GetStateDown(InputMan.rightHand) && canToggle)
+        if (settingsToggleButton.GetStateDown(InputMan.GetHand(settingsToggleSource)) && canToggle)
         {
             ToggleMenu(settings);
         }

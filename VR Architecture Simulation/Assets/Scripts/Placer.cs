@@ -33,6 +33,9 @@ public class Placer : MonoBehaviour
     public List<GameObject> allTiles = new List<GameObject>();
     GameObject[] extraTrackingObjects;
     public List<PlacementPart> extraTrackingObjectsOGData = new List<PlacementPart>();
+
+
+    [SerializeField] SteamVR_Input_Sources placeSource, destroySource, rotateSource, rotateSnapSource, positionSnapSource;
     // Start is called before the first frame update
     void Awake()
     {
@@ -44,13 +47,13 @@ public class Placer : MonoBehaviour
     {
         if (trackingObj)
         {
-            if (placeButton.GetStateDown(InputMan.rightHand) && canPlace)
+            if (placeButton.GetStateDown(InputMan.GetHand(placeSource)) && canPlace)
             {
                 StartCoroutine(PlaceTrackingObject());
             }
             else
             {
-                if (placeButton.GetStateDown(InputMan.leftHand))
+                if (placeButton.GetStateDown(InputMan.GetHand(destroySource)))
                 {
                     DestroyPlacingObject();
                     return;
@@ -75,7 +78,7 @@ public class Placer : MonoBehaviour
     {
         Player.canInteract = true;
         offset = Vector3.zero;
-        UIManager.uiManager.ToggleMenu(UIManager.uiManager.properties);
+        //UIManager.uiManager.ToggleMenu(UIManager.uiManager.properties);
         Destroy(trackingObj);
         trackingObj = null;
         canSetObject = true;
@@ -121,10 +124,10 @@ public class Placer : MonoBehaviour
     }
     void Rotate()
     {
-        float rotateAmount = rotateButton.GetAxis(InputMan.rightHand).x;
+        float rotateAmount = rotateButton.GetAxis(InputMan.GetHand(rotateSource)).x;
         if (snappingRotation)
         {
-            if (rotatePress.GetStateDown(InputMan.rightHand))
+            if (rotatePress.GetStateDown(InputMan.GetHand(rotateSource)))
             {
                 rotateAmount = Mathf.RoundToInt(rotateAmount);
                 rotateAmount *= rotateTurnAmount;
@@ -133,7 +136,7 @@ public class Placer : MonoBehaviour
         }
         else
         {
-            if (rotatePress.GetState(InputMan.rightHand))
+            if (rotatePress.GetState(InputMan.GetHand(rotateSource)))
             {
                 trackingObj.transform.Rotate(new Vector3(0, rotateAmount, 0));
             }
@@ -196,9 +199,9 @@ public class Placer : MonoBehaviour
                 }
             }
             ogPartData = allObjectMaterials.ToArray();
-            UIManager.uiManager.properties.GetComponent<PropertiesMenu>().targetRN = trackingObj;
-            UIManager.uiManager.ToggleMenu(UIManager.uiManager.properties);
-            UIManager.uiManager.properties.GetComponent<PropertiesMenu>().Initialize(trackingObj);
+            //UIManager.uiManager.properties.GetComponent<PropertiesMenu>().targetRN = trackingObj;
+            //UIManager.uiManager.ToggleMenu(UIManager.uiManager.properties);
+            //UIManager.uiManager.properties.GetComponent<PropertiesMenu>().Initialize(trackingObj);
         }
     }
     IEnumerator PlaceTrackingObject()
@@ -221,7 +224,7 @@ public class Placer : MonoBehaviour
         {
             extraObject.transform.parent = null;
         }
-        UIManager.uiManager.ToggleMenu(UIManager.uiManager.properties);
+        //UIManager.uiManager.ToggleMenu(UIManager.uiManager.properties);
         trackingObj.GetComponent<PlacedObject>().OnPlace();
         trackingObj = null;
         yield return null;
@@ -229,14 +232,14 @@ public class Placer : MonoBehaviour
     }
     void ToggleGridSnap()
     {
-        if (positionSnapButton.GetStateDown(InputMan.leftHand))
+        if (positionSnapButton.GetStateDown(InputMan.GetHand(positionSnapSource)))
         {
             snappingPosition = true;
             //ToggleGrid(true);
         }
         else
         {
-            if (positionSnapButton.GetStateUp(InputMan.leftHand))
+            if (positionSnapButton.GetStateUp(InputMan.GetHand(positionSnapSource)))
             {
                 snappingPosition = false;
                 //ToggleGrid(false);
@@ -245,7 +248,7 @@ public class Placer : MonoBehaviour
     }
     void ToggleRotationSnap()
     {
-        if (rotationSnapButton.GetStateDown(InputMan.rightHand))
+        if (rotationSnapButton.GetStateDown(InputMan.GetHand(rotateSnapSource)))
         {
             snappingRotation = snappingRotation.ToggleBool();
             if (snappingRotation)
@@ -257,7 +260,7 @@ public class Placer : MonoBehaviour
         }
         else
         {
-            if (rotationSnapButton.GetStateUp(InputMan.rightHand))
+            if (rotationSnapButton.GetStateUp(InputMan.GetHand(rotateSnapSource)))
             {
                 snappingRotation = snappingRotation.ToggleBool();
             }

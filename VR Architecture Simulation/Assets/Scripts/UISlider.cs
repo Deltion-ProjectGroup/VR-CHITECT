@@ -12,7 +12,7 @@ public class UISlider : UIButtonBase
     public bool sliding = false;
     public SteamVR_Action_Vector2 moveAmount;
     public SteamVR_Action_Boolean confirmMove;
-
+    [SerializeField] SteamVR_Input_Sources controlSource;
 
 
     public void Awake()
@@ -24,7 +24,7 @@ public class UISlider : UIButtonBase
         if (sliding)
         {
             print("Moving");
-            if (confirmMove.GetState(InputMan.rightHand))
+            if (confirmMove.GetState(InputMan.GetHand(controlSource)))
             {
                 GetComponent<Slider>().value += moveAmount.axis.x * speedModifier * Time.deltaTime;
             }

@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject indicatorGO;
     public static Vector3 nearestVert;
     [SerializeField] LayerMask snapMask;
+    [SerializeField] SteamVR_Input_Sources interactSource, teleportSource, vertSnapSource, duplicateSource;
     public static bool canInteract = true;
     // Start is called before the first frame update
     void Start()
@@ -36,7 +37,7 @@ public class Player : MonoBehaviour
             pointer.SetPosition(0, rightHandGO.transform.position);
             pointer.SetPosition(1, hitPoint.point);
             Interaction(hitPoint);
-            if (teleportButton.GetStateUp(InputMan.leftHand))
+            if (teleportButton.GetStateUp(InputMan.GetHand(teleportSource)))
             {
                 if(hitPoint.transform.tag == "Ground")
                 {
@@ -49,7 +50,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if (interactButton.GetStateDown(InputMan.rightHand) && lastHoveredSnapObject != null)
+            if (interactButton.GetStateDown(InputMan.GetHand(interactSource)) && lastHoveredSnapObject != null)
             {
                 Placer.placer.vertSnapping = true;
                 Placer.placer.SetTrackingObject(lastHoveredSnapObject);
@@ -60,7 +61,7 @@ public class Player : MonoBehaviour
     }
     void Interaction(RaycastHit hitPoint)
     {
-        if (duplicateButton.GetStateDown(InputMan.leftHand) && Placer.placer.canSetObject && canInteract)
+        if (duplicateButton.GetStateDown(InputMan.GetHand(duplicateSource)) && Placer.placer.canSetObject && canInteract)
         {
             if(hitPoint.transform.tag == "Interactable")
             {
@@ -71,7 +72,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (interactButton.GetStateDown(InputMan.rightHand) && canInteract)
+        if (interactButton.GetStateDown(InputMan.GetHand(interactSource)) && canInteract)
         {
             if (lastHoveredSnapObject != null)
             {
@@ -90,9 +91,9 @@ public class Player : MonoBehaviour
     void VertSnapping()
     {
 
-        if (snapButton.GetState(InputMan.leftHand) && canInteract)
+        if (snapButton.GetState(InputMan.GetHand(vertSnapSource)) && canInteract)
         {
-            if (snapButton.GetStateDown(InputMan.leftHand))
+            if (snapButton.GetStateDown(InputMan.GetHand(vertSnapSource)))
             {
                 vertIndicator = Instantiate(indicatorGO).transform;
             }
@@ -138,7 +139,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if (snapButton.GetStateUp(InputMan.leftHand))
+            if (snapButton.GetStateUp(InputMan.GetHand(vertSnapSource)))
             {
                 lastHoveredSnapObject = null;
                 Placer.placer.offset = Vector3.zero;
