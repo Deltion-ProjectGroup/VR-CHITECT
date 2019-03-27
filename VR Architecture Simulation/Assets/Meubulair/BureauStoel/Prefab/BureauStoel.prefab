@@ -120,6 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectPlacedOn: {fileID: 0}
+  objectsPlacedOnTop: []
   itemData: {fileID: 11400000, guid: 1309a4879d484d448a370a3d31f33046, type: 2}
   moveable: 1
   requiredObjectType: 01000000
@@ -137,6 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   availableMaterials:
-  - {fileID: 2100000, guid: 383e6d375b6718343833e8cbe99d8fe3, type: 2}
+  - thisMaterial: {fileID: 0}
+    iconColor: {r: 0, g: 0, b: 0, a: 0}
   partIcon: {fileID: 0}
   partname: Office Chair

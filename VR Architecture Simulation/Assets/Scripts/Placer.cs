@@ -199,6 +199,7 @@ public class Placer : MonoBehaviour
                 }
             }
             ogPartData = allObjectMaterials.ToArray();
+            Player.canInteract = false;
             //UIManager.uiManager.properties.GetComponent<PropertiesMenu>().targetRN = trackingObj;
             //UIManager.uiManager.ToggleMenu(UIManager.uiManager.properties);
             //UIManager.uiManager.properties.GetComponent<PropertiesMenu>().Initialize(trackingObj);
@@ -352,7 +353,7 @@ public class Placer : MonoBehaviour
         {
             if(col.gameObject.GetAbsoluteParent() != trackingObj)
             {
-                print("COLLIDED");
+                print("COLLIDED WITH" + col.name);
                 return;
             }
         }

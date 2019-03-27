@@ -22,10 +22,12 @@ public class Shop : UIMenu
     [SerializeField] float tickDelay;
     [SerializeField] sbyte ticks;
     [SerializeField] GameObject shopItem;
-    bool canMove = true;
+    public bool canMove = true;
     bool doneRemoving;
     Vector3 requiredHorPos;
     Vector3 requiredVerPos;
+    [Tooltip("Put in here the amount of items that fit")]
+    public int possibleVisibleIcons;
     // Start is called before the first frame update
     void Awake()
     {
@@ -198,13 +200,18 @@ public class Shop : UIMenu
     IEnumerator UpdateShopItems()
     {
         GameObject newItem = null;
-        foreach (Item item in selectionTabs[selectedHorIndex].GetComponent<ShopTabData>().tabItems)
+        for(int i = 0; i < selectionTabs[selectedHorIndex].GetComponent<ShopTabData>().tabItems.Length; i++)
         {
+            Item item = selectionTabs[selectedHorIndex].GetComponent<ShopTabData>().tabItems[i];
             newItem = Instantiate(shopItem, itemHolder);
             shopButtons.Add(newItem);
             newItem.GetComponent<ItemButton>().itemData = item;
-            newItem.GetComponent<Animation>().Play("ShopItemAppear");
-            yield return new WaitForSeconds(newItem.GetComponent<Animation>().clip.length / 4);
+            newItem.GetComponent<ItemButton>().Initialize();
+            if (shopButtons.Count <= possibleVisibleIcons)
+            {
+                newItem.GetComponent<Animation>().Play("ShopItemAppear");
+                yield return new WaitForSeconds(newItem.GetComponent<Animation>().clip.length / 4);
+            }
         }
         if(newItem != null)
         {
@@ -236,13 +243,16 @@ public class Shop : UIMenu
     }
     IEnumerator ClearShopItems(bool open)
     {
-        while(shopButtons.Count > 0)
+        for(int i = shopButtons.Count - 1; i >= 0 ; i--)
         {
-            GameObject button = shopButtons[shopButtons.Count - 1];
-            button.GetComponent<Animation>().Play("ShopItemDisappear");
-            yield return new WaitForSeconds(button.GetComponent<Animation>().GetClip("ShopItemDisappear").length);
+            GameObject button = shopButtons[i];
+            if(i >= selectedVerIndex && i < selectedVerIndex + possibleVisibleIcons)
+            {
+                button.GetComponent<Animation>().Play("ShopItemDisappear");
+                yield return new WaitForSeconds(button.GetComponent<Animation>().GetClip("ShopItemDisappear").length);
+            }
             Destroy(button);
-            shopButtons.RemoveAt(shopButtons.Count - 1);
+            shopButtons.RemoveAt(i);
         }
         shopButtons = new List<GameObject>();
         doneRemoving = true;

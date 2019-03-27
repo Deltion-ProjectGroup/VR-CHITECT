@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     [SerializeField] LayerMask snapMask;
     [SerializeField] SteamVR_Input_Sources interactSource, teleportSource, vertSnapSource, duplicateSource;
     public static bool canInteract = true;
+    [SerializeField] Transform cameraTransform;
     // Start is called before the first frame update
     void Start()
     {
@@ -74,14 +75,14 @@ public class Player : MonoBehaviour
 
         if (interactButton.GetStateDown(InputMan.GetHand(interactSource)) && canInteract)
         {
-            if (lastHoveredSnapObject != null)
+            if (hitPoint.transform.tag == "Interactable")
             {
-                Placer.placer.vertSnapping = true;
-                lastHoveredSnapObject.GetComponent<PlacedObject>().Interact();
-            }
-            else
-            {
-                if (hitPoint.transform.tag == "Interactable")
+                if (lastHoveredSnapObject != null)
+                {
+                    Placer.placer.vertSnapping = true;
+                    lastHoveredSnapObject.GetComponent<PlacedObject>().Interact();
+                }
+                else
                 {
                     hitPoint.transform.gameObject.GetAbsoluteParent().GetComponent<Interactable>().Interact();
                 }
@@ -156,7 +157,9 @@ public class Player : MonoBehaviour
         teleporting = true;
         UIManager.uiManager.ScreenFade(true);
         yield return new WaitForSeconds(UIManager.uiManager.fadeAnimation.clip.length);
-        transform.position = newPosition;
+        Vector3 newTeleportPosition = cameraTransform.localPosition;
+        newTeleportPosition.y = 0;
+        transform.position = newPosition - newTeleportPosition;
         UIManager.uiManager.ScreenFade(false);
         yield return new WaitForSeconds(UIManager.uiManager.fadeAnimation.clip.length);
         teleporting = false;

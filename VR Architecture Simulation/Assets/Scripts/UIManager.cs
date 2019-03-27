@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Valve.VR;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -25,6 +26,10 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(0);
+        }
         if (shopToggleButton.GetStateDown(InputMan.GetHand(shopToggleSource)) && canToggle)
         {
             ToggleMenu(shop);
