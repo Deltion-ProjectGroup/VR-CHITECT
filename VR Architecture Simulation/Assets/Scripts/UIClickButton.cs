@@ -6,12 +6,19 @@ using UnityEngine.EventSystems;
 
 public class UIClickButton : UIButtonBase
 {
+    [SerializeField] Image buttonImage;
+    [SerializeField] Color hoverColor, toggledColor;
+
     public override void Interact()
     {
         GetComponent<Button>().OnPointerClick(new PointerEventData(EventSystem.current));
     }
-    public void OnClick()
+    public override void OnHover()
     {
-
+        buttonImage.color = hoverColor;
+    }
+    public override void OnHoverEnd()
+    {
+        buttonImage.color = Color.white;
     }
 }

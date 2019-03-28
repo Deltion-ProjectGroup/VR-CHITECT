@@ -158,6 +158,10 @@ MonoBehaviour:
     needsReinit: 0
   movementModifier: 1
   thisDropdown: {fileID: 0}
+  controlSource: 0
+  buttonImage: {fileID: 8013813243098659944}
+  hoverColor: {r: 0.5613208, g: 0.9048384, b: 1, a: 1}
+  interactColor: {r: 0.2028302, g: 0.8270719, b: 1, a: 1}
 --- !u!114 &3279637147910015194
 MonoBehaviour:
   m_ObjectHideFlags: 0

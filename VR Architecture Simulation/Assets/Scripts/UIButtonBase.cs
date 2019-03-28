@@ -2,7 +2,7 @@
 using UnityEngine.EventSystems;
 using UnityEngine;
 
-public class UIButtonBase : Interactable
+public abstract class UIButtonBase : Interactable
 {
     public Animator buttonAnimator;
     // Start is called before the first frame update
@@ -10,4 +10,6 @@ public class UIButtonBase : Interactable
     {
 
     }
+    public abstract void OnHover();
+    public abstract void OnHoverEnd();
 }

@@ -14,6 +14,8 @@ public class UIDropDown : UIButtonBase
     public Dropdown thisDropdown;
     [SerializeField] SteamVR_Input_Sources controlSource;
 
+    [SerializeField] Image buttonImage;
+    [SerializeField] Color hoverColor, interactColor;
     public void Awake()
     {
         thisDropdown = GetComponent<Dropdown>();
@@ -54,6 +56,7 @@ public class UIDropDown : UIButtonBase
         {
             thisDropdown.OnPointerClick(new PointerEventData(EventSystem.current));
             UIManager.uiManager.settings.GetComponent<UISelection>().selectionState = UISelection.SelectionState.Frozen;
+            buttonImage.color = interactColor;
         }
         else
         {
@@ -61,6 +64,7 @@ public class UIDropDown : UIButtonBase
             thisDropdown.Select();
             thisDropdown.Hide();
             UIManager.uiManager.settings.GetComponent<UISelection>().selectionState = UISelection.SelectionState.Selecting;
+            buttonImage.color = hoverColor;
         }
         print(UIManager.uiManager.settings.GetComponent<UISelection>().selectionState.ToString());
     }
@@ -79,5 +83,13 @@ public class UIDropDown : UIButtonBase
             }
         }
         thisDropdown.value = newVal;
+    }
+    public override void OnHover()
+    {
+        buttonImage.color = hoverColor;
+    }
+    public override void OnHoverEnd()
+    {
+        buttonImage.color = Color.white;
     }
 }

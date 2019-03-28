@@ -13,6 +13,8 @@ public class UISlider : UIButtonBase
     public SteamVR_Action_Vector2 moveAmount;
     public SteamVR_Action_Boolean confirmMove;
     [SerializeField] SteamVR_Input_Sources controlSource;
+    [SerializeField] Image sliderKnob;
+    [SerializeField] Color hoverColor, selectedColor;
 
 
     public void Awake()
@@ -39,10 +41,20 @@ public class UISlider : UIButtonBase
         if (sliding)
         {
             UIManager.uiManager.settings.GetComponent<UISelection>().selectionState = UISelection.SelectionState.Frozen;
+            sliderKnob.color = selectedColor;
         }
         else
         {
             UIManager.uiManager.settings.GetComponent<UISelection>().selectionState = UISelection.SelectionState.Selecting;
+            sliderKnob.color = hoverColor;
         }
+    }
+    public override void OnHover()
+    {
+        sliderKnob.color = hoverColor;
+    }
+    public override void OnHoverEnd()
+    {
+        sliderKnob.color = Color.white;
     }
 }

@@ -11,20 +11,16 @@ public class UISelection : MonoBehaviour
     sbyte currentVerIndex;
     public UIButtonBase currentSelected;
     [SerializeField] bool autoSelect;
-    [SerializeField]Vector2 outlineScale;
     [SerializeField]SteamVR_Action_Boolean acceptButton, selectButton;
     [SerializeField]SteamVR_Action_Vector2 trackpadPos;
     [SerializeField] SteamVR_Input_Sources controllerSource;
     public SelectionState selectionState;
-    public SteamVR_Action_Vibration vib;
 
     public enum SelectionState {Selecting, Frozen }
     // Start is called before the first frame update
     void Start()
     {
-        vib.Execute(0, 5, 100, 1, controllerSource);
-        vib.Execute(1, 50, 100, 0, controllerSource);
-        print("EXECUTED");
+
     }
 
     public void Initialize(bool resetPos = false)
@@ -34,9 +30,12 @@ public class UISelection : MonoBehaviour
             currentHorIndex = default;
             currentVerIndex = default;
         }
+        if (currentSelected)
+        {
+            currentSelected.GetComponent<UIButtonBase>().OnHoverEnd();
+        }
         currentSelected = selectableOptions[currentVerIndex].xIndexes[currentHorIndex].GetComponent<UIButtonBase>();
-        Outline newOutline = currentSelected.gameObject.AddComponent<Outline>();
-        newOutline.effectDistance = outlineScale;
+        currentSelected.GetComponent<UIButtonBase>().OnHover();
     }
 
     // Update is called once per frame
@@ -107,7 +106,7 @@ public class UISelection : MonoBehaviour
     {
         print(changeAmount);
         currentVerIndex -= (sbyte)changeAmount.y;
-        Destroy(currentSelected.gameObject.GetComponent<Outline>());
+        currentSelected.GetComponent<UIButtonBase>().OnHoverEnd();
         if(currentVerIndex < 0)
         {
             currentVerIndex = (sbyte)(selectableOptions.Count - 1);
@@ -134,12 +133,11 @@ public class UISelection : MonoBehaviour
         }
 
         currentSelected = selectableOptions[currentVerIndex].xIndexes[currentHorIndex].GetComponent<UIButtonBase>();
-        Outline outline = currentSelected.gameObject.AddComponent<Outline>();
-        outline.effectDistance = outlineScale;
         if (autoSelect)
         {
             currentSelected.Interact();
         }
+        currentSelected.GetComponent<UIButtonBase>().OnHover();
         print(currentSelected.gameObject.name);
     }
     [System.Serializable]

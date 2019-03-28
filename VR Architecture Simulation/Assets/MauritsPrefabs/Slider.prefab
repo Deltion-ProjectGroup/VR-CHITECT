@@ -113,6 +113,10 @@ MonoBehaviour:
   confirmMove:
     actionPath: /actions/default/in/Teleport
     needsReinit: 0
+  controlSource: 2
+  sliderKnob: {fileID: 8604106949688371253}
+  hoverColor: {r: 0.5613208, g: 0.9048384, b: 1, a: 1}
+  selectedColor: {r: 0.2028302, g: 0.8270719, b: 1, a: 1}
 --- !u!1 &2759566032328886992
 GameObject:
   m_ObjectHideFlags: 0
