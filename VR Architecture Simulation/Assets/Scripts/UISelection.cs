@@ -16,13 +16,15 @@ public class UISelection : MonoBehaviour
     [SerializeField]SteamVR_Action_Vector2 trackpadPos;
     [SerializeField] SteamVR_Input_Sources controllerSource;
     public SelectionState selectionState;
-
+    public SteamVR_Action_Vibration vib;
 
     public enum SelectionState {Selecting, Frozen }
     // Start is called before the first frame update
     void Start()
     {
-
+        vib.Execute(0, 5, 100, 1, controllerSource);
+        vib.Execute(1, 50, 100, 0, controllerSource);
+        print("EXECUTED");
     }
 
     public void Initialize(bool resetPos = false)
