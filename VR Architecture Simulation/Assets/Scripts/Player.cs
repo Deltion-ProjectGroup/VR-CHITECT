@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] SteamVR_Action_Boolean snapButton;
     [SerializeField] SteamVR_Action_Boolean duplicateButton;
     LineRenderer pointer;
-    bool teleporting;
+    bool canTeleport;
     GameObject lastHoveredSnapObject;
     Transform vertIndicator;
     [SerializeField] GameObject indicatorGO;
@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     [SerializeField] SteamVR_Input_Sources interactSource, teleportSource, vertSnapSource, duplicateSource;
     public static bool canInteract = true;
     [SerializeField] Transform cameraTransform;
+    [SerializeField] GameObject teleportIndicator;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,14 +39,15 @@ public class Player : MonoBehaviour
             pointer.SetPosition(0, rightHandGO.transform.position);
             pointer.SetPosition(1, hitPoint.point);
             Interaction(hitPoint);
-            if (teleportButton.GetStateUp(InputMan.GetHand(teleportSource)))
+            if(hitPoint.transform.tag == "Ground")
             {
-                if(hitPoint.transform.tag == "Ground")
+                if (teleportButton.GetState(teleportSource))
                 {
-                    if (!teleporting)
+                    if (teleportButton.GetStateDown(teleportSource))
                     {
-                        StartCoroutine(Teleport(hitPoint.point));
+                        teleportIndicator.SetActive(true);
                     }
+                    teleportIndicator.transform.position = hitPoint.point;
                 }
             }
         }
@@ -58,6 +60,21 @@ public class Player : MonoBehaviour
             }
             pointer.SetPosition(0, rightHandGO.transform.position);
             pointer.SetPosition(1, rightHandGO.transform.forward);
+        }
+        if (teleportIndicator.activeSelf)
+        {
+            if (canTeleport)
+            {
+                if (teleportButton.GetStateUp(teleportSource))
+                {
+                    Teleport(teleportIndicator.transform.position);
+                    teleportIndicator.SetActive(false);
+                }
+            }
+            else
+            {
+                teleportIndicator.SetActive(false);
+            }
         }
     }
     void Interaction(RaycastHit hitPoint)
@@ -152,16 +169,10 @@ public class Player : MonoBehaviour
             }
         }
     }
-    IEnumerator Teleport(Vector3 newPosition)
+    void Teleport(Vector3 newPosition)
     {
-        teleporting = true;
-        UIManager.uiManager.ScreenFade(true);
-        yield return new WaitForSeconds(UIManager.uiManager.fadeAnimation.clip.length);
         Vector3 newTeleportPosition = cameraTransform.localPosition;
         newTeleportPosition.y = 0;
         transform.position = newPosition - newTeleportPosition;
-        UIManager.uiManager.ScreenFade(false);
-        yield return new WaitForSeconds(UIManager.uiManager.fadeAnimation.clip.length);
-        teleporting = false;
     }
 }
