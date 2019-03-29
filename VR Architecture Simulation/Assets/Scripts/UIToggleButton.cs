@@ -11,6 +11,8 @@ public class UIToggleButton : UIButtonBase
     public override void Interact()
     {
         GetComponent<Toggle>().isOn = !GetComponent<Toggle>().isOn;
+        buttonAnimator.SetBool("On", GetComponent<Toggle>().isOn);
+        buttonAnimator.SetTrigger("Toggle");
     }
     public override void OnHover()
     {

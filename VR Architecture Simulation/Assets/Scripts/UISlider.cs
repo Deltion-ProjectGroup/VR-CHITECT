@@ -38,6 +38,7 @@ public class UISlider : UIButtonBase
     public override void Interact()
     {
         sliding = !sliding;
+        buttonAnimator.SetBool("On", sliding);
         if (sliding)
         {
             UIManager.uiManager.settings.GetComponent<UISelection>().selectionState = UISelection.SelectionState.Frozen;
