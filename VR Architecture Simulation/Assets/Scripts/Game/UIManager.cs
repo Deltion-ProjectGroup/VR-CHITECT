@@ -18,6 +18,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] AnimationClip fadeAppear;
     [SerializeField] AnimationClip fadeRemove;
     [SerializeField] SteamVR_Input_Sources shopToggleSource, settingsToggleSource;
+    public GameObject leftDialog, rightDialog;
+    public enum DialogSource { leftHand, rightHand}
     // Start is called before the first frame update
     private void Awake()
     {
@@ -93,5 +95,19 @@ public class UIManager : MonoBehaviour
     public void EnableUI(GameObject toEnable)
     {
         toEnable.SetActive(true);
+    }
+    public void EnableDialogUI(DialogEvent dialogText, DialogSource source)
+    {
+        GameObject wantedSource;
+        if(source == DialogSource.leftHand)
+        {
+            wantedSource = leftDialog;
+        }
+        else
+        {
+            wantedSource = rightDialog;
+        }
+        wantedSource.SetActive(true);
+        wantedSource.GetComponent<DialogSystem>().StartDialog(dialogText);
     }
 }
