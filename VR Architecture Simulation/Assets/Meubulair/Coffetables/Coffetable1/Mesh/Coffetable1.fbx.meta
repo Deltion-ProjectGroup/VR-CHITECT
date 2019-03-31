@@ -11,10 +11,13 @@ ModelImporter:
     400004: Wood
     2100000: Pillar
     2100002: Wood
+    2100004: Table
     2300000: Pillars
     2300002: Wood
+    2300004: //RootNode
     3300000: Pillars
     3300002: Wood
+    3300004: //RootNode
     4300000: Pillars
     4300002: Wood
   externalObjects:
@@ -23,6 +26,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Pillar
     second: {fileID: 2100000, guid: 40619ae5ec12f254a81db823abdb0ef8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Table
+    second: {fileID: 2100000, guid: 7152853c06d6d7b4596b1ebc77024cb3, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

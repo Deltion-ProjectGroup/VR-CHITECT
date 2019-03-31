@@ -3,45 +3,19 @@ guid: 56b495f8663e11e4183522e830050ec9
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Cube
-    100002: Cube.001
-    100004: Cube.002
-    100006: //RootNode
-    400000: Cube
-    400002: Cube.001
-    400004: Cube.002
-    400006: //RootNode
-    2100000: Material.003
-    2100002: Material.002
-    2100004: Material.001
-    2300000: Cube
-    2300002: Cube.001
-    2300004: Cube.002
-    3300000: Cube
-    3300002: Cube.001
-    3300004: Cube.002
-    4300000: Cube.002
-    4300002: Cube.001
-    4300004: Cube
-    6400000: Cube
-    6400002: Cube.001
-    6400004: Cube.002
+    100000: //RootNode
+    400000: //RootNode
+    2100000: Cabinet
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Cabinet
+    6400000: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: 0c63f1a011318bb458b9f56220625b22, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.002
-    second: {fileID: 2100000, guid: 8666fa8b76a502443b59a471bdb32759, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.003
-    second: {fileID: 2100000, guid: 38ddf6279f8947941b25e227890be8c9, type: 2}
+      name: Cabinet
+    second: {fileID: 2100000, guid: 908a8a5c8c803ca4498e90fe46cbe19c, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

@@ -3,33 +3,19 @@ guid: a8c88c4b8126bd542992a322f3c6204a
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: CouchBase-LongCorner-Right
-    100002: CouchPillow-LongCorner-Right
-    100004: //RootNode
-    400000: CouchBase-LongCorner-Right
-    400002: CouchPillow-LongCorner-Right
-    400004: //RootNode
-    2100000: Pillow
-    2100002: Couch
-    2300000: CouchBase-LongCorner-Right
-    2300002: CouchPillow-LongCorner-Right
-    3300000: CouchBase-LongCorner-Right
-    3300002: CouchPillow-LongCorner-Right
-    4300000: CouchPillow-LongCorner-Right
-    4300002: CouchBase-LongCorner-Right
-    6400000: CouchBase-LongCorner-Right
-    6400002: CouchPillow-LongCorner-Right
+    100000: //RootNode
+    400000: //RootNode
+    2100000: Couch
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: CouchBase-LongCorner-Right
+    6400000: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Couch
-    second: {fileID: 2100000, guid: 40935dfbb49ad6e4bab1497c867add51, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Pillow
-    second: {fileID: 2100000, guid: beedb1ecbdc94bc43a2dbc087aa39625, type: 2}
+    second: {fileID: 2100000, guid: dcde401b406f8bf4fbbd7bf5cf5fb1d4, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

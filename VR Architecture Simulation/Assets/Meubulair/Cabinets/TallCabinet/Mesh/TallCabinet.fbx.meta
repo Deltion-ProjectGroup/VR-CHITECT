@@ -13,12 +13,15 @@ ModelImporter:
     2100002: Wood
     2300000: Tall Cabinet
     2300002: Tall CabinetHandle
+    2300004: //RootNode
     3300000: Tall Cabinet
     3300002: Tall CabinetHandle
+    3300004: //RootNode
     4300000: Tall CabinetHandle
     4300002: Tall Cabinet
     6400000: Tall Cabinet
     6400002: Tall CabinetHandle
+    6400004: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material

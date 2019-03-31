@@ -13,18 +13,21 @@ ModelImporter:
     2100002: Base
     2300000: Base
     2300002: Lade
+    2300004: //RootNode
     3300000: Base
     3300002: Lade
+    3300004: //RootNode
     4300000: Lade
     4300002: Base
     6400000: Base
     6400002: Lade
+    6400004: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Base
-    second: {fileID: 2100000, guid: 503086937488ebb47affa2d5b8382e59, type: 2}
+    second: {fileID: 2100000, guid: 94d3971c2f185254d8d52282398b7ee6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

@@ -13,12 +13,15 @@ ModelImporter:
     2100002: Wood
     2300000: Wide Cabinet Low
     2300002: WideCabinetLow Lades
+    2300004: //RootNode
     3300000: Wide Cabinet Low
     3300002: WideCabinetLow Lades
+    3300004: //RootNode
     4300000: WideCabinetLow Lades
     4300002: Wide Cabinet Low
     6400000: Wide Cabinet Low
     6400002: WideCabinetLow Lades
+    6400004: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
