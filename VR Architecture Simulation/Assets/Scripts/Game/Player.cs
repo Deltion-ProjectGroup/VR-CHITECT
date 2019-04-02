@@ -26,7 +26,9 @@ public class Player : MonoBehaviour
 
     public delegate void VoidDelegate();
     public static VoidDelegate OnTeleport;
-    
+    public static VoidDelegate OnDuplicate;
+    public static VoidDelegate OnVertSnap;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +66,10 @@ public class Player : MonoBehaviour
             {
                 Placer.placer.vertSnapping = true;
                 Placer.placer.SetTrackingObject(lastHoveredSnapObject);
+                if(OnVertSnap != null)
+                {
+                    OnVertSnap();
+                }
             }
             pointer.SetPosition(0, rightHandGO.transform.position);
             pointer.SetPosition(1, rightHandGO.transform.forward);
@@ -94,6 +100,10 @@ public class Player : MonoBehaviour
                 clonedObject.GetComponent<PlacedObject>().objectPlacedOn = null;
                 clonedObject.GetComponent<PlacedObject>().objectsPlacedOnTop = new System.Collections.Generic.List<GameObject>();
                 Placer.placer.SetTrackingObject(clonedObject);
+                if(OnDuplicate != null)
+                {
+                    OnDuplicate();
+                }
             }
         }
 
@@ -181,6 +191,9 @@ public class Player : MonoBehaviour
         Vector3 newTeleportPosition = cameraTransform.localPosition;
         newTeleportPosition.y = 0;
         transform.position = newPosition - newTeleportPosition;
-        OnTeleport();
+        if(OnTeleport != null)
+        {
+            OnTeleport();
+        }
     }
 }

@@ -36,6 +36,16 @@ public class Placer : MonoBehaviour
 
 
     [SerializeField] SteamVR_Input_Sources placeSource, destroySource, rotateSource, rotateSnapSource, positionSnapSource;
+
+    //-----------------------------------------------------------------------
+
+    public delegate void DelegateVoid();
+    public static DelegateVoid OnRotate; //
+    public static DelegateVoid OnSetObject; //
+    public static DelegateVoid OnToggleRotationSnap; //
+    public static DelegateVoid OnTogglePositionSnap; //
+    public static DelegateVoid OnDestroyObject; //
+    public static DelegateVoid OnPlaceObject; //
     // Start is called before the first frame update
     void Awake()
     {
@@ -82,6 +92,10 @@ public class Placer : MonoBehaviour
         Destroy(trackingObj);
         trackingObj = null;
         canSetObject = true;
+        if(OnDestroyObject != null)
+        {
+            OnDestroyObject();
+        }
     }
     public static Vector3 CalculateOffset(Vector3 vertWorldPosition, Vector3 ownerPosition)
     {
@@ -132,6 +146,10 @@ public class Placer : MonoBehaviour
                 rotateAmount = Mathf.RoundToInt(rotateAmount);
                 rotateAmount *= rotateTurnAmount;
                 trackingObj.transform.Rotate(new Vector3(0, rotateAmount, 0));
+                if(OnRotate != null)
+                {
+                    OnRotate();
+                }
             }
         }
         else
@@ -139,6 +157,10 @@ public class Placer : MonoBehaviour
             if (rotatePress.GetState(InputMan.GetHand(rotateSource)))
             {
                 trackingObj.transform.Rotate(new Vector3(0, rotateAmount, 0));
+                if (OnRotate != null)
+                {
+                    OnRotate();
+                }
             }
         }
         if (vertSnapping)
@@ -203,6 +225,10 @@ public class Placer : MonoBehaviour
             //UIManager.uiManager.properties.GetComponent<PropertiesMenu>().targetRN = trackingObj;
             //UIManager.uiManager.ToggleMenu(UIManager.uiManager.properties);
             //UIManager.uiManager.properties.GetComponent<PropertiesMenu>().Initialize(trackingObj);
+            if(OnSetObject != null)
+            {
+                OnSetObject();
+            }
         }
     }
     IEnumerator PlaceTrackingObject()
@@ -228,6 +254,10 @@ public class Placer : MonoBehaviour
         //UIManager.uiManager.ToggleMenu(UIManager.uiManager.properties);
         trackingObj.GetComponent<PlacedObject>().OnPlace();
         trackingObj = null;
+        if(OnPlaceObject != null)
+        {
+            OnPlaceObject();
+        }
         yield return null;
         canSetObject = true;
     }
@@ -245,6 +275,10 @@ public class Placer : MonoBehaviour
                 snappingPosition = false;
                 //ToggleGrid(false);
             }
+        }
+        if(OnTogglePositionSnap != null)
+        {
+            OnTogglePositionSnap();
         }
     }
     void ToggleRotationSnap()
@@ -265,6 +299,10 @@ public class Placer : MonoBehaviour
             {
                 snappingRotation = snappingRotation.ToggleBool();
             }
+        }
+        if(OnToggleRotationSnap != null)
+        {
+            OnToggleRotationSnap();
         }
     }
     void CalculateTilePositions(GameObject[] groundTiles)

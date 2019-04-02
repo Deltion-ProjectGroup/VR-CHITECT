@@ -4206,14 +4206,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2074019112, guid: 74be2e6786bdddc4ea7be31939746d0e, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8030504837015073232, guid: 74be2e6786bdddc4ea7be31939746d0e,
         type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074019112, guid: 74be2e6786bdddc4ea7be31939746d0e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74be2e6786bdddc4ea7be31939746d0e, type: 3}
@@ -8995,8 +8995,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialParts:
   - {fileID: 11400000, guid: e418fbe0eb2358f46b10834f75ad1ff2, type: 2}
+  - {fileID: 11400000, guid: 1fb7228070e14724ba6216c085e3023a, type: 2}
   - {fileID: 11400000, guid: 0c85cb0519dda224788bd0579758e1a7, type: 2}
+  - {fileID: 11400000, guid: db3ebd8dc4041304e8e01688531be6cf, type: 2}
   - {fileID: 11400000, guid: 77909e7bf1f8e9941a621cda7408e162, type: 2}
+  - {fileID: 11400000, guid: 411e15411fa60ae44864828c96fd6a2c, type: 2}
+  - {fileID: 11400000, guid: 26f56183cd9933644a3908f8dcb38fbf, type: 2}
+  - {fileID: 11400000, guid: 492848ab8fef6ac4b9d05cbc955e4b37, type: 2}
+  - {fileID: 11400000, guid: f9d3b3233b511b14cae2981243f231df, type: 2}
+  - {fileID: 11400000, guid: 267d5cf429684cd429511d71e8b8d856, type: 2}
+  - {fileID: 11400000, guid: e2e0ec5b7b15cd44b970cf0165f61fcc, type: 2}
+  - {fileID: 11400000, guid: 15ba3d1c38fc89d42b4b9582d8dab462, type: 2}
+  - {fileID: 11400000, guid: 21dac160bb587f5449a5009cca0b9de2, type: 2}
+  - {fileID: 11400000, guid: 42af9c2f97b644d4999dc5170bd73196, type: 2}
+  - {fileID: 11400000, guid: bc3cc38357ff7da4cbb75cb6c5c422c3, type: 2}
+  - {fileID: 11400000, guid: 83257dff9e5011742970fa5749e7ce3c, type: 2}
+  - {fileID: 11400000, guid: 2373b54e503794d45ad491b6cceb49b8, type: 2}
+  - {fileID: 11400000, guid: fa6a9fe2397435145afe47524ccf5841, type: 2}
+  - {fileID: 11400000, guid: 6be6ee4a7fe615a47bf575016fc7cc16, type: 2}
+  - {fileID: 11400000, guid: 385bb78027149d24eb8163ef59314644, type: 2}
   currentPart: 0
 --- !u!1001 &1268914480
 PrefabInstance:

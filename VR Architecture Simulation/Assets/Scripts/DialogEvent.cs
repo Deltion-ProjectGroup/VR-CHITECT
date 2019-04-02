@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName = "New Dialog", menuName = "Create New Dialog")]
+[CreateAssetMenu(fileName = "New Dialog", menuName = "New Event/Create New Dialog")]
 public class DialogEvent : Event
 {
     [TextArea]

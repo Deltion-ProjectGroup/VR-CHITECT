@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e45a5956dc657c74c8a9bc47ae829793, type: 3}
+  m_Name: ColorCodingDialog
+  m_EditorClassIdentifier: 
+  dialogTexts:
+  - As you can see you can now freely move your furniture
+  - They have also gotten a new color.
+  - 'When your placing object is colored green you can place it.
+
+    Though if it is red it means you cannot place it.'
+  stayAfterFinish: 0
+  source: 0

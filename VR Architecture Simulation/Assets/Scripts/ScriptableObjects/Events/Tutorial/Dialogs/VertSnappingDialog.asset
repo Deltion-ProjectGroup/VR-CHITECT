@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e45a5956dc657c74c8a9bc47ae829793, type: 3}
+  m_Name: VertSnappingDialog
+  m_EditorClassIdentifier: 
+  dialogTexts:
+  - Now for the last feature for placement we have something called vert snapping.
+  - Vert snapping is selecting a certain point of the object and making that point
+    the center of the object..
+  - A great example is when you want to put two nightstands next to eachother. Normally
+    this would take alot of time and precision..
+  - But when vertsnapping you can simply set the corner of the paw from the stand
+    as center and point it at the corner of the paw from the other nightstand.
+  - This will put them exactly next to eachother without having to spend ages on trying
+    to reach the same effect.
+  - Vertsnapping can take some time to master though so don't worry if it doesn't
+    go right for the first few times.
+  - To use vertsnapping hold the trigger on your left controller. A dot will appear
+    this is the vert it will select as center point when you press the trigger on
+    your right controller.
+  - Once you have gotten your object in placement mode you can point with the pointer
+    to another point of an object and it will try to put the centerpoint at that position.
+  - If you don't want to use vert snapping after being in placement mode you can simple
+    let go of the trigger of the left controller, this will reset the center point.
+  stayAfterFinish: 0
+  source: 0

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e45a5956dc657c74c8a9bc47ae829793, type: 3}
+  m_Name: RotationSnapDialog
+  m_EditorClassIdentifier: 
+  dialogTexts:
+  - Another handy feature for rotating objects is the ROTATION SNAP feature
+  - To toggle rotation snapping you just have to press the sidegrip of your right
+    controller. This will snap the rotation with certain degrees every time.
+  stayAfterFinish: 0
+  source: 0
