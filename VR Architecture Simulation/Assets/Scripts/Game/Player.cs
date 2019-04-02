@@ -20,6 +20,13 @@ public class Player : MonoBehaviour
     public static bool canInteract = true;
     [SerializeField] Transform cameraTransform;
     [SerializeField] GameObject teleportIndicator;
+
+
+    //------------------------------------------
+
+    public delegate void VoidDelegate();
+    public static VoidDelegate OnTeleport;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -174,5 +181,6 @@ public class Player : MonoBehaviour
         Vector3 newTeleportPosition = cameraTransform.localPosition;
         newTeleportPosition.y = 0;
         transform.position = newPosition - newTeleportPosition;
+        OnTeleport();
     }
 }
