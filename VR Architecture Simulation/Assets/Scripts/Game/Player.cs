@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] SteamVR_Action_Boolean snapButton;
     [SerializeField] SteamVR_Action_Boolean duplicateButton;
     LineRenderer pointer;
-    bool canTeleport;
+    public bool canTeleport = true;
     GameObject lastHoveredSnapObject;
     Transform vertIndicator;
     [SerializeField] GameObject indicatorGO;

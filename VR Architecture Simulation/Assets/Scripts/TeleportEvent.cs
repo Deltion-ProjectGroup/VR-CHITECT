@@ -11,6 +11,6 @@ public class TeleportEvent : CountEvent
     }
     public override void RemoveEvent()
     {
-        Player.OnTeleport -= CheckCount;
+        Player.OnTeleport -= AddCount;
     }
 }
