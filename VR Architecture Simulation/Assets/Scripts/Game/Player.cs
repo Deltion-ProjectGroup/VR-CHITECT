@@ -72,7 +72,7 @@ public class Player : MonoBehaviour
                 }
             }
             pointer.SetPosition(0, rightHandGO.transform.position);
-            pointer.SetPosition(1, rightHandGO.transform.forward);
+            pointer.SetPosition(1, rightHandGO.transform.position + rightHandGO.transform.forward);
         }
         if (teleportIndicator.activeSelf)
         {
