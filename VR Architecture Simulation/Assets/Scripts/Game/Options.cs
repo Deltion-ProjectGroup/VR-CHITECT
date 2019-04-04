@@ -71,4 +71,8 @@ public class Options : UIMenu
     {
         audioMixer.SetFloat("SFXVolume", bar.value);
     }
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }
