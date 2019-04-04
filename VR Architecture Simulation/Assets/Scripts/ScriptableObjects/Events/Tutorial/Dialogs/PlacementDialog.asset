@@ -16,5 +16,5 @@ MonoBehaviour:
   - 'We are done with this object, lets try placing it down..
 
     To place objects press the trigger of your right controller when its green.'
-  stayAfterFinish: 0
+  stayAfterFinish: 1
   source: 0

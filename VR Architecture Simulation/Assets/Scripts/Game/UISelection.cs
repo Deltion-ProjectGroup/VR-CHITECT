@@ -15,6 +15,8 @@ public class UISelection : MonoBehaviour
     [SerializeField]SteamVR_Action_Vector2 trackpadPos;
     [SerializeField] SteamVR_Input_Sources controllerSource;
     public SelectionState selectionState;
+    public AudioSource mainAudioSource;
+    public AudioClip switchSound, selectSound;
 
     public enum SelectionState {Selecting, Frozen }
     // Start is called before the first frame update
@@ -51,6 +53,8 @@ public class UISelection : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Q) || acceptButton.GetStateDown(InputMan.GetHand(controllerSource)))
             {
                 currentSelected.Interact();
+                mainAudioSource.clip = selectSound;
+                mainAudioSource.Play();
             }
         }
     }
@@ -136,8 +140,12 @@ public class UISelection : MonoBehaviour
         if (autoSelect)
         {
             currentSelected.Interact();
+            mainAudioSource.clip = selectSound;
+            mainAudioSource.Play();
         }
         currentSelected.GetComponent<UIButtonBase>().OnHover();
+        mainAudioSource.clip = switchSound;
+        mainAudioSource.Play();
         print(currentSelected.gameObject.name);
     }
     [System.Serializable]

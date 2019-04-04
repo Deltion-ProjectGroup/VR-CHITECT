@@ -31,5 +31,5 @@ MonoBehaviour:
     to another point of an object and it will try to put the centerpoint at that position.
   - If you don't want to use vert snapping after being in placement mode you can simple
     let go of the trigger of the left controller, this will reset the center point.
-  stayAfterFinish: 0
+  stayAfterFinish: 1
   source: 0

@@ -16,5 +16,5 @@ MonoBehaviour:
   - To make things handy for you there is also a feature that will duplicate objects
     for you...
   - Try duplicating something by pressing the sidegrip of your left controller.
-  stayAfterFinish: 0
+  stayAfterFinish: 1
   source: 0

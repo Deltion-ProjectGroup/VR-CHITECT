@@ -18,5 +18,5 @@ MonoBehaviour:
   - 'When your placing object is colored green you can place it.
 
     Though if it is red it means you cannot place it.'
-  stayAfterFinish: 0
+  stayAfterFinish: 1
   source: 0

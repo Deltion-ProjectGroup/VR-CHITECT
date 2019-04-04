@@ -24,5 +24,5 @@ MonoBehaviour:
     Position snapping will snap the position of your object within certain values
     of distance.'
   - Go try it out!
-  stayAfterFinish: 0
+  stayAfterFinish: 1
   source: 0

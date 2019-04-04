@@ -21,7 +21,8 @@ public class Player : MonoBehaviour
     [SerializeField] Transform cameraTransform;
     [SerializeField] GameObject teleportIndicator;
 
-
+    [SerializeField] AudioSource playerAudio;
+    [SerializeField] AudioClip teleportSound, duplicateSound;
     //------------------------------------------
 
     public delegate void VoidDelegate();
@@ -100,6 +101,8 @@ public class Player : MonoBehaviour
                 clonedObject.GetComponent<PlacedObject>().objectPlacedOn = null;
                 clonedObject.GetComponent<PlacedObject>().objectsPlacedOnTop = new System.Collections.Generic.List<GameObject>();
                 Placer.placer.SetTrackingObject(clonedObject);
+                playerAudio.clip = duplicateSound;
+                playerAudio.Play();
                 if(OnDuplicate != null)
                 {
                     OnDuplicate();
@@ -191,6 +194,11 @@ public class Player : MonoBehaviour
         Vector3 newTeleportPosition = cameraTransform.localPosition;
         newTeleportPosition.y = 0;
         transform.position = newPosition - newTeleportPosition;
+        if (!playerAudio.isPlaying)
+        {
+            playerAudio.clip = teleportSound;
+            playerAudio.Play();
+        }
         if(OnTeleport != null)
         {
             OnTeleport();

@@ -17,5 +17,5 @@ MonoBehaviour:
 
     If you want to destroy objects you can simply press the trigger of your left controller
     while placing.'
-  stayAfterFinish: 0
+  stayAfterFinish: 1
   source: 0

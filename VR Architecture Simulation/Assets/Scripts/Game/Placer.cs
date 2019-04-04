@@ -37,6 +37,8 @@ public class Placer : MonoBehaviour
 
     [SerializeField] SteamVR_Input_Sources placeSource, destroySource, rotateSource, rotateSnapSource, positionSnapSource;
 
+    [SerializeField] AudioSource placerAudioSource, mainAudioSource;
+    [SerializeField] AudioClip destroySound, errorPlaceSound, placeSound, rotateSound; 
     //-----------------------------------------------------------------------
 
     public delegate void DelegateVoid();
@@ -68,6 +70,11 @@ public class Placer : MonoBehaviour
                     DestroyPlacingObject();
                     return;
                 }
+                if (placeButton.GetStateDown(InputMan.GetHand(placeSource)))
+                {
+                    mainAudioSource.clip = errorPlaceSound;
+                    mainAudioSource.Play();
+                }
                 //Snapping
                 ToggleGridSnap();
                 ToggleRotationSnap();
@@ -92,6 +99,8 @@ public class Placer : MonoBehaviour
         Destroy(trackingObj);
         trackingObj = null;
         canSetObject = true;
+        mainAudioSource.clip = destroySound;
+        mainAudioSource.Play();
         if(OnDestroyObject != null)
         {
             OnDestroyObject();
@@ -143,6 +152,8 @@ public class Placer : MonoBehaviour
         {
             if (rotatePress.GetStateDown(InputMan.GetHand(rotateSource)))
             {
+                placerAudioSource.clip = rotateSound;
+                placerAudioSource.Play();
                 rotateAmount = Mathf.RoundToInt(rotateAmount);
                 rotateAmount *= rotateTurnAmount;
                 trackingObj.transform.Rotate(new Vector3(0, rotateAmount, 0));
@@ -254,6 +265,8 @@ public class Placer : MonoBehaviour
         //UIManager.uiManager.ToggleMenu(UIManager.uiManager.properties);
         trackingObj.GetComponent<PlacedObject>().OnPlace();
         trackingObj = null;
+        mainAudioSource.clip = placeSound;
+        mainAudioSource.Play();
         if(OnPlaceObject != null)
         {
             OnPlaceObject();

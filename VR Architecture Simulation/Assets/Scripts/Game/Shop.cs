@@ -28,6 +28,10 @@ public class Shop : UIMenu
     Vector3 requiredVerPos;
     [Tooltip("Put in here the amount of items that fit")]
     public int possibleVisibleIcons;
+    public Text tabTypeText;
+
+    [SerializeField] AudioSource mainAudioSource;
+    [SerializeField] AudioClip switchSound, arriveSwitchSound, selectSound;
     // Start is called before the first frame update
     void Awake()
     {
@@ -39,6 +43,7 @@ public class Shop : UIMenu
         selectionTabs = listedSelecTabs.ToArray();
         requiredHorPos = sectionHolder.localPosition;
         requiredVerPos = itemHolder.localPosition;
+        tabTypeText.text = selectionTabs[selectedHorIndex].GetComponent<ShopTabData>().tabType;
     }
 
     // Update is called once per frame
@@ -51,6 +56,8 @@ public class Shop : UIMenu
             if (selectButton.GetStateDown(InputMan.GetHand(controllerSource)) || Input.GetKeyDown(KeyCode.KeypadEnter))
             {
                 shopButtons[selectedVerIndex].GetComponent<ItemButton>().Select();
+                mainAudioSource.clip = selectSound;
+                mainAudioSource.Play();
             }
         }
 
@@ -139,11 +146,16 @@ public class Shop : UIMenu
         requiredHorPos.x += moveAmount;
         moveAmount /= ticks;
         StartCoroutine(ClearShopItems(false));
+        mainAudioSource.clip = switchSound;
+        mainAudioSource.Play();
+        tabTypeText.text = selectionTabs[selectedHorIndex].GetComponent<ShopTabData>().tabType;
         for (sbyte i = 0; i < ticks; i++)
         {
             sectionHolder.localPosition += (new Vector3(moveAmount, 0));
             yield return new WaitForSeconds(tickDelay);
         }
+        mainAudioSource.clip = arriveSwitchSound;
+        mainAudioSource.Play();
         while (!doneRemoving)
         {
             yield return null;

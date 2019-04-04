@@ -20,5 +20,5 @@ MonoBehaviour:
 
     TELEPORTING'
   - To teleport press the trackpad of your left controller
-  stayAfterFinish: 0
+  stayAfterFinish: 1
   source: 0

@@ -16,5 +16,5 @@ MonoBehaviour:
   - Another handy feature for rotating objects is the ROTATION SNAP feature
   - To toggle rotation snapping you just have to press the sidegrip of your right
     controller. This will snap the rotation with certain degrees every time.
-  stayAfterFinish: 0
+  stayAfterFinish: 1
   source: 0

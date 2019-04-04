@@ -19,5 +19,5 @@ MonoBehaviour:
   - 'Let''s try picking up something..
 
     Press the trigger on your right controller to pick something up'
-  stayAfterFinish: 0
+  stayAfterFinish: 1
   source: 1

@@ -18,5 +18,5 @@ MonoBehaviour:
     ROTATION'
   - You can rotate objects by pressing your trackpad on the direction you want your
     object to rotate towards. You can only rotate sideways though.
-  stayAfterFinish: 0
+  stayAfterFinish: 1
   source: 0

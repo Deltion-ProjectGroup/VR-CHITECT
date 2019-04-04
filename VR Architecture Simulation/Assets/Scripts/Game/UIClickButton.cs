@@ -11,7 +11,7 @@ public class UIClickButton : UIButtonBase
 
     public override void Interact()
     {
-        buttonAnimator.SetTrigger("Interact");
+        GetComponent<Animation>().Play();
         GetComponent<Button>().OnPointerClick(new PointerEventData(EventSystem.current));
     }
     public override void OnHover()
