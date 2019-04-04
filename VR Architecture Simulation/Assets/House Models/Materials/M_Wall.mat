@@ -77,7 +77,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
-        m_Texture: {fileID: 2800000, guid: 6c815100470fe8847b05c66f3a1fa5f7, type: 3}
+        m_Texture: {fileID: 2800000, guid: b18a64e827780ee4cb7ea44079262de8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMapOS:
@@ -201,10 +201,12 @@ Material:
     - _SrcBlend: 1
     - _StencilRef: 2
     - _StencilRefDepth: 0
+    - _StencilRefDistortionVec: 64
     - _StencilRefGBuffer: 2
     - _StencilRefMV: 128
     - _StencilWriteMask: 3
     - _StencilWriteMaskDepth: 48
+    - _StencilWriteMaskDistortionVec: 64
     - _StencilWriteMaskGBuffer: 51
     - _StencilWriteMaskMV: 176
     - _Stiffness: 1
