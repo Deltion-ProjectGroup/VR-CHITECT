@@ -106,8 +106,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 0.79000026, y: 0.42999995, z: 1.4000005}
-  m_Center: {x: 0, y: 0.21499997, z: 0}
+  m_Size: {x: 0.79000026, y: 0.41397774, z: 1.4000007}
+  m_Center: {x: 0, y: 0.22301109, z: 0}
 --- !u!114 &8892861145179063280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,6 +123,6 @@ MonoBehaviour:
   objectPlacedOn: {fileID: 0}
   objectsPlacedOnTop: []
   itemData: {fileID: 11400000, guid: 6328cf389e4cb394fb17772c9644261f, type: 2}
-  moveable: 0
+  moveable: 1
   requiredObjectType: 01000000
   objectType: 4
