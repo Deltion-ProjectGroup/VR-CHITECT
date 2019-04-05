@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &636766898704285064
+--- !u!1 &1216429431817765005
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4939727138040811206}
-  - component: {fileID: 4371843637901737984}
-  - component: {fileID: 391974637941759245}
-  - component: {fileID: 1218863782576268537}
-  - component: {fileID: 1436723711}
-  - component: {fileID: 1436723710}
-  - component: {fileID: 636766898704285065}
-  m_Layer: 4
+  - component: {fileID: 2790817554321568414}
+  - component: {fileID: 6620853819826620584}
+  - component: {fileID: 638796546741515345}
+  m_Layer: 0
   m_Name: BureauStoel
-  m_TagString: Interactable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4939727138040811206
+--- !u!4 &2790817554321568414
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 636766898704285064}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.329, y: 6.3, z: 14.176}
-  m_LocalScale: {x: 0.28979135, y: 0.28979135, z: 0.28979135}
+  m_GameObject: {fileID: 1216429431817765005}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 14.75, y: 5.03, z: 16.291}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4371843637901737984
+--- !u!33 &6620853819826620584
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 636766898704285064}
-  m_Mesh: {fileID: 4300000, guid: 69a71b0bd9dd52146bcb528f63e4fdbd, type: 3}
---- !u!23 &391974637941759245
+  m_GameObject: {fileID: 1216429431817765005}
+  m_Mesh: {fileID: -1550514412580984892, guid: 69a71b0bd9dd52146bcb528f63e4fdbd, type: 3}
+--- !u!23 &638796546741515345
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 636766898704285064}
+  m_GameObject: {fileID: 1216429431817765005}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -69,10 +65,11 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
+  m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -81,65 +78,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &1218863782576268537
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 636766898704285064}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: 69a71b0bd9dd52146bcb528f63e4fdbd, type: 3}
---- !u!65 &1436723711
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 636766898704285064}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 2.2166538, y: 4.016584, z: 2.18045}
-  m_Center: {x: 0.016315049, y: 2.0565627, z: -0.034213018}
---- !u!114 &1436723710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 636766898704285064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectPlacedOn: {fileID: 0}
-  objectsPlacedOnTop: []
-  itemData: {fileID: 11400000, guid: 1309a4879d484d448a370a3d31f33046, type: 2}
-  moveable: 1
-  requiredObjectType: 01000000
-  objectType: 3
---- !u!114 &636766898704285065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 636766898704285064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  availableMaterials:
-  - thisMaterial: {fileID: 0}
-    iconColor: {r: 0, g: 0, b: 0, a: 0}
-  partIcon: {fileID: 0}
-  partname: Office Chair
