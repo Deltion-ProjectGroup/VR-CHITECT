@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         pointer = rightHandGO.GetComponent<LineRenderer>();
     }
 
