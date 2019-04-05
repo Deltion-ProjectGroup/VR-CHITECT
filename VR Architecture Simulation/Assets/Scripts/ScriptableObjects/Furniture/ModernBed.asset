@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ModernBed
   m_EditorClassIdentifier: 
   itemName: Bed
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 1941b617b17b83f4695dfdde66d33654, type: 3}
   itemObject: {fileID: 5207382594207023080, guid: eba009d66a147e446941288845b899ee,
     type: 3}
   itemDiscription: 

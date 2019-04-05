@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Painting
   m_EditorClassIdentifier: 
   itemName: Painting
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: e29ebfba7d98b244db368aa97aff144a, type: 3}
   itemObject: {fileID: 304586283725874009, guid: fa04a049f5179e24180050b63982d3eb,
     type: 3}
   itemDiscription: 

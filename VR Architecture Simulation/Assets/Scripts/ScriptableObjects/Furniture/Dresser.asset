@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dresser
   m_EditorClassIdentifier: 
   itemName: Dresser
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 9f20e0604a623684dac4e6c2508082ce, type: 3}
   itemObject: {fileID: 5345558610762903443, guid: 44a33c0e626e0844a9737e78dcde5d19,
     type: 3}
   itemDiscription: 

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4794826986452311180}
   - component: {fileID: 207462728}
   - component: {fileID: 207462727}
-  - component: {fileID: 8150166388668480706}
+  - component: {fileID: 1288292023}
   m_Layer: 4
   m_Name: Carpet
   m_TagString: Interactable
@@ -68,6 +68,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -105,11 +106,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectPlacedOn: {fileID: 0}
+  objectsPlacedOnTop: []
   itemData: {fileID: 11400000, guid: 0349f2107983f42429dd5bb7b29104be, type: 2}
   moveable: 1
   requiredObjectType: 01000000
   objectType: 1
---- !u!114 &8150166388668480706
+--- !u!114 &1288292023
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,7 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  availableMaterials:
-  - {fileID: 2100000, guid: 4c2d37f0846fd2b468ff9227aaa240e5, type: 2}
+  availableMaterials: []
   partIcon: {fileID: 0}
-  partname: Carpet
+  partname: 

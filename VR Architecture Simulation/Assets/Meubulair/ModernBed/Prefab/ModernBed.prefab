@@ -67,6 +67,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -92,7 +93,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   availableMaterials:
-  - {fileID: 2100000, guid: 19282cd5bf384874ea1ffff9bd3ba443, type: 2}
+  - thisMaterial: {fileID: 0}
+    iconColor: {r: 0, g: 0, b: 0, a: 0}
   partIcon: {fileID: 0}
   partname: Bed Sheets
 --- !u!64 &2217962302297968722
@@ -176,6 +178,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -201,7 +204,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   availableMaterials:
-  - {fileID: 2100000, guid: dd7e76f54b218a244b44b76fce7db669, type: 2}
+  - thisMaterial: {fileID: 0}
+    iconColor: {r: 0, g: 0, b: 0, a: 0}
   partIcon: {fileID: 0}
   partname: Bed Frame
 --- !u!64 &1805472896931633503
@@ -285,6 +289,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -310,7 +315,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   availableMaterials:
-  - {fileID: 2100000, guid: 3c5ff72792130554a810ffd877e1eee8, type: 2}
+  - thisMaterial: {fileID: 0}
+    iconColor: {r: 0, g: 0, b: 0, a: 0}
   partIcon: {fileID: 0}
   partname: Pillows
 --- !u!64 &2238923284524588722
@@ -394,6 +400,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -419,7 +426,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   availableMaterials:
-  - {fileID: 2100000, guid: 5fb62213053bbf841992642eb2c5949e, type: 2}
+  - thisMaterial: {fileID: 0}
+    iconColor: {r: 0, g: 0, b: 0, a: 0}
   partIcon: {fileID: 0}
   partname: Drawers
 --- !u!64 &447519926683330296
@@ -498,6 +506,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectPlacedOn: {fileID: 0}
+  objectsPlacedOnTop: []
   itemData: {fileID: 11400000, guid: 0e4a710dba0af374e90782e4e5af1afd, type: 2}
   moveable: 1
   requiredObjectType: 01000000
@@ -569,6 +579,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -594,7 +605,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   availableMaterials:
-  - {fileID: 2100000, guid: 375d654ee574b594f8a41d650ca3fde7, type: 2}
+  - thisMaterial: {fileID: 0}
+    iconColor: {r: 0, g: 0, b: 0, a: 0}
   partIcon: {fileID: 0}
   partname: Matress
 --- !u!64 &6411167150487129807

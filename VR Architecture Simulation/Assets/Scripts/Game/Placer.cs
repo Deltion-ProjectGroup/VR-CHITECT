@@ -38,7 +38,9 @@ public class Placer : MonoBehaviour
     [SerializeField] SteamVR_Input_Sources placeSource, destroySource, rotateSource, rotateSnapSource, positionSnapSource;
 
     [SerializeField] AudioSource placerAudioSource, mainAudioSource;
-    [SerializeField] AudioClip destroySound, errorPlaceSound, placeSound, rotateSound; 
+    [SerializeField] AudioClip destroySound, errorPlaceSound, placeSound, rotateSound;
+
+    public static bool isEnabled = true;
     //-----------------------------------------------------------------------
 
     public delegate void DelegateVoid();
@@ -61,26 +63,32 @@ public class Placer : MonoBehaviour
         {
             if (placeButton.GetStateDown(InputMan.GetHand(placeSource)) && canPlace)
             {
-                StartCoroutine(PlaceTrackingObject());
+                if (isEnabled)
+                {
+                    StartCoroutine(PlaceTrackingObject());
+                }
             }
             else
             {
-                if (placeButton.GetStateDown(InputMan.GetHand(destroySource)))
+                if (isEnabled)
                 {
-                    DestroyPlacingObject();
-                    return;
-                }
-                if (placeButton.GetStateDown(InputMan.GetHand(placeSource)))
-                {
-                    mainAudioSource.clip = errorPlaceSound;
-                    mainAudioSource.Play();
-                }
-                //Snapping
-                ToggleGridSnap();
-                ToggleRotationSnap();
+                    if (placeButton.GetStateDown(InputMan.GetHand(destroySource)))
+                    {
+                        DestroyPlacingObject();
+                        return;
+                    }
+                    if (placeButton.GetStateDown(InputMan.GetHand(placeSource)))
+                    {
+                        mainAudioSource.clip = errorPlaceSound;
+                        mainAudioSource.Play();
+                    }
+                    //Snapping
+                    ToggleGridSnap();
+                    ToggleRotationSnap();
 
-                //PlacementCheck
-                Rotate();
+                    //PlacementCheck
+                    Rotate();
+                }
                 RaycastHit hit;
                 Ray ray = new Ray(hand.position, hand.forward);
                 if (Physics.Raycast(ray, out hit, 1000, placementMask))

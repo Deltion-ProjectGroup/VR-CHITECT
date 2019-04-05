@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TallCabinet
   m_EditorClassIdentifier: 
   itemName: Tall Cabinet
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 22302067578b7534a984f0f08e08fba3, type: 3}
   itemObject: {fileID: 1523169092743119064, guid: cb797ee94ea3b974993864ef0b24cbae,
     type: 3}
   itemDiscription: 

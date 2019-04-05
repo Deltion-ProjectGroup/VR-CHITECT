@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Carpet
   m_EditorClassIdentifier: 
   itemName: Carpet
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 60748ded062449647b1f43d57ee6caeb, type: 3}
   itemObject: {fileID: 8150166388668480705, guid: d52263cd27dc0c440be7beeb41d6f5bc,
     type: 3}
   itemDiscription: 

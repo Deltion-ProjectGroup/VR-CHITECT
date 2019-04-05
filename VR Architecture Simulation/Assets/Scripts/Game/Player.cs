@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     [SerializeField] AudioSource playerAudio;
     [SerializeField] AudioClip teleportSound, duplicateSound;
     //------------------------------------------
+    public static bool isEnabled = true;
 
     public delegate void VoidDelegate();
     public static VoidDelegate OnTeleport;
@@ -48,22 +49,25 @@ public class Player : MonoBehaviour
         {
             pointer.SetPosition(0, rightHandGO.transform.position);
             pointer.SetPosition(1, hitPoint.point);
-            Interaction(hitPoint);
-            if(hitPoint.transform.tag == "Ground")
+            if (isEnabled)
             {
-                if (teleportButton.GetState(teleportSource))
+                Interaction(hitPoint);
+                if (hitPoint.transform.tag == "Ground")
                 {
-                    if (teleportButton.GetStateDown(teleportSource))
+                    if (teleportButton.GetState(teleportSource))
                     {
-                        teleportIndicator.SetActive(true);
+                        if (teleportButton.GetStateDown(teleportSource))
+                        {
+                            teleportIndicator.SetActive(true);
+                        }
+                        teleportIndicator.transform.position = hitPoint.point;
                     }
-                    teleportIndicator.transform.position = hitPoint.point;
                 }
             }
         }
         else
         {
-            if (interactButton.GetStateDown(InputMan.GetHand(interactSource)) && lastHoveredSnapObject != null)
+            if (isEnabled && interactButton.GetStateDown(InputMan.GetHand(interactSource)) && lastHoveredSnapObject != null)
             {
                 Placer.placer.vertSnapping = true;
                 Placer.placer.SetTrackingObject(lastHoveredSnapObject);
@@ -75,7 +79,7 @@ public class Player : MonoBehaviour
             pointer.SetPosition(0, rightHandGO.transform.position);
             pointer.SetPosition(1, rightHandGO.transform.position + rightHandGO.transform.forward);
         }
-        if (teleportIndicator.activeSelf)
+        if (teleportIndicator.activeSelf && isEnabled)
         {
             if (canTeleport)
             {
@@ -117,6 +121,10 @@ public class Player : MonoBehaviour
                 if (lastHoveredSnapObject != null)
                 {
                     Placer.placer.vertSnapping = true;
+                    if (OnVertSnap != null)
+                    {
+                        OnVertSnap();
+                    }
                     lastHoveredSnapObject.GetComponent<PlacedObject>().Interact();
                 }
                 else

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8530717787709750551}
   - component: {fileID: 745712157}
   - component: {fileID: 745712156}
-  - component: {fileID: 304586283725874010}
+  - component: {fileID: 1332367166}
   m_Layer: 4
   m_Name: Painting
   m_TagString: Interactable
@@ -69,6 +69,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -106,11 +107,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectPlacedOn: {fileID: 0}
+  objectsPlacedOnTop: []
   itemData: {fileID: 11400000, guid: a36b4895df5cf014aa9c55c3fe177979, type: 2}
   moveable: 1
   requiredObjectType: 00000000
   objectType: 3
---- !u!114 &304586283725874010
+--- !u!114 &1332367166
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,7 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  availableMaterials:
-  - {fileID: 2100000, guid: 35b901625fc253045910eb8890e0b0b5, type: 2}
+  availableMaterials: []
   partIcon: {fileID: 0}
-  partname: Painting Frame
+  partname: 

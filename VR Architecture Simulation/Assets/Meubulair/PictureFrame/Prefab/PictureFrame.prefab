@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3126726385460775994}
   - component: {fileID: 4476381582198490237}
   - component: {fileID: 1121314209130754626}
-  - component: {fileID: 2979556746767627225}
   - component: {fileID: 2977996998845237274}
   m_Layer: 4
   m_Name: PaintingFrame_Standing
@@ -68,6 +67,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -80,22 +80,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &2979556746767627225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2979556746767627224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  availableMaterials:
-  - {fileID: 2100000, guid: 2c628fe27f2cd0e40a75ebd0e575ec0a, type: 2}
-  partIcon: {fileID: 0}
-  partname: Picture Frame
 --- !u!64 &2977996998845237274
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -121,6 +105,7 @@ GameObject:
   - component: {fileID: 2672087976119514041}
   - component: {fileID: 973653012}
   - component: {fileID: 973653011}
+  - component: {fileID: 1804336042}
   m_Layer: 4
   m_Name: PictureFrame
   m_TagString: Interactable
@@ -169,10 +154,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectPlacedOn: {fileID: 0}
+  objectsPlacedOnTop: []
   itemData: {fileID: 11400000, guid: 6d65e4de86c548d49886b9c542c85ab7, type: 2}
   moveable: 1
   requiredObjectType: 0100000004000000
   objectType: 3
+--- !u!114 &1804336042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3791898480770779489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableMaterials: []
+  partIcon: {fileID: 0}
+  partname: 
 --- !u!1 &7694844710836305735
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +186,6 @@ GameObject:
   - component: {fileID: 2502306127613759199}
   - component: {fileID: 7637974346142943628}
   - component: {fileID: 6079943199545554181}
-  - component: {fileID: 7694844710836305736}
   - component: {fileID: 4333181731406317946}
   m_Layer: 4
   m_Name: Standard
@@ -240,6 +241,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -252,22 +254,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &7694844710836305736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7694844710836305735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  availableMaterials:
-  - {fileID: 2100000, guid: 0c55cc8342ce62443928c821da791863, type: 2}
-  partIcon: {fileID: 0}
-  partname: Frame Standard
 --- !u!64 &4333181731406317946
 MeshCollider:
   m_ObjectHideFlags: 0

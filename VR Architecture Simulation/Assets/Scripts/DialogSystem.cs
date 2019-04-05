@@ -13,29 +13,37 @@ public class DialogSystem : MonoBehaviour
     public Text dialogTextHolder;
     public SteamVR_Input_Sources interactSource;
     public SteamVR_Action_Boolean interactButton;
+    public bool isEnabled;
     // Start is called before the first frame update
 
 
     // Update is called once per frame
     void Update()
     {
-        if (interactButton.GetStateDown(InputMan.GetHand(interactSource)))
+        if (isEnabled)
         {
-            currentDialog++;
-            if(currentDialog >= dialogTexts.Length)
+            if (interactButton.GetStateDown(InputMan.GetHand(interactSource)))
             {
-                if (!stayWhenDone)
+                currentDialog++;
+                if (currentDialog >= dialogTexts.Length)
                 {
-                    gameObject.SetActive(false);
+                    Player.isEnabled = true;
+                    Placer.isEnabled = true;
+                    isEnabled = false;
+                    print("ENABLED PLACER");
+                    if (!stayWhenDone)
+                    {
+                        gameObject.SetActive(false);
+                    }
+                    if (dialog.OnCompleteEvent != null)
+                    {
+                        dialog.OnCompleteEvent();
+                    }
                 }
-                if(dialog.OnCompleteEvent != null)
+                else
                 {
-                    dialog.OnCompleteEvent();
+                    dialogTextHolder.text = dialogTexts[currentDialog];
                 }
-            }
-            else
-            {
-                dialogTextHolder.text = dialogTexts[currentDialog];
             }
         }
     }
@@ -43,6 +51,10 @@ public class DialogSystem : MonoBehaviour
 
     public void StartDialog(DialogEvent newDialog)
     {
+        isEnabled = true;
+        Player.isEnabled = false;
+        Placer.isEnabled = false;
+        print("DISABLED PLACER");
         currentDialog = 0;
         dialog = newDialog;
         dialogTexts = dialog.dialogTexts;

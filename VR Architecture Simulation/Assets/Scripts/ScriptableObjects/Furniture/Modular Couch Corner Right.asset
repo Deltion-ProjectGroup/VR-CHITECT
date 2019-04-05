@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Modular Couch Corner Right
   m_EditorClassIdentifier: 
   itemName: Couch Corner Right
-  itemIcon: {fileID: 0}
-  itemObject: {fileID: 7229036331221859258, guid: 058579130693ad243932e91674d955a7,
+  itemIcon: {fileID: 21300000, guid: 82cb54a17eb5af84192fc33cf939c119, type: 3}
+  itemObject: {fileID: 5530770920224151134, guid: 058579130693ad243932e91674d955a7,
     type: 3}
   itemDiscription: 

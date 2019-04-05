@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BathroomCabinet
   m_EditorClassIdentifier: 
   itemName: Bathroom Cabinet
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 906fb82176c0cbc43851526ee352a003, type: 3}
   itemObject: {fileID: 3879965068679817351, guid: 8a4b6fa56a41cb64aae192776f79bc95,
     type: 3}
   itemDiscription: 

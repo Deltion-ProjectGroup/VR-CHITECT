@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4765090809734468055}
   - component: {fileID: 1853611958}
   - component: {fileID: 1853611957}
-  - component: {fileID: 3879965068679817352}
+  - component: {fileID: 1312564000}
   m_Layer: 4
   m_Name: BathroomCabinet
   m_TagString: Interactable
@@ -68,6 +68,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -105,11 +106,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectPlacedOn: {fileID: 0}
+  objectsPlacedOnTop: []
   itemData: {fileID: 11400000, guid: 9fe859830f0ee574a9f70a286aa5df0d, type: 2}
   moveable: 1
   requiredObjectType: 01000000
   objectType: 4
---- !u!114 &3879965068679817352
+--- !u!114 &1312564000
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,7 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  availableMaterials:
-  - {fileID: 2100000, guid: 63b8622da3534374bb9dc4bac1b50e63, type: 2}
+  availableMaterials: []
   partIcon: {fileID: 0}
-  partname: Cabinet Base
+  partname: 

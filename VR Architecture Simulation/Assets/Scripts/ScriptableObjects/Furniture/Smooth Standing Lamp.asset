@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Smooth Standing Lamp
   m_EditorClassIdentifier: 
   itemName: Smooth Standing Lamp
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: d23d218e56d1d904aa445eb6a5712a0d, type: 3}
   itemObject: {fileID: 7236553933947097571, guid: 6497592f1b3690945ab8a149b954f4a0,
     type: 3}
   itemDiscription: 

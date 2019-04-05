@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bathtub
   m_EditorClassIdentifier: 
   itemName: Bathtub
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: ce827108d97517244b3d919bc940db2b, type: 3}
   itemObject: {fileID: 1232778104337218020, guid: fe17ae37fd511d74c924fd41274b55d4,
     type: 3}
   itemDiscription: 

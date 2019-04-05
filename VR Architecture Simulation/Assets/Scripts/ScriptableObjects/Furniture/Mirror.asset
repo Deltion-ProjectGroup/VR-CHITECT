@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Mirror
   m_EditorClassIdentifier: 
   itemName: Mirror
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: b95a4181a5b64354595b8b21e531ec18, type: 3}
   itemObject: {fileID: 3818422169917437300, guid: 1cfc44f9789772a449a008612fbba477,
     type: 3}
   itemDiscription: 

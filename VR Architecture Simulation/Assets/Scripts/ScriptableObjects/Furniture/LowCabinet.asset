@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LowCabinet
   m_EditorClassIdentifier: 
   itemName: Low Cabinet
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 878eed6b7b9174343880903f799a3d73, type: 3}
   itemObject: {fileID: 3517245197438806330, guid: a7b9fcae0dad1f045b7d3216fad9f147,
     type: 3}
   itemDiscription: 

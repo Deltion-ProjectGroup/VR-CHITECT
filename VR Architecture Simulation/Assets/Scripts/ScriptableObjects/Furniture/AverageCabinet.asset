@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AverageCabinet
   m_EditorClassIdentifier: 
   itemName: Average Cabinet
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 9ce45beab4d45d546911333e8419f901, type: 3}
   itemObject: {fileID: 2754137419063323927, guid: f86c83cb90c00584d89ccad187332f0c,
     type: 3}
   itemDiscription: 

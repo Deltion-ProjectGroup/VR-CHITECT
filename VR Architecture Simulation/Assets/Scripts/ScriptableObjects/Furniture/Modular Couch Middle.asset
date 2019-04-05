@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Modular Couch Middle
   m_EditorClassIdentifier: 
   itemName: Couch Center Part
-  itemIcon: {fileID: 0}
-  itemObject: {fileID: 145876695715180097, guid: 74be2e6786bdddc4ea7be31939746d0e,
+  itemIcon: {fileID: 21300000, guid: d37a59c357f104c4bbd1b4bf85163ede, type: 3}
+  itemObject: {fileID: 3089378899968436730, guid: 74be2e6786bdddc4ea7be31939746d0e,
     type: 3}
   itemDiscription: 

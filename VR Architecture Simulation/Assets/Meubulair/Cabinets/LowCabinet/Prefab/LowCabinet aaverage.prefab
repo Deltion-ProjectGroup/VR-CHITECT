@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2456574151850953157}
   - component: {fileID: 6856083677888254533}
   - component: {fileID: 3810881826776316460}
-  - component: {fileID: 1692645788549072781}
+  - component: {fileID: 119440339}
   m_Layer: 4
   m_Name: Wide Cabinet Low
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1692645788549072780}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1507954278875176376}
@@ -67,6 +67,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -93,7 +94,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300002, guid: 2cda340c3b16ae8478909e5cbbd1fca4, type: 3}
---- !u!114 &1692645788549072781
+--- !u!114 &119440339
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,10 +106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  availableMaterials:
-  - {fileID: 2100000, guid: fcf427cd7d5242d439d55ac9f02ae8dc, type: 2}
+  availableMaterials: []
   partIcon: {fileID: 0}
-  partname: Cabinet Base
+  partname: 
 --- !u!1 &3517245197438806330
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,6 +168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectPlacedOn: {fileID: 0}
+  objectsPlacedOnTop: []
   itemData: {fileID: 11400000, guid: 1bb56534b51f3524cbe779318c9dc217, type: 2}
   moveable: 1
   requiredObjectType: 01000000
@@ -184,7 +186,7 @@ GameObject:
   - component: {fileID: 5590964904839721023}
   - component: {fileID: 6141176572182022550}
   - component: {fileID: 7131919674270337792}
-  - component: {fileID: 8013972877684313671}
+  - component: {fileID: 1829845531}
   m_Layer: 4
   m_Name: WideCabinetLow Lades
   m_TagString: Untagged
@@ -200,7 +202,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8013972877684313670}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1507954278875176376}
@@ -239,6 +241,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -265,7 +268,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 2cda340c3b16ae8478909e5cbbd1fca4, type: 3}
---- !u!114 &8013972877684313671
+--- !u!114 &1829845531
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -277,7 +280,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036667fb58b5cb84bafac9ed16e72e88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  availableMaterials:
-  - {fileID: 2100000, guid: 503682ac96a244b44bbe4cfb9b6a3a9c, type: 2}
+  availableMaterials: []
   partIcon: {fileID: 0}
-  partname: Cabinet Drawers
+  partname: 

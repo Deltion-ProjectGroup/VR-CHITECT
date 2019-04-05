@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bookcase
   m_EditorClassIdentifier: 
   itemName: Bookcase
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: eea43f648bfec6441a455ab7c3c3b83b, type: 3}
   itemObject: {fileID: 112967850282389160, guid: 19c600cf86f79e541883608cefcf6322,
     type: 3}
   itemDiscription: 
