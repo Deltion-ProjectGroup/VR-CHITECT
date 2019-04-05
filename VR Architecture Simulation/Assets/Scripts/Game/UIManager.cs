@@ -32,11 +32,11 @@ public class UIManager : MonoBehaviour
         {
             SceneManager.LoadScene(0);
         }
-        if (shopToggleButton.GetStateDown(InputMan.GetHand(shopToggleSource)) && canToggle)
+        if (Input.GetButtonDown("Shop") && canToggle)
         {
             ToggleMenu(shop);
         }
-        if (settingsToggleButton.GetStateDown(InputMan.GetHand(settingsToggleSource)) && canToggle)
+        if (Input.GetButtonDown("Settings") && canToggle)
         {
             ToggleMenu(settings);
         }

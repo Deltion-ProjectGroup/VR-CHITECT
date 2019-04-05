@@ -31,16 +31,19 @@ public class Player : MonoBehaviour
     public static VoidDelegate OnDuplicate;
     public static VoidDelegate OnVertSnap;
 
+    public float rotateModifier;
+
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         pointer = rightHandGO.GetComponent<LineRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        UpdateCamera();
         VertSnapping();
 
 
@@ -54,9 +57,9 @@ public class Player : MonoBehaviour
                 Interaction(hitPoint);
                 if (hitPoint.transform.tag == "Ground")
                 {
-                    if (teleportButton.GetState(teleportSource))
+                    if (Input.GetButton("Teleport"))
                     {
-                        if (teleportButton.GetStateDown(teleportSource))
+                        if (Input.GetButtonDown("Teleport"))
                         {
                             teleportIndicator.SetActive(true);
                         }
@@ -67,7 +70,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if (isEnabled && interactButton.GetStateDown(InputMan.GetHand(interactSource)) && lastHoveredSnapObject != null)
+            if (isEnabled && Input.GetButtonDown("Interact") && lastHoveredSnapObject != null)
             {
                 Placer.placer.vertSnapping = true;
                 Placer.placer.SetTrackingObject(lastHoveredSnapObject);
@@ -83,7 +86,7 @@ public class Player : MonoBehaviour
         {
             if (canTeleport)
             {
-                if (teleportButton.GetStateUp(teleportSource))
+                if (Input.GetButtonUp("Teleport"))
                 {
                     Teleport(teleportIndicator.transform.position);
                     teleportIndicator.SetActive(false);
@@ -97,7 +100,7 @@ public class Player : MonoBehaviour
     }
     void Interaction(RaycastHit hitPoint)
     {
-        if (duplicateButton.GetStateDown(InputMan.GetHand(duplicateSource)) && Placer.placer.canSetObject && canInteract)
+        if (Input.GetButtonDown("Duplicate") && Placer.placer.canSetObject && canInteract)
         {
             if(hitPoint.transform.tag == "Interactable")
             {
@@ -114,7 +117,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (interactButton.GetStateDown(InputMan.GetHand(interactSource)) && canInteract)
+        if (canInteract && Input.GetButtonDown("Interact"))
         {
             if (hitPoint.transform.tag == "Interactable")
             {
@@ -137,9 +140,9 @@ public class Player : MonoBehaviour
     void VertSnapping()
     {
 
-        if (snapButton.GetState(InputMan.GetHand(vertSnapSource)) && canInteract)
+        if (canInteract && Input.GetButton("VertSnap") || snapButton.GetState(InputMan.GetHand(vertSnapSource)) && canInteract)
         {
-            if (snapButton.GetStateDown(InputMan.GetHand(vertSnapSource)))
+            if ( Input.GetButtonDown("VertSnap") || snapButton.GetStateDown(InputMan.GetHand(vertSnapSource)))
             {
                 vertIndicator = Instantiate(indicatorGO).transform;
             }
@@ -185,7 +188,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if (snapButton.GetStateUp(InputMan.GetHand(vertSnapSource)))
+            if (Input.GetButtonUp("VertSnap") || snapButton.GetStateUp(InputMan.GetHand(vertSnapSource)))
             {
                 lastHoveredSnapObject = null;
                 Placer.placer.offset = Vector3.zero;
@@ -211,5 +214,10 @@ public class Player : MonoBehaviour
         {
             OnTeleport();
         }
+    }
+    public void UpdateCamera()
+    {
+        cameraTransform.Rotate(new Vector3(-Input.GetAxis("Mouse Y"), 0, 0) * Time.deltaTime * rotateModifier);
+        cameraTransform.parent.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0));
     }
 }

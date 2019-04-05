@@ -50,6 +50,9 @@ public class Placer : MonoBehaviour
     public static DelegateVoid OnTogglePositionSnap; //
     public static DelegateVoid OnDestroyObject; //
     public static DelegateVoid OnPlaceObject; //
+
+
+    public float rotateModifier;
     // Start is called before the first frame update
     void Awake()
     {
@@ -61,7 +64,7 @@ public class Placer : MonoBehaviour
     {
         if (trackingObj)
         {
-            if (placeButton.GetStateDown(InputMan.GetHand(placeSource)) && canPlace)
+            if (Input.GetButtonDown("Interact") && canPlace)
             {
                 if (isEnabled)
                 {
@@ -72,12 +75,12 @@ public class Placer : MonoBehaviour
             {
                 if (isEnabled)
                 {
-                    if (placeButton.GetStateDown(InputMan.GetHand(destroySource)))
+                    if (Input.GetButtonDown("Destroy"))
                     {
                         DestroyPlacingObject();
                         return;
                     }
-                    if (placeButton.GetStateDown(InputMan.GetHand(placeSource)))
+                    if (Input.GetButtonDown("Interact"))
                     {
                         mainAudioSource.clip = errorPlaceSound;
                         mainAudioSource.Play();
@@ -145,6 +148,7 @@ public class Placer : MonoBehaviour
         }
         else
         {
+            print(hitData.transform.gameObject.GetAbsoluteParent().gameObject);
             if (snappingPosition && hitData.transform.gameObject.GetAbsoluteParent().GetComponent<PlacedObject>().objectType != ObjectTypes.Wall)
             {
                 hitPoint.x = Mathf.RoundToInt(hitPoint.x / gritTileSize) * gritTileSize;
@@ -155,36 +159,33 @@ public class Placer : MonoBehaviour
     }
     void Rotate()
     {
-        float rotateAmount = rotateButton.GetAxis(InputMan.GetHand(rotateSource)).x;
-        if (snappingRotation)
+        float rotateAmount = Input.GetAxis("Mouse ScrollWheel");
+        if(rotateAmount != 0)
         {
-            if (rotatePress.GetStateDown(InputMan.GetHand(rotateSource)))
+            if (snappingRotation)
             {
                 placerAudioSource.clip = rotateSound;
                 placerAudioSource.Play();
                 rotateAmount = Mathf.RoundToInt(rotateAmount);
                 rotateAmount *= rotateTurnAmount;
                 trackingObj.transform.Rotate(new Vector3(0, rotateAmount, 0));
-                if(OnRotate != null)
-                {
-                    OnRotate();
-                }
-            }
-        }
-        else
-        {
-            if (rotatePress.GetState(InputMan.GetHand(rotateSource)))
-            {
-                trackingObj.transform.Rotate(new Vector3(0, rotateAmount, 0));
                 if (OnRotate != null)
                 {
                     OnRotate();
                 }
             }
-        }
-        if (vertSnapping)
-        {
-            offset = CalculateOffset(trackingObj.transform.TransformPoint(Player.nearestVert), trackingObj.transform.position);
+            else
+            {
+                trackingObj.transform.Rotate(new Vector3(0, rotateAmount * rotateModifier * Time.deltaTime, 0));
+                if (OnRotate != null)
+                {
+                    OnRotate();
+                }
+            }
+            if (vertSnapping)
+            {
+                offset = CalculateOffset(trackingObj.transform.TransformPoint(Player.nearestVert), trackingObj.transform.position);
+            }
         }
     }
     public void SetTrackingObject(GameObject thisObject)
@@ -284,7 +285,7 @@ public class Placer : MonoBehaviour
     }
     void ToggleGridSnap()
     {
-        if (positionSnapButton.GetStateDown(InputMan.GetHand(positionSnapSource)))
+        if (Input.GetButtonDown("GridSnap"))
         {
             snappingPosition = !snappingPosition;
             if (OnTogglePositionSnap != null)
@@ -296,7 +297,7 @@ public class Placer : MonoBehaviour
     }
     void ToggleRotationSnap()
     {
-        if (rotationSnapButton.GetStateDown(InputMan.GetHand(rotateSnapSource)))
+        if (Input.GetButtonDown("RotationSnap"))
         {
             snappingRotation = snappingRotation.ToggleBool();
             if (snappingRotation)
@@ -312,63 +313,10 @@ public class Placer : MonoBehaviour
         }
         else
         {
-            if (rotationSnapButton.GetStateUp(InputMan.GetHand(rotateSnapSource)))
+            if (Input.GetButtonUp("RotationSnap"))
             {
                 snappingRotation = snappingRotation.ToggleBool();
             }
-        }
-    }
-    void CalculateTilePositions(GameObject[] groundTiles)
-    {
-        //UIManager.uiManager.settings.GetComponent<Options>().UpdateGridDivision(divisionAmount);
-        DeleteCurrentTiles();
-        foreach (GameObject groundTile in groundTiles)
-        {
-            tileSize.x = Mathf.Abs(groundTile.GetComponent<Collider>().bounds.max.x - groundTile.GetComponent<Collider>().bounds.min.x);
-            tileSize.y = Mathf.Abs(groundTile.GetComponent<Collider>().bounds.max.z - groundTile.GetComponent<Collider>().bounds.min.z);
-            gridTileSize.x = tileSize.x / divisionAmount;
-            gridTileSize.y = tileSize.y / divisionAmount;
-
-
-            for (int hor = 0; hor < divisionAmount; hor++)
-            {
-                for (int ver = 0; ver < divisionAmount; ver++)
-                {
-                    Vector2 newPos = Vector2.zero;
-                    newPos.x += (hor * gridTileSize.x);
-                    newPos.y += (ver * gridTileSize.y);
-                    newPos += gridTileSize / 2;
-                    newPos.x += groundTile.GetComponent<Collider>().bounds.min.x;
-                    newPos.y += groundTile.GetComponent<Collider>().bounds.min.z;
-
-                    Vector3 newTilePos = new Vector3(newPos.x, groundTile.transform.position.y, newPos.y);
-                    GameObject newTile = Instantiate(tile, newTilePos, Quaternion.identity);
-
-                    Vector3 tileSize = new Vector3(gridTileSize.x, newTile.transform.localScale.y, gridTileSize.y);
-                    tileSize.x -= 0.05f;
-                    tileSize.z -= 0.05f;
-
-                    newTile.transform.localScale = tileSize;
-                    newTile.SetActive(snappingPosition);
-                    allTiles.Add(newTile);
-
-                }
-            }
-        }
-    }
-    void DeleteCurrentTiles()
-    {
-        foreach (GameObject tile in allTiles)
-        {
-            Destroy(tile);
-        }
-        allTiles = new List<GameObject>();
-    }
-    void ToggleGrid(bool show)
-    {
-        foreach (GameObject tile in allTiles)
-        {
-            tile.SetActive(show);
         }
     }
     public void ChangeTileDivision(float newAmount)
