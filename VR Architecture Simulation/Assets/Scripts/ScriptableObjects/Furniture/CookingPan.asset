@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CookingPan
   m_EditorClassIdentifier: 
   itemName: Cooking Pan
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 45932c3bdb9abba4e8ce0ddc20cdf427, type: 3}
   itemObject: {fileID: 724192558208023100, guid: 386b5d8d5c9af8e4e8a50015171e0637,
     type: 3}
   itemDiscription: 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Modern Chair
   m_EditorClassIdentifier: 
   itemName: Modern Chair
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 1ee6d7d51b62c074fac136ad9ed04f8f, type: 3}
   itemObject: {fileID: 6103055145530503524, guid: a904d569c8115c6488c638aa653a29ab,
     type: 3}
   itemDiscription: 

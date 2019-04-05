@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SoupPan
   m_EditorClassIdentifier: 
   itemName: Soup Pan
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 0e23640c2d2bdba43a4dca524ff94bd7, type: 3}
   itemObject: {fileID: 4894121500128684136, guid: 0070f27446368f0429290ab356745faf,
     type: 3}
   itemDiscription: 

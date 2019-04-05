@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SteelPan
   m_EditorClassIdentifier: 
   itemName: Steel Pan
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: a9a3e087fcc570944be508f485f7f9b3, type: 3}
   itemObject: {fileID: 4385572118114353305, guid: 21b846b0c5696c543b176dc3532dc9cb,
     type: 3}
   itemDiscription: 
