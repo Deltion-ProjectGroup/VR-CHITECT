@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(fileName = "New Dialog", menuName = "New Event/Create New Dialog")]
-public class DialogEvent : Event
+public class DialogEvent : CustomEvent
 {
     [TextArea]
     public string[] dialogTexts;

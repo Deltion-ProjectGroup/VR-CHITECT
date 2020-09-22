@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class CountEvent : Event
+public abstract class CountEvent : CustomEvent
 {
     public int wantedCount;
     public int currentCount;

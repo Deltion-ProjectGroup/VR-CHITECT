@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TutorialSystem : MonoBehaviour
 {
-    public Event[] tutorialParts;
+    public CustomEvent[] tutorialParts;
     public int currentPart;
     // Start is called before the first frame update
     void Start()
