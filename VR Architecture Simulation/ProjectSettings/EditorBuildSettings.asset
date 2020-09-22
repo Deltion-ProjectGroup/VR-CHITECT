@@ -8,4 +8,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ThomasHuisBouwen.unity
     guid: c47ce0e7234648447b9164f1646f7acb
-  m_configObjects: {}
+  m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 79bfe25d81dfb554481aedd3ac69e006,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: a24af94e19ea9d54b8be6d8e22ee32ce,
+      type: 2}
