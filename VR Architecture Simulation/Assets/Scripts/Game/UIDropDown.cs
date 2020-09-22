@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Valve.VR;
+using OVR;
 using UnityEngine.EventSystems;
 
 public class UIDropDown : UIButtonBase
 {
     public bool selecting;
-    public SteamVR_Action_Boolean acceptButton;
-    public SteamVR_Action_Vector2 movement;
+
+    [SerializeField] OVRInput.Button acceptButton;
+    [SerializeField] OVRInput.Axis2D movementButton;
     public float movementModifier;
     public Dropdown thisDropdown;
-    [SerializeField] SteamVR_Input_Sources controlSource;
 
     [SerializeField] Image buttonImage;
     [SerializeField] Color hoverColor, interactColor;
@@ -25,11 +25,12 @@ public class UIDropDown : UIButtonBase
         if (selecting)
         {
             int moveAmt = 0;
-            if (acceptButton.GetStateDown(InputMan.GetHand(controlSource)))
+            if (OVRInput.GetDown(InputMan.GetButton(acceptButton)))
             {
-                moveAmt = Mathf.RoundToInt(movement.axis.y);
+                Vector2 movement = OVRInput.Get(InputMan.GetAxis2D(movementButton)); 
+                moveAmt = Mathf.RoundToInt(movement.y);
             }
-            else
+            /*else
             {
                 if(Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.UpArrow))
                 {
@@ -42,7 +43,7 @@ public class UIDropDown : UIButtonBase
                         moveAmt = -1;
                     }
                 }
-            }
+            }*/
             if(moveAmt != 0)
             {
                 Move(moveAmt);

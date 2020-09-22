@@ -1,14 +1,11 @@
 ﻿using System.Collections;
 using UnityEngine;
-using Valve.VR;
+using OVR;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] GameObject leftHandGO, rightHandGO;
-    [SerializeField] SteamVR_Action_Boolean interactButton;
-    [SerializeField] SteamVR_Action_Boolean teleportButton;
-    [SerializeField] SteamVR_Action_Boolean snapButton;
-    [SerializeField] SteamVR_Action_Boolean duplicateButton;
+    [SerializeField] OVRInput.Button interactButton, teleportButton, vertSnapButton, duplicateButton;
     LineRenderer pointer;
     public bool canTeleport = true;
     GameObject lastHoveredSnapObject;
@@ -16,7 +13,6 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject indicatorGO;
     public static Vector3 nearestVert;
     [SerializeField] LayerMask snapMask;
-    [SerializeField] SteamVR_Input_Sources interactSource, teleportSource, vertSnapSource, duplicateSource;
     public static bool canInteract = true;
     [SerializeField] Transform cameraTransform;
     [SerializeField] GameObject teleportIndicator;
@@ -44,7 +40,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateCamera();
+        //UpdateCamera();
         VertSnapping();
 
 
@@ -58,9 +54,9 @@ public class Player : MonoBehaviour
                 Interaction(hitPoint);
                 if (hitPoint.transform.tag == "Ground")
                 {
-                    if (Input.GetButton("Teleport"))
+                    if (OVRInput.Get(InputMan.GetButton(teleportButton)))
                     {
-                        if (Input.GetButtonDown("Teleport"))
+                        if (OVRInput.GetDown(InputMan.GetButton(teleportButton)))
                         {
                             teleportIndicator.SetActive(true);
                         }
@@ -71,7 +67,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if (isEnabled && Input.GetButtonDown("Interact") && lastHoveredSnapObject != null)
+            if (isEnabled && OVRInput.GetDown(InputMan.GetButton(interactButton)) && lastHoveredSnapObject != null)
             {
                 Placer.placer.vertSnapping = true;
                 Placer.placer.SetTrackingObject(lastHoveredSnapObject);
@@ -87,7 +83,7 @@ public class Player : MonoBehaviour
         {
             if (canTeleport)
             {
-                if (Input.GetButtonUp("Teleport"))
+                if (OVRInput.GetUp(InputMan.GetButton(teleportButton)))
                 {
                     Teleport(teleportIndicator.transform.position);
                     teleportIndicator.SetActive(false);
@@ -101,7 +97,7 @@ public class Player : MonoBehaviour
     }
     void Interaction(RaycastHit hitPoint)
     {
-        if (Input.GetButtonDown("Duplicate") && Placer.placer.canSetObject && canInteract)
+        if (OVRInput.GetDown(InputMan.GetButton(duplicateButton)) && Placer.placer.canSetObject && canInteract)
         {
             if(hitPoint.transform.tag == "Interactable")
             {
@@ -118,7 +114,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (canInteract && Input.GetButtonDown("Interact"))
+        if (canInteract && OVRInput.GetDown(InputMan.GetButton(interactButton)))
         {
             if (hitPoint.transform.tag == "Interactable")
             {
@@ -141,9 +137,9 @@ public class Player : MonoBehaviour
     void VertSnapping()
     {
 
-        if (canInteract && Input.GetButton("VertSnap") || snapButton.GetState(InputMan.GetHand(vertSnapSource)) && canInteract)
+        if (canInteract && OVRInput.Get(InputMan.GetButton(vertSnapButton)))
         {
-            if ( Input.GetButtonDown("VertSnap") || snapButton.GetStateDown(InputMan.GetHand(vertSnapSource)))
+            if (OVRInput.GetDown(InputMan.GetButton(vertSnapButton)))
             {
                 vertIndicator = Instantiate(indicatorGO).transform;
             }
@@ -189,7 +185,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if (Input.GetButtonUp("VertSnap") || snapButton.GetStateUp(InputMan.GetHand(vertSnapSource)))
+            if (OVRInput.GetUp(InputMan.GetButton(vertSnapButton)))
             {
                 lastHoveredSnapObject = null;
                 Placer.placer.offset = Vector3.zero;

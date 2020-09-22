@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Valve.VR;
+using OVR;
 using UnityEngine.UI;
 
 public class UISlider : UIButtonBase
@@ -10,9 +10,7 @@ public class UISlider : UIButtonBase
     public float speedModifier;
     public Text amountShower;
     public bool sliding = false;
-    public SteamVR_Action_Vector2 moveAmount;
-    public SteamVR_Action_Boolean confirmMove;
-    [SerializeField] SteamVR_Input_Sources controlSource;
+    [SerializeField] OVRInput.Axis2D moveButton;
     [SerializeField] Image sliderKnob;
     [SerializeField] Color hoverColor, selectedColor;
 
@@ -26,11 +24,10 @@ public class UISlider : UIButtonBase
         if (sliding)
         {
             print("Moving");
-            if (confirmMove.GetState(InputMan.GetHand(controlSource)))
-            {
-                GetComponent<Slider>().value += moveAmount.axis.x * speedModifier * Time.deltaTime;
-            }
-            GetComponent<Slider>().value += Input.GetAxis("Horizontal") * speedModifier * Time.deltaTime;
+            Vector2 moveAmount = OVRInput.Get(InputMan.GetAxis2D(moveButton));
+
+            GetComponent<Slider>().value += moveAmount.x * speedModifier * Time.deltaTime;
+            //GetComponent<Slider>().value += Input.GetAxis("Horizontal") * speedModifier * Time.deltaTime;
             amountShower.text = thisSlider.value.ToString("F2");
         }
     }

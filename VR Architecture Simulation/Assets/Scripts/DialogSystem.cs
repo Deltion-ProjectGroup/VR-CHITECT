@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Valve.VR;
+using OVR;
 
 public class DialogSystem : MonoBehaviour
 {
@@ -11,8 +11,7 @@ public class DialogSystem : MonoBehaviour
     bool stayWhenDone;
     int currentDialog;
     public Text dialogTextHolder;
-    public SteamVR_Input_Sources interactSource;
-    public SteamVR_Action_Boolean interactButton;
+    public OVRInput.Button interactSource;
     public bool isEnabled;
     // Start is called before the first frame update
 
@@ -22,7 +21,7 @@ public class DialogSystem : MonoBehaviour
     {
         if (isEnabled)
         {
-            if (interactButton.GetStateDown(InputMan.GetHand(interactSource)))
+            if (OVRInput.GetDown(InputMan.GetButton(interactSource)))
             {
                 currentDialog++;
                 if (currentDialog >= dialogTexts.Length)

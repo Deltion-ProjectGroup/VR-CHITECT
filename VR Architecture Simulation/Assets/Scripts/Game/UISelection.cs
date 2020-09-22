@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using Valve.VR;
+using OVR;
 using UnityEngine.UI;
 
 public class UISelection : MonoBehaviour
@@ -11,9 +11,8 @@ public class UISelection : MonoBehaviour
     sbyte currentVerIndex;
     public UIButtonBase currentSelected;
     [SerializeField] bool autoSelect;
-    [SerializeField]SteamVR_Action_Boolean acceptButton, selectButton;
-    [SerializeField]SteamVR_Action_Vector2 trackpadPos;
-    [SerializeField] SteamVR_Input_Sources controllerSource;
+    [SerializeField] OVRInput.Button selectButton;
+    [SerializeField] OVRInput.Axis2D trackpadButton;
     public SelectionState selectionState;
     public AudioSource mainAudioSource;
     public AudioClip switchSound, selectSound;
@@ -50,7 +49,7 @@ public class UISelection : MonoBehaviour
         }
         if (!autoSelect)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (OVRInput.GetDown(InputMan.GetButton(selectButton)))
             {
                 currentSelected.Interact();
                 mainAudioSource.clip = selectSound;
@@ -60,34 +59,39 @@ public class UISelection : MonoBehaviour
     }
     void SelectionNavigation()
     {
-
-        //PC
-        Vector2 changeAmtPC = new Vector2();
+        /*PC
+        Vector2 changeAmt = new Vector2();
         if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                changeAmtPC.x += 1;
+                changeAmt.x += 1;
             }
             else
             {
-                changeAmtPC.x -= 1;
+                changeAmt.x -= 1;
             }
         }
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                changeAmtPC.y -= 1;
+                changeAmt.y -= 1;
             }
             else
             {
-                changeAmtPC.y += 1;
+                changeAmt.y += 1;
             }
-        }
-        if (changeAmtPC != Vector2.zero)
+        }*/
+
+        Vector2 changeAmt = OVRInput.Get(trackpadButton);
+        changeAmt.x = Mathf.Round(changeAmt.x);
+        changeAmt.y = Mathf.Round(changeAmt.y);
+
+
+        if (changeAmt != Vector2.zero)
         {
-            ChangeSelectPos(changeAmtPC);
+            ChangeSelectPos(changeAmt);
         }
     }
     public void ChangeSelectPos(Vector2 changeAmount)

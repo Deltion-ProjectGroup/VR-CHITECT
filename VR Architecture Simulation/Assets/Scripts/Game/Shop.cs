@@ -1,16 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Valve.VR;
+using OVR;
 using UnityEngine.UI;
 
 public class Shop : UIMenu
 {
     public Placer placingSystem;
-    [SerializeField] SteamVR_Action_Vector2 changeTabTrackpad;
-    [SerializeField] SteamVR_Action_Boolean changeTabButton;
-    [SerializeField] SteamVR_Action_Boolean selectButton;
-    [SerializeField] SteamVR_Input_Sources controllerSource;
+    [SerializeField] OVRInput.Axis2D changeTabTrackpad;
+    [SerializeField] OVRInput.Button changeTabButton, selectButton;
     sbyte selectedHorIndex;
     sbyte selectedVerIndex;
     float verTileDistance;
@@ -53,7 +51,7 @@ public class Shop : UIMenu
         if (canMove)
         {
             ShopNavigation();
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (OVRInput.GetDown(InputMan.GetButton(selectButton)))
             {
                 shopButtons[selectedVerIndex].GetComponent<ItemButton>().Select();
                 mainAudioSource.clip = selectSound;
@@ -65,8 +63,35 @@ public class Shop : UIMenu
     }
     void ShopNavigation()
     {
+        Vector2 moveAmount = OVRInput.Get(changeTabTrackpad);
+        moveAmount.x = Mathf.Round(moveAmount.x);
+        moveAmount.y = Mathf.Round(moveAmount.y);
 
-        //PC
+        if(moveAmount.x != 0)
+        {
+            if(moveAmount.x > 0)
+            {
+                StartCoroutine(ChangeHorIndex(1));
+            }
+            else
+            {
+                StartCoroutine(ChangeHorIndex(-1));
+            }
+        }
+
+        if (moveAmount.y != 0)
+        {
+            if (moveAmount.y > 0)
+            {
+                StartCoroutine(ChangeVerIndex(1));
+            }
+            else
+            {
+                StartCoroutine(ChangeVerIndex(-1));
+            }
+        }
+
+        /*PC
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
         {
             if (Input.GetKey(KeyCode.RightArrow))
@@ -88,7 +113,7 @@ public class Shop : UIMenu
             {
                 StartCoroutine(ChangeVerIndex(-1));
             }
-        }
+        }*/
     }
     public void SpawnObject(GameObject objectToPlace)
     {

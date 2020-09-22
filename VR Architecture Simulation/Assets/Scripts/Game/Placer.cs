@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Valve.VR;
+using OVR;
 
 public class Placer : MonoBehaviour
 {
@@ -13,10 +13,6 @@ public class Placer : MonoBehaviour
     bool snappingPosition;
     bool snappingRotation;
     public bool vertSnapping;
-    [SerializeField] SteamVR_Action_Boolean positionSnapButton, placeButton;
-    [SerializeField] SteamVR_Action_Vector2 rotateButton;
-    [SerializeField] SteamVR_Action_Boolean rotatePress, rotationSnapButton;
-    [SerializeField] SteamVR_Action_Boolean snapButton;
     public int rotateTurnAmount;
     public bool canPlace;
     [SerializeField] Color canPlaceColor, cannotPlaceColor;
@@ -34,8 +30,8 @@ public class Placer : MonoBehaviour
     GameObject[] extraTrackingObjects;
     public List<PlacementPart> extraTrackingObjectsOGData = new List<PlacementPart>();
 
-
-    [SerializeField] SteamVR_Input_Sources placeSource, destroySource, rotateSource, rotateSnapSource, positionSnapSource;
+    [SerializeField] OVRInput.Button placeButton, destroyButton, gridSnapButton, rotationSnapButton;
+    [SerializeField] OVRInput.Axis2D rotateButton;
 
     [SerializeField] AudioSource placerAudioSource, mainAudioSource;
     [SerializeField] AudioClip destroySound, errorPlaceSound, placeSound, rotateSound;
@@ -64,7 +60,7 @@ public class Placer : MonoBehaviour
     {
         if (trackingObj)
         {
-            if (Input.GetButtonDown("Interact") && canPlace)
+            if (OVRInput.GetDown(InputMan.GetButton(placeButton)) && canPlace)
             {
                 if (isEnabled)
                 {
@@ -75,12 +71,12 @@ public class Placer : MonoBehaviour
             {
                 if (isEnabled)
                 {
-                    if (Input.GetButtonDown("Destroy"))
+                    if (OVRInput.GetDown(InputMan.GetButton(destroyButton)))
                     {
                         DestroyPlacingObject();
                         return;
                     }
-                    if (Input.GetButtonDown("Interact"))
+                    if (OVRInput.GetDown(InputMan.GetButton(placeButton)))
                     {
                         mainAudioSource.clip = errorPlaceSound;
                         mainAudioSource.Play();
@@ -159,8 +155,8 @@ public class Placer : MonoBehaviour
     }
     void Rotate()
     {
-        float rotateAmount = Input.GetAxis("Mouse ScrollWheel");
-        if(rotateAmount != 0)
+        float rotateAmount = OVRInput.Get(InputMan.GetAxis2D(rotateButton)).x;
+        if (rotateAmount != 0)
         {
             if (snappingRotation)
             {
@@ -285,7 +281,7 @@ public class Placer : MonoBehaviour
     }
     void ToggleGridSnap()
     {
-        if (Input.GetButtonDown("GridSnap"))
+        if (OVRInput.GetDown(InputMan.GetButton(gridSnapButton)))
         {
             snappingPosition = !snappingPosition;
             if (OnTogglePositionSnap != null)
@@ -297,7 +293,7 @@ public class Placer : MonoBehaviour
     }
     void ToggleRotationSnap()
     {
-        if (Input.GetButtonDown("RotationSnap"))
+        if (OVRInput.GetDown(InputMan.GetButton(rotationSnapButton)))
         {
             snappingRotation = snappingRotation.ToggleBool();
             if (snappingRotation)
@@ -313,7 +309,7 @@ public class Placer : MonoBehaviour
         }
         else
         {
-            if (Input.GetButtonUp("RotationSnap"))
+            if (OVRInput.GetUp(InputMan.GetButton(rotationSnapButton)))
             {
                 snappingRotation = snappingRotation.ToggleBool();
             }

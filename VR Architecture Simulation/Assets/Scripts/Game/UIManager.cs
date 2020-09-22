@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using Valve.VR;
+using OVR;
 using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
@@ -10,14 +10,12 @@ public class UIManager : MonoBehaviour
     public GameObject settings;
     public GameObject properties;
     [SerializeField] GameObject[] allMenus;
-    [SerializeField] SteamVR_Action_Boolean shopToggleButton;
-    [SerializeField] SteamVR_Action_Boolean settingsToggleButton;
+    [SerializeField] OVRInput.Button shopToggleButton, settingsToggleButton;
     public bool canToggle = true;
     [Header("ScreenFade")]
     public Animation fadeAnimation;
     [SerializeField] AnimationClip fadeAppear;
     [SerializeField] AnimationClip fadeRemove;
-    [SerializeField] SteamVR_Input_Sources shopToggleSource, settingsToggleSource;
     public GameObject leftDialog, rightDialog;
     public enum DialogSource { leftHand, rightHand}
     // Start is called before the first frame update
@@ -32,11 +30,11 @@ public class UIManager : MonoBehaviour
         {
             SceneManager.LoadScene(0);
         }
-        if (Input.GetButtonDown("Shop") && canToggle)
+        if (OVRInput.GetDown(InputMan.GetButton(shopToggleButton)) && canToggle)
         {
             ToggleMenu(shop);
         }
-        if (Input.GetButtonDown("Settings") && canToggle)
+        if (OVRInput.GetDown(InputMan.GetButton(settingsToggleButton)) && canToggle)
         {
             ToggleMenu(settings);
         }
