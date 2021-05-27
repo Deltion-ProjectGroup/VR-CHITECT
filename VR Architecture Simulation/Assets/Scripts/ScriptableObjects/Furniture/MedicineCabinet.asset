@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MedicineCabinet
   m_EditorClassIdentifier: 
   itemName: Medicine Cabinet
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 16b8a34dc0cfcf348b0a015c66d607ff, type: 3}
   itemObject: {fileID: 2169388481148249915, guid: 51d2a687ac7682b4593be1bc6f173e80,
     type: 3}
   itemDiscription: 

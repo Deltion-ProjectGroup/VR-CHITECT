@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Square Standing Lamp
   itemIcon: {fileID: 21300000, guid: d23d218e56d1d904aa445eb6a5712a0d, type: 3}
-  itemObject: {fileID: 8370170595271154909, guid: 954efd804696e1b4dab46de8f58f5ba4,
+  itemObject: {fileID: 6489397725035904152, guid: 7463435b95bcb244180ee3d0fe205b50,
     type: 3}
   itemDiscription: 

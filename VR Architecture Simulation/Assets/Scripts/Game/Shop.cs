@@ -53,7 +53,7 @@ public class Shop : UIMenu
         if (canMove)
         {
             ShopNavigation();
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKeyDown(KeyCode.Mouse0) || selectButton.GetStateDown(InputMan.GetHand(controllerSource)))
             {
                 shopButtons[selectedVerIndex].GetComponent<ItemButton>().Select();
                 mainAudioSource.clip = selectSound;
@@ -65,6 +65,38 @@ public class Shop : UIMenu
     }
     void ShopNavigation()
     {
+        //VR
+        if (changeTabButton.GetState(InputMan.GetHand(controllerSource)))
+        {
+            int x = Mathf.RoundToInt(changeTabTrackpad.axis.x);
+            if (x != 0)
+            {
+                if (x == 1)
+                {
+                    StartCoroutine(ChangeHorIndex(1));
+                }
+                else
+                {
+                    StartCoroutine(ChangeHorIndex(-1));
+                }
+            }
+            else
+            {
+                int y = Mathf.RoundToInt(changeTabTrackpad.axis.y);
+                print(y);
+                if (y != 0)
+                {
+                    if (y == 1)
+                    {
+                        StartCoroutine(ChangeVerIndex(-1));
+                    }
+                    else
+                    {
+                        StartCoroutine(ChangeVerIndex(1));
+                    }
+                }
+            }
+        }
 
         //PC
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))

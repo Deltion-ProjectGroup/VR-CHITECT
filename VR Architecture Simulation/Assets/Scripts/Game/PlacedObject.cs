@@ -23,7 +23,7 @@ public class PlacedObject : Interactable
         if(Physics.Raycast(transform.position, Vector3.down, out hitData, 1))
         {
             print(hitData.transform.gameObject.GetAbsoluteParent().name);
-            objectPlacedOn = hitData.transform.gameObject.GetAbsoluteParent();
+            objectPlacedOn = hitData.transform.gameObject.GetComponentInParent<PlacedObject>().gameObject;
             objectPlacedOn.GetComponent<PlacedObject>().objectsPlacedOnTop.Add(gameObject);
         }
     }

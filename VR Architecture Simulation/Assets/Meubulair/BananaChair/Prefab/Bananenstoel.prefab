@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 4046180649597509732}
   - component: {fileID: 4046180649598836804}
   - component: {fileID: 4046180649599804036}
-  m_Layer: 0
+  - component: {fileID: 554700034075505655}
+  - component: {fileID: 143167481542512191}
+  m_Layer: 4
   m_Name: Bananenstoel
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,6 +56,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -78,3 +81,34 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &554700034075505655
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4046180649597811780}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1.1960772, y: 1.26794, z: 1.7007934}
+  m_Center: {x: 0.14246075, y: 0.6305475, z: -0.02639389}
+--- !u!114 &143167481542512191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4046180649597811780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0055ea534a66340b6cbdcb95d50aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPlacedOn: {fileID: 0}
+  objectsPlacedOnTop: []
+  itemData: {fileID: 11400000, guid: d53fac2ab8403274a940379803dfe440, type: 2}
+  moveable: 0
+  requiredObjectType: 01000000
+  objectType: 3

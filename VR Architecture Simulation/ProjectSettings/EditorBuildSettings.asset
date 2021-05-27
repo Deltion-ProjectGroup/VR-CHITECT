@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/ThomasHuisBouwen.unity
-    guid: c47ce0e7234648447b9164f1646f7acb
+    path: Assets/Scenes/ActualScene.unity
+    guid: a98828db8e9950e43b6fc5780bcc1cab
   m_configObjects: {}

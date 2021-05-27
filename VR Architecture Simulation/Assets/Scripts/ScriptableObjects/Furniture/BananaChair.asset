@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Banana Chair
   itemIcon: {fileID: 21300000, guid: 3a747d9e8455b054cad6bc1eb3bbc7d1, type: 3}
-  itemObject: {fileID: 8901342926132067894, guid: 0ee2952378749bd449e9a30ddbb12544,
+  itemObject: {fileID: 4046180649597811780, guid: 0ee2952378749bd449e9a30ddbb12544,
     type: 3}
   itemDiscription: 

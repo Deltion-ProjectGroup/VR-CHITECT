@@ -50,7 +50,7 @@ public class UISelection : MonoBehaviour
         }
         if (!autoSelect)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKeyDown(KeyCode.Mouse0) || acceptButton.GetStateDown(InputMan.GetHand(controllerSource)))
             {
                 currentSelected.Interact();
                 mainAudioSource.clip = selectSound;
@@ -60,6 +60,23 @@ public class UISelection : MonoBehaviour
     }
     void SelectionNavigation()
     {
+        //VR
+        Vector2 changeAmount = new Vector2();
+        if (selectButton.GetLastStateDown(InputMan.GetHand(controllerSource)))
+        {
+            sbyte rawAxisX = (sbyte)Mathf.RoundToInt(trackpadPos.axis.x);
+            sbyte rawAxisY = (sbyte)Mathf.RoundToInt(trackpadPos.axis.y);
+            if (rawAxisX != 0)
+            {
+                changeAmount.x = rawAxisX;
+            }
+            if (rawAxisY != 0)
+            {
+                changeAmount.y = rawAxisY;
+            }
+            ChangeSelectPos(changeAmount);
+        }
+
 
         //PC
         Vector2 changeAmtPC = new Vector2();

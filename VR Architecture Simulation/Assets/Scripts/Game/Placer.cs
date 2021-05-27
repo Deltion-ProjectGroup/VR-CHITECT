@@ -6,7 +6,7 @@ using Valve.VR;
 public class Placer : MonoBehaviour
 {
     public static Placer placer;
-    GameObject trackingObj;
+    public GameObject trackingObj;
     [SerializeField] LayerMask placementMask;
     public Vector3 offset;
     [SerializeField] Transform hand;
@@ -64,7 +64,7 @@ public class Placer : MonoBehaviour
     {
         if (trackingObj)
         {
-            if (Input.GetButtonDown("Interact") && canPlace)
+            if (placeButton.GetStateDown(InputMan.GetHand(placeSource)) && canPlace)
             {
                 if (isEnabled)
                 {
@@ -75,12 +75,12 @@ public class Placer : MonoBehaviour
             {
                 if (isEnabled)
                 {
-                    if (Input.GetButtonDown("Destroy"))
+                    if (placeButton.GetStateDown(InputMan.GetHand(destroySource)))
                     {
                         DestroyPlacingObject();
                         return;
                     }
-                    if (Input.GetButtonDown("Interact"))
+                    if (placeButton.GetStateDown(InputMan.GetHand(placeSource)))
                     {
                         mainAudioSource.clip = errorPlaceSound;
                         mainAudioSource.Play();
@@ -149,7 +149,7 @@ public class Placer : MonoBehaviour
         else
         {
             print(hitData.transform.gameObject.GetAbsoluteParent().gameObject);
-            if (snappingPosition && hitData.transform.gameObject.GetAbsoluteParent().GetComponent<PlacedObject>().objectType != ObjectTypes.Wall)
+            if (snappingPosition && hitData.transform.gameObject.GetComponentInParent<PlacedObject>().objectType != ObjectTypes.Wall)
             {
                 hitPoint.x = Mathf.RoundToInt(hitPoint.x / gritTileSize) * gritTileSize;
                 hitPoint.z = Mathf.RoundToInt(hitPoint.z / gritTileSize) * gritTileSize;
@@ -159,23 +159,27 @@ public class Placer : MonoBehaviour
     }
     void Rotate()
     {
-        float rotateAmount = Input.GetAxis("Mouse ScrollWheel");
-        if(rotateAmount != 0)
+        float rotateAmount = rotateButton.GetAxis(InputMan.GetHand(rotateSource)).x;
+        if (rotateAmount != 0)
         {
             if (snappingRotation)
             {
-                placerAudioSource.clip = rotateSound;
-                placerAudioSource.Play();
-                rotateAmount = Mathf.RoundToInt(rotateAmount);
-                rotateAmount *= rotateTurnAmount;
-                trackingObj.transform.Rotate(new Vector3(0, rotateAmount, 0));
-                if (OnRotate != null)
+                if (rotatePress.GetStateDown(InputMan.GetHand(rotateSource)))
                 {
-                    OnRotate();
+                    placerAudioSource.clip = rotateSound;
+                    placerAudioSource.Play();
+                    rotateAmount = Mathf.RoundToInt(rotateAmount);
+                    rotateAmount *= rotateTurnAmount;
+                    trackingObj.transform.Rotate(new Vector3(0, rotateAmount, 0));
+                    if (OnRotate != null)
+                    {
+                        OnRotate();
+                    }
                 }
             }
             else
             {
+                Debug.Log("ROTATE");
                 trackingObj.transform.Rotate(new Vector3(0, rotateAmount * rotateModifier * Time.deltaTime, 0));
                 if (OnRotate != null)
                 {
@@ -190,7 +194,7 @@ public class Placer : MonoBehaviour
     }
     public void SetTrackingObject(GameObject thisObject)
     {
-        thisObject = thisObject.GetAbsoluteParent();
+        //thisObject = thisObject.GetAbsoluteParent();
         if(trackingObj == null && canSetObject)
         {
             extraTrackingObjects = thisObject.GetComponent<PlacedObject>().objectsPlacedOnTop.ToArray();
@@ -253,14 +257,12 @@ public class Placer : MonoBehaviour
     }
     IEnumerator PlaceTrackingObject()
     {
-        Player.canInteract = true;
         print("PLACED");
         offset = Vector3.zero;
         GameObject oldTracker = trackingObj;
         foreach(PlacementPart partData in ogPartData)
         {
             partData.ResetMaterial();
-            partData.part.GetComponent<Collider>().enabled = true;
         }
         foreach(PlacementPart partData in extraTrackingObjectsOGData)
         {
@@ -281,11 +283,16 @@ public class Placer : MonoBehaviour
             OnPlaceObject();
         }
         yield return null;
+        foreach (PlacementPart partData in ogPartData)
+        {
+            partData.part.GetComponent<Collider>().enabled = true;
+        }
+        Player.canInteract = true;
         canSetObject = true;
     }
     void ToggleGridSnap()
     {
-        if (Input.GetButtonDown("GridSnap"))
+        if (positionSnapButton.GetStateDown(InputMan.GetHand(positionSnapSource)))
         {
             snappingPosition = !snappingPosition;
             if (OnTogglePositionSnap != null)
@@ -297,7 +304,7 @@ public class Placer : MonoBehaviour
     }
     void ToggleRotationSnap()
     {
-        if (Input.GetButtonDown("RotationSnap"))
+        if (rotationSnapButton.GetStateDown(InputMan.GetHand(rotateSnapSource)))
         {
             snappingRotation = snappingRotation.ToggleBool();
             if (snappingRotation)
@@ -376,7 +383,7 @@ public class Placer : MonoBehaviour
                 bool found = false;
                 foreach (ObjectTypes type in trackingObj.GetComponent<PlacedObject>().requiredObjectType)
                 {
-                    if (type == hitData.transform.gameObject.GetAbsoluteParent().GetComponent<PlacedObject>().objectType)
+                    if (type == hitData.transform.gameObject.GetComponentInParent<PlacedObject>().objectType)
                     {
                         found = true;
                     }
@@ -404,7 +411,10 @@ public class Placer : MonoBehaviour
 
         public void ResetMaterial()
         {
-            part.GetComponent<MeshRenderer>().material = ogMaterial;
+            if(part != null)
+            {
+                part.GetComponent<MeshRenderer>().material = ogMaterial;
+            }
         }
 
         public PlacementPart(GameObject thisPart)

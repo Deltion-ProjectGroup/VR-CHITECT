@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WallLamp
   m_EditorClassIdentifier: 
   itemName: Wall Lamp
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 106a020c7f5b80144a61d0ae0b6406f1, type: 3}
   itemObject: {fileID: 6065457083723360316, guid: 09993508782ae534b83c59c185d659c6,
     type: 3}
   itemDiscription: 
