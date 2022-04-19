@@ -210,7 +210,10 @@ public class Placer : MonoBehaviour
                     GameObject thisChild = allChildren[i];
                     if (thisChild.GetComponent<PartData>())
                     {
-                        thisChild.GetComponent<Collider>().enabled = false;
+                        foreach(Collider col in thisChild.GetComponents<Collider>())
+                        {
+                            col.enabled = false;
+                        }
                         allObjectMaterials.Add(new PlacementPart(thisChild));
                         allObjectMaterials[allObjectMaterials.Count - 1].part.GetComponent<MeshRenderer>().material = placementMaterial;
 
@@ -219,7 +222,10 @@ public class Placer : MonoBehaviour
             }
             else
             {
-                thisObject.GetComponent<Collider>().enabled = false;
+                foreach (Collider col in thisObject.GetComponents<Collider>())
+                {
+                    col.enabled = false;
+                }
                 allObjectMaterials.Add(new PlacementPart(thisObject));
                 allObjectMaterials[allObjectMaterials.Count - 1].part.GetComponent<MeshRenderer>().material = placementMaterial;
             }
@@ -285,7 +291,10 @@ public class Placer : MonoBehaviour
         yield return null;
         foreach (PlacementPart partData in ogPartData)
         {
-            partData.part.GetComponent<Collider>().enabled = true;
+            foreach (Collider col in partData.part.GetComponents<Collider>())
+            {
+                col.enabled = true;
+            }
         }
         Player.canInteract = true;
         canSetObject = true;
@@ -352,7 +361,7 @@ public class Placer : MonoBehaviour
     }
     void CheckPlacable(RaycastHit hitData)
     {
-        placementMaterial.SetColor("_BaseColor", cannotPlaceColor);
+        placementMaterial.SetColor("_Color", cannotPlaceColor);
         canPlace = false;
         Collider[] collisions = Physics.OverlapBox(trackingObj.transform.position + trackingObj.GetComponent<BoxCollider>().center, trackingObj.GetComponent<BoxCollider>().size / 2, trackingObj.transform.rotation);
         foreach(Collider col in collisions)
@@ -400,7 +409,7 @@ public class Placer : MonoBehaviour
             return;
         }
         canPlace = true;
-        placementMaterial.SetColor("_BaseColor", canPlaceColor);
+        placementMaterial.SetColor("_Color", canPlaceColor);
     }
     [System.Serializable]
     public class PlacementPart
